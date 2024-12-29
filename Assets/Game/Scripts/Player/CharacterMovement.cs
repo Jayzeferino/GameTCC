@@ -35,6 +35,10 @@ public class CharacterMovement : MonoBehaviour, ICharacterController
     {
         Motor.CharacterController = this;
     }
+    public void SetNewPosition(Vector3 position)
+    {
+        Motor.SetPosition(position);
+    }
 
     public void SetInput(in CharacterMovementInput input)
     {

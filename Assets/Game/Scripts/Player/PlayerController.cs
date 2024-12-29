@@ -37,12 +37,6 @@ public class PlayerController : MonoBehaviour
   {
     var moveInput = inputActions.Game.Move.ReadValue<Vector2>();
     var wantsToJump = inputActions.Game.Jump.WasPressedThisFrame();
-    // var actionInput = inputActions.Game.Action.WasPressedThisFrame();
-
-    // if (actionInput)
-    // {
-    //   ActionButtonPressed();
-    // }
 
     characterMovement.SetInput(new CharacterMovementInput()
     {

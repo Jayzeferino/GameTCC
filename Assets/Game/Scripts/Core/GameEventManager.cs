@@ -22,6 +22,7 @@ public class GameEventManager : MonoBehaviour
     {
         OnButtonChangeColorHandler?.Invoke(success, id);
     }
+
     public event Action<bool> OnEnterResetMathExpressionHandler;
     public void ResetMathExpressions(bool success)
     {

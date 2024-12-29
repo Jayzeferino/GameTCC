@@ -147,13 +147,6 @@ refrigerante
 água de coco
 chá
 café
-cerveja
-vinho
-whisky
-vodca
-rum
-cachaça
-tequila
 açaí
 acarajé
 acelga
@@ -210,7 +203,7 @@ cebolinha
 champignon
 charque
 cheddar
-cheeseburger
+xburger
 chester
 chicória
 chimarrão
@@ -289,7 +282,6 @@ picles
 pimenta
 polenta
 polvo
-quentão
 rabanada
 rabanete
 rapadura

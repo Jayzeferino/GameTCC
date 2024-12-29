@@ -18,7 +18,9 @@ public class EnableGlowButton : MonoBehaviour
         {
             if (sucess)
             {
+                material.color = Color.blue;
                 material.EnableKeyword("_EMISSION");
+                material.SetColor("_EmissionColor", Color.blue);
 
             }
             else
@@ -30,4 +32,5 @@ public class EnableGlowButton : MonoBehaviour
         }
 
     }
+
 }

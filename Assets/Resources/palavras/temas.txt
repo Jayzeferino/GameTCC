@@ -1,0 +1,10 @@
+adjetivos
+alimentos
+animais
+dict
+paises
+pch
+profissoes
+sentimentos
+superherois
+verbos

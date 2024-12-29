@@ -4,35 +4,76 @@ using System.Globalization;
 using System.IO;
 using System.Text;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class ForcaController : MonoBehaviour
 {
-    [SerializeField] List<GameObject> Buttons;
+    [SerializeField] GameObject Buttons;
     [SerializeField] TextMeshPro challengeText;
-    private int limiteErros = 5;
-    private int tryWord = 0;
+    [SerializeField] Transform Player;
+    [SerializeField] TextMeshPro temaText;
+    [SerializeField] GameObject chave;
+    public List<GameObject> lifesUI;
+    public int limiteErros = 5;
+    public int vidas = 3;
+    public int tryWord = 0;
     private string palavraDesafio;
     private string palavraDesafioSemAcento;
     private string palavraOfuscada;
+    private string temaEscolhido;
+
     void Start()
     {
         InitButtons();
-        (palavraDesafio, palavraOfuscada) = BuscaPalavraEmArquivo("palavras/adjetivos");
+        IniciarLevel();
+        GameEventManager.instance.OnTermoButtonPressedHandler += ButtonPressed;
+    }
+
+    private void IniciarLevel()
+    {
+        tryWord = 0;
+        temaEscolhido = EscolheTema();
+        (palavraDesafio, palavraOfuscada) = BuscaPalavraEmArquivo($"palavras/{temaEscolhido}");
+        temaText.text = temaEscolhido;
         challengeText.text = palavraOfuscada;
         palavraDesafioSemAcento = RemoverAcentuacao(palavraDesafio);
 
         limiteErros = (int)Math.Ceiling((decimal)(palavraDesafio.Length / 2));
+    }
+    private void ReiniciarLevel()
+    {
+        Player.GetComponent<CharacterMovement>().SetNewPosition(new Vector3(-4f, 1.584463f, -39.71f));
+        IniciarLevel();
+        RevertButtonsMaterials();
+        InitButtons();
 
-        GameEventManager.instance.OnTermoButtonPressedHandler += ButtonPressed;
     }
 
+    private void RevertButtonsMaterials()
+    {
+        for (int i = 0; i <= 25; i++)
+        {
+
+            Buttons.transform.GetChild(i).GetComponent<OnPressTermoButtonChallenge>().ResetButton();
+
+        }
+    }
     private void Update()
     {
         if (tryWord == limiteErros)
         {
+            ReiniciarLevel();
+            lifesUI[vidas - 1].SetActive(false);
+            vidas--;
+        }
 
+        if (palavraOfuscada == palavraDesafio)
+        {
+
+            chave.SetActive(true);
+            Buttons.SetActive(false);
         }
     }
 
@@ -73,7 +114,7 @@ public class ForcaController : MonoBehaviour
 
         foreach (var button in buttonsIndex)
         {
-            Buttons[button].transform.GetChild(2).GetChild(0).GetComponent<TMP_Text>().text = letter.ToString();
+            Buttons.transform.GetChild(button).transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = letter.ToString();
             letter++;
         }
     }
@@ -94,18 +135,34 @@ public class ForcaController : MonoBehaviour
 
         if (arquivoTexto != null)
         {
-            string[] adjetivos = arquivoTexto.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] dicionario = arquivoTexto.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-            if (adjetivos.Length > 0)
+            if (dicionario.Length > 0)
             {
                 System.Random rand = new();
-                int indiceAleatorio = rand.Next(adjetivos.Length);
+                int indiceAleatorio = rand.Next(dicionario.Length);
 
-                string palavraAleatorio = adjetivos[indiceAleatorio];
+                string palavraAleatorio = dicionario[indiceAleatorio].Trim();
                 string palavraOfuscada = "";
+
                 for (int i = 0; i < palavraAleatorio.Length; i++)
                 {
-                    palavraOfuscada += "█";
+
+                    if (palavraAleatorio[i] != ' ' || palavraAleatorio[i] != '-')
+                    {
+                        palavraOfuscada += "█";
+                    }
+
+                    if (palavraAleatorio[i] == ' ')
+                    {
+                        palavraOfuscada += ' ';
+                    }
+                    if (palavraAleatorio[i] == '-')
+                    {
+                        palavraOfuscada += '-';
+
+
+                    }
                 }
 
                 return (palavraAleatorio.ToLower(), palavraOfuscada);
@@ -121,7 +178,33 @@ public class ForcaController : MonoBehaviour
         }
     }
 
+    private string EscolheTema()
+    {
+        // Caminho para o arquivo que contém as palavras (nomes de arquivos)
+        string wordFilePath = "Assets/Resources/palavras/temas.txt";
 
+        // Verificar se o arquivo com a lista de palavras existe
+        if (!File.Exists(wordFilePath))
+        {
+            Console.WriteLine("O arquivo de lista de palavras não foi encontrado.");
+            return "";
+        }
+
+        // Ler todas as palavras do arquivo
+        string[] words = File.ReadAllLines(wordFilePath);
+
+        if (words.Length == 0)
+        {
+            Console.WriteLine("O arquivo de lista de palavras está vazio.");
+            return "";
+        }
+
+        // Selecionar uma palavra aleatória
+
+        string randomWord = words[Random.Range(0, words.Length)];
+
+        return randomWord;
+    }
     private void ButtonPressed(string letter, int id)
     {
         bool hasLetter = CheckAndModifyPalavraOfuscada(letraApertada: letter);
@@ -134,6 +217,8 @@ public class ForcaController : MonoBehaviour
         {
             tryWord += 1;
         }
+
+
 
         GameEventManager.instance.ChangedButtonColor(hasLetter, id);
     }

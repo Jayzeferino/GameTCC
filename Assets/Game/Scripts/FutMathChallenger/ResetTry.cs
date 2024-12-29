@@ -9,10 +9,7 @@ public class ResetTry : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             GameEventManager.instance.ResetMathExpressions(true);
-            // GameObject player = collider.gameObject;
-            // GameObject novoPlayer = Instantiate(player, new Vector3(76, 0, 0), Quaternion.identity);
-            // novoPlayer.name = "PlayerController";
-            // Destroy(collider.gameObject);
+            collider.GetComponent<CharacterMovement>().SetNewPosition(new Vector3(-4f, 1.584463f, -39.71f));
         }
     }
 }
