@@ -10,14 +10,13 @@ public class GenerateChallenge : MonoBehaviour
     [SerializeField] GameObject floorRight;
     [SerializeField] GameObject floorLeft;
 
-    [SerializeField] TextMeshPro challengeText;
+    [SerializeField] TextMeshProUGUI challengeText;
 
     private void OnTriggerEnter(Collider collider)
     {
 
         if (collider.gameObject.CompareTag("Player"))
         {
-
             (string expression, double result, double wrong) = challengerController.GerarDesafio();
             challengeText.text = expression;
             RandomFloor(Random.Range(0, 2), result, wrong);
@@ -25,6 +24,7 @@ public class GenerateChallenge : MonoBehaviour
             transform.GetChild(0).GetComponent<Collider>().enabled = false;
         }
     }
+
     private void RandomFloor(int num, double result, double wrong)
     {
         switch (num)

@@ -9,7 +9,9 @@ public class ResetChallenge : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameEventManager.instance.SetFailInCalc(true);
+            collider.GetComponent<CharacterMovement>().SetNewPosition(new Vector3(21.8f, 13.76f, -20.81f));
+
         }
     }
 }

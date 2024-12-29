@@ -6863,7 +6863,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 491164, guid: 015f23238a8ca9f4d80f824581484228, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0895844
+      value: -7.38
       objectReference: {fileID: 0}
     - target: {fileID: 491164, guid: 015f23238a8ca9f4d80f824581484228, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13106,7 +13106,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.766, y: 0.145}
+  m_AnchoredPosition: {x: -0.72, y: 0.145}
   m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1104731130
@@ -13129,7 +13129,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Descubra a palavra
+  m_text: 'Descubra a palavra e
 
     a chave vai se revelar'
   m_isRightToLeft: 0
@@ -13276,11 +13276,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 491164, guid: 015f23238a8ca9f4d80f824581484228, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.929999
+      value: 19.54
       objectReference: {fileID: 0}
     - target: {fileID: 491164, guid: 015f23238a8ca9f4d80f824581484228, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9200001
+      value: 1.84
       objectReference: {fileID: 0}
     - target: {fileID: 491164, guid: 015f23238a8ca9f4d80f824581484228, type: 3}
       propertyPath: m_LocalPosition.z
@@ -15128,7 +15128,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.534, y: -0.29}
+  m_AnchoredPosition: {x: -0.786, y: -0.29}
   m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278727428
@@ -15151,7 +15151,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'tema: '
+  m_text: 'palavra sobre:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 589bfbb4b84c04c489a12d376dda3482, type: 2}
   m_sharedMaterial: {fileID: 8166227622609245176, guid: 589bfbb4b84c04c489a12d376dda3482, type: 2}
@@ -15178,7 +15178,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 39
+  m_fontSize: 34.2
   m_fontSizeBase: 34.7
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -15214,7 +15214,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -1.3082173, y: -0.4629405, z: -8.7284565, w: -0.9709989}
+  m_margin: {x: -1.3082173, y: -0.4629405, z: -20.198704, w: -0.9709989}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -24921,7 +24921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.236, y: -0.29}
+  m_AnchoredPosition: {x: 1.535, y: -0.29}
   m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2087324661
@@ -24944,7 +24944,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'tema: '
+  m_text: sentimentos
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 589bfbb4b84c04c489a12d376dda3482, type: 2}
   m_sharedMaterial: {fileID: 8166227622609245176, guid: 589bfbb4b84c04c489a12d376dda3482, type: 2}
@@ -24953,8 +24953,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4291940817
-  m_fontColor: {r: 0.8207547, g: 0.8207547, b: 0.8207547, a: 1}
+    rgba: 4278255610
+  m_fontColor: {r: 0.97885394, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

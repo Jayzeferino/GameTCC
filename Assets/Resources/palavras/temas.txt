@@ -1,10 +1,10 @@
-adjetivos
-alimentos
-animais
-dict
 paises
-pch
-profissoes
-sentimentos
+animais
+alimentos
 superherois
+sentimentos
+profissoes
+partes do corpo humano
+adjetivos
 verbos
+geral

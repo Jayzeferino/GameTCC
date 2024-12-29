@@ -2,12 +2,52 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class ChallengerController : MonoBehaviour
 {
-
+    [SerializeField] GameObject barraDeVida;
+    public List<GameObject> FloorsSteps;
     public int dificuldade = 1;
+    private bool playerFall = false;
+    private int vidas = 3;
+
+    private void Start()
+    {
+        GameEventManager.instance.OnFallOfBridgeHandler += FailInCalc;
+        GameEventManager.instance.OnNextFloorStepHandler += UpdateBeforeFloorsStepsBasedInAtualFloor;
+    }
+    private void Update()
+    {
+        if (vidas == 0)
+        {
+            SceneManager.LoadScene("Island");
+        }
+
+        if (playerFall)
+        {
+            barraDeVida.transform.GetChild(vidas - 1).GetChild(1).gameObject.SetActive(false);
+            vidas--;
+            playerFall = false;
+        }
+    }
+
+    private void FailInCalc(bool fail)
+    {
+        playerFall = fail;
+    }
+
+    private void UpdateBeforeFloorsStepsBasedInAtualFloor(int id)
+    {
+        if (id != 0)
+        {
+            FloorsSteps[id - 1].GetComponent<Rigidbody>().isKinematic = true;
+            FloorsSteps[id - 2].GetComponent<Rigidbody>().isKinematic = true;
+        }
+
+
+    }
 
     public (string, double, double) GerarDesafio()
     {

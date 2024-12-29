@@ -16,6 +16,16 @@ public class GameEventManager : MonoBehaviour
     {
         OnTermoButtonPressedHandler?.Invoke(letter, id);
     }
+    public event Action<int> OnNextFloorStepHandler;
+    public void CurrentFloorId(int id)
+    {
+        OnNextFloorStepHandler?.Invoke(id);
+    }
+    public event Action<bool> OnFallOfBridgeHandler;
+    public void SetFailInCalc(bool fail)
+    {
+        OnFallOfBridgeHandler?.Invoke(fail);
+    }
 
     public event Action<bool, int> OnButtonChangeColorHandler;
     public void ChangedButtonColor(bool success, int id)
