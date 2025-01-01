@@ -44,6 +44,11 @@ public class GameEventManager : MonoBehaviour
     {
         OnKickToGoalHandler?.Invoke(valor, tag);
     }
+    public event Action<Sprite, int, GameObject> OnCollectTreasureHandler;
+    public void OnCollectTreasure(Sprite treasureImage, int id, GameObject treasure)
+    {
+        OnCollectTreasureHandler?.Invoke(treasureImage, id, treasure);
+    }
 
 
 
