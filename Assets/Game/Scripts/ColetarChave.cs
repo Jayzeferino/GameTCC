@@ -11,8 +11,8 @@ public class ColetarChave : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             Vector3 currentGatePosition = porta.transform.position;
-            gameObject.SetActive(false);
             porta.transform.position = Vector3.MoveTowards(currentGatePosition, new Vector3(currentGatePosition.x, currentGatePosition.y + 5, currentGatePosition.z), 1 * Time.deltaTime);
+            gameObject.SetActive(false);
         }
     }
 }

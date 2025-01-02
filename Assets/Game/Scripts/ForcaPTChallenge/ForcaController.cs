@@ -14,7 +14,7 @@ public class ForcaController : MonoBehaviour
     [SerializeField] TextMeshPro challengeText;
     [SerializeField] Transform Player;
     [SerializeField] TextMeshPro temaText;
-    [SerializeField] GameObject chave;
+    [SerializeField] GameObject key;
     public List<GameObject> lifesUI;
     public int limiteErros = 5;
     public int vidas = 3;
@@ -72,7 +72,7 @@ public class ForcaController : MonoBehaviour
         if (palavraOfuscada == palavraDesafio)
         {
 
-            chave.SetActive(true);
+            key.SetActive(true);
             Buttons.SetActive(false);
         }
     }

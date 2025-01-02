@@ -1,0 +1,62 @@
+{
+    "Historias": [
+        {
+            "ID": 0,
+            "Texto": {
+                "titulo": "Para o explorador que encontrar este bilhete misterioso:",
+                "tesouro1": "Um segredo está escondido em um lugar especial, esperando ser revelado. Para isso, você precisará encontrar três itens mágicos na ordem que é descrito no texto que ajudarão a abrir o caminho e a chave se revelará a você. Primeiro, procure algo amarelo e gostoso que os ratos amam, em um lugar cheio de barracas onde as pessoas compram e vendem coisas, na barraca da cor do sol.",
+                "tesouro2": "Em seguida, siga por um caminho de pedras e procure atrás de figuras que se parecem com montanhas pontudas. Há um objeto branco com lista esperando sob uma asa grande e amarela.",
+                "tesouro3": "Finalmente, olhe a sua frente para uma construção vermelha e enorme. Ali, sob uma árvore roxa, está o último item que lutadores usam para se protegerem.",
+                "final": "Aí é só ir até o castelo e a porta estará aberta! Você o encontrará atrás de algo que viaja para as estrelas."
+            },
+            "Dicas": {
+                "tesouro1": [
+                    "Pode ser usado para fazer sanduiche",
+                    "Pode ser derretido"
+                ],
+                "tesouro2": [
+                    "é usado em um esporte",
+                    "se derrubar muitos é strike"
+                ],
+                "tesouro3": [
+                    "Lutadores usam nas maos",
+                    "É vermelha"
+                ]
+            },
+            "OrdemTesouros": [
+                1,
+                0,
+                2
+            ]
+        },
+        {
+            "ID": 1,
+            "Texto": {
+                "titulo": "Para o explorador que encontrar este bilhete misterioso:",
+                "tesouro1": "No deserto vasto e quente, procurem pela barraca vermelha. Lá, um saboroso alimento os aguarda, algo que vem da carne de um grande boi.",
+                "tesouro2": "Agora, sigam o caminho de pedras até encontrar um acampamento à direita. Ao redor de cogumelos,procurem perto da barraca da cor do mar. Um livro de capa marrom está à espera de ser descoberto.",
+                "tesouro3": "Agora, aventurem-se até a ilha da caveira, seguindo o lago que serpenteia. No coração da ilha, uma caveira guardará o segredo final.",
+                "final": "Com os três itens em mãos, a chave para o castelo se revelará, e o tesouro será encontrado, pronto para novas jornadas."
+            },
+            "Dicas": {
+                "tesouro1": [
+                    "Vem do boi",
+                    "É comum em sanduíches"
+                ],
+                "tesouro2": [
+                    "Tem capa marrom",
+                    "Está perto de uma barraca da cor do mar"
+                ],
+                "tesouro3": [
+                    "Está guardado dentro de uma caveira",
+                    "A ilha tem o formato de uma caveira"
+                ]
+            },
+            "OrdemTesouros": [
+                3,
+                7,
+                18
+            ]
+        }
+    ]
+}
