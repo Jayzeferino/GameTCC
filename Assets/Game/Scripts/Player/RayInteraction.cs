@@ -4,54 +4,50 @@ using UnityEngine;
 public class RayInteraction : MonoBehaviour
 {
 
-    [SerializeField] GameObject instantiateObject;
-    private GameObject objectPreview;
+    // public PreviewInterationItem previewInterationItem;
+    public GameObject instantiateObject;
+    public GameObject objectPreview;
     public Material originalMaterial;
     public Material previewMaterial;
     private Vector3 groundPosition;
-    Renderer renderer;
-
+    private Renderer renderer;
     private InputActions inputActions;
-
-
     public bool isBuilding;
-
-    private void Awake()
-    {
-        inputActions = new InputActions();
-        inputActions.Enable();
-    }
-    // Update is called once per frame
 
     private void Start()
     {
-        objectPreview = Instantiate(instantiateObject, Vector3.zero, Quaternion.identity);
-        objectPreview.gameObject.tag = "ObjPreview";
-
+        // instantiateObject = previewInterationItem.modelPrefab;
+        // originalMaterial = previewInterationItem.intantiateMaterial;
+        // previewMaterial = previewInterationItem.previewMaterial;
+        // objectPreview = Instantiate(instantiateObject, Vector3.zero, Quaternion.identity);
+        // objectPreview.gameObject.tag = "ObjPreview";
+        isBuilding = false;
     }
     void Update()
     {
+
         if (isBuilding)
         {
             StartPreview();
         }
+
     }
 
     private void StartPreview()
     {
 
-        var actionInput = inputActions.Game.Action.WasPressedThisFrame();
+        // var actionInput = inputActions.Game.Action.WasPressedThisFrame();
 
         RaycastHit hit;
         if (Physics.Raycast(transform.position, Vector3.down, out hit, 10f))
         {
             ShowPreview(hit);
 
-            if (actionInput)
-            {
-                PlacePreview(hit);
+            // if (actionInput)
+            // {
+            //     PlacePreview(hit);
 
-            }
+            // }
 
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down * hit.distance), Color.red);
         }
@@ -81,5 +77,14 @@ public class RayInteraction : MonoBehaviour
         {
             objectPreview.transform.position = groundPosition;
         }
+    }
+
+    public void SetInteractionModelPreview(PreviewInterationItem previewInterationItem)
+    {
+        originalMaterial = previewInterationItem.intantiateMaterial;
+        previewMaterial = previewInterationItem.previewMaterial;
+        objectPreview = Instantiate(previewInterationItem.modelPrefab, Vector3.zero, Quaternion.identity);
+        objectPreview.gameObject.tag = "ObjPreview";
+        isBuilding = true;
     }
 }

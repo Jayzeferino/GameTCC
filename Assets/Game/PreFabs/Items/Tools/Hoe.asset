@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: Hoe
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
-  itemName: 
-  modelPrefab: {fileID: 0}
+  itemName: Enchada
+  modelPrefab: {fileID: 8009635667394626920, guid: 9a5d34b6cde0d489489ed93ea45d5fa6, type: 3}
   isUnarmed: 0
-  ACTION_TOOL: 
+  hasInteractor: 1
+  ACTION_TOOL: Heavy Weapon Swing
+  previewInterationItem: {fileID: 0}

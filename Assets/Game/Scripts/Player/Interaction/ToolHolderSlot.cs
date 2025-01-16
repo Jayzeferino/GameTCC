@@ -7,7 +7,7 @@ public class ToolHolderSlot : MonoBehaviour
     public Transform parentOverride;
     public bool isLeftHandSlot;
     public bool isRightHandSlot;
-
+    public ToolItem currentToolItem;
     public GameObject currentToolModel;
 
 
@@ -52,6 +52,7 @@ public class ToolHolderSlot : MonoBehaviour
             model.transform.localPosition = Vector3.zero;
             model.transform.localRotation = Quaternion.identity;
             model.transform.localScale = Vector3.one;
+            currentToolItem = toolItem;
         }
 
         currentToolModel = model;

@@ -6,6 +6,7 @@ using UnityEngine;
 public class ToolItem : Item
 {
     public GameObject modelPrefab;
+
     public bool isUnarmed;
     public bool hasInteractor;
 
@@ -13,4 +14,6 @@ public class ToolItem : Item
     public string ACTION_TOOL;
 
     [Header("Tool Interaction ModelPreview")]
+    public PreviewInterationItem previewInterationItem;
+
 }

@@ -5,10 +5,14 @@ using UnityEngine;
 public class PlayerToolInteractor : MonoBehaviour
 {
     PlayerAnimatorController playerAnimator;
+
+
     private void Awake()
     {
         playerAnimator = GetComponentInChildren<PlayerAnimatorController>();
+
     }
+
 
     public void HandleToolInteraction(ToolItem toolItem)
     {
