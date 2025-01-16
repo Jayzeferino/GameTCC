@@ -16,6 +16,7 @@ public class InteractableObject : MonoBehaviour
         inputActions.Enable();
     }
 
+
     private void Update()
     {
         var actionInput = inputActions.Game.Action.WasPressedThisFrame();

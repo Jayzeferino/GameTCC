@@ -15,6 +15,12 @@ public class CharacterMovement : MonoBehaviour, ICharacterController
 {
     private Vector3 moveInput;
     public KinematicCharacterMotor Motor;
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private PlayerAnimatorController animatorController;
+    [Header("Movement Flags")]
+    public bool isGrounded;
+    public bool isJumping;
+
     [Header("Ground Movement")]
     public float MaxSpeed = 5;
     public float Acceleration = 30;
@@ -42,6 +48,10 @@ public class CharacterMovement : MonoBehaviour, ICharacterController
 
     public void SetInput(in CharacterMovementInput input)
     {
+        isGrounded = Motor.GroundingStatus.IsStableOnGround;
+        if (playerController.isInteracting)
+            return;
+
         moveInput = Vector3.zero;
         if (input.MoveInput != Vector2.zero)
         {
@@ -53,7 +63,10 @@ public class CharacterMovement : MonoBehaviour, ICharacterController
         if (input.WantsToJump)
         {
             JumpRequestExpireTime = Time.time + JumpRequestDuration;
+
         }
+
+
     }
 
     public void UpdateRotation(ref Quaternion currentRotation, float deltaTime)
@@ -74,15 +87,20 @@ public class CharacterMovement : MonoBehaviour, ICharacterController
         {
             var targetVelocity = moveInput * MaxSpeed;
             currentVelocity = Vector3.MoveTowards(currentVelocity, targetVelocity, Acceleration * deltaTime);
+            if (playerController.isInteracting)
+                currentVelocity = Vector3.zero;
             if (Time.time < JumpRequestExpireTime)
             {
                 currentVelocity.y = JumpSpeed;
                 JumpRequestExpireTime = 0;
                 Motor.ForceUnground();
+                animatorController.animator.SetBool("isJumping", true);
+                animatorController.PlayTargetAnimator("Running Jump", false);
             }
         }
         else
         {
+
             var targetVelocityXZ = new Vector2(moveInput.x, moveInput.z) * MaxAirSpeed;
             var currentVelocityXZ = new Vector2(currentVelocity.x, currentVelocity.z);
             currentVelocityXZ = Vector2.MoveTowards(currentVelocityXZ, targetVelocityXZ, AirAcceleration * deltaTime);

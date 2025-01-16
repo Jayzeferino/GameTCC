@@ -60,8 +60,8 @@ public class SelectionManager : MonoBehaviour
 
             }
 
-            // Vector3 groundPosition = hit.point;
-            // Debug.Log("Ground Position: " + groundPosition);
+            Vector3 groundPosition = hit.point;
+            Debug.Log("Ground Position: " + groundPosition);
             Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward * hit.distance), Color.red);
 
         }
