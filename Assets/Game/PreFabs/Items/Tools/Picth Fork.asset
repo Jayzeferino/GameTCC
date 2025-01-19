@@ -16,4 +16,8 @@ MonoBehaviour:
   itemName: Forquilha
   modelPrefab: {fileID: 8674215349734189027, guid: 3c2bd61925f2e411d8099ddd26053887, type: 3}
   isUnarmed: 0
+  isTool: 1
+  isHavestItem: 0
   ACTION_TOOL: Digging
+  hasInteractor: 0
+  previewInterationItem: {fileID: 0}

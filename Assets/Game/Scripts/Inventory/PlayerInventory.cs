@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerInventory : MonoBehaviour
 {
     ToolSlotManager toolSlotManager;
+
     public ToolItem rightHandTool;
     public ToolItem leftHandTool;
 

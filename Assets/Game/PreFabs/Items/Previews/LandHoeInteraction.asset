@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73eb24280f5d4bb88dae0a5df121d91, type: 3}
   m_Name: LandHoeInteraction
   m_EditorClassIdentifier: 
-  previewMaterial: {fileID: 0}
-  IntantiateMaterial: {fileID: 0}
-  ModelPrefab: {fileID: 0}
-  itemName: land Interactior
+  previewMaterial: {fileID: 2100000, guid: daf5f6429a5b24460bad5e6b0cec1e55, type: 2}
+  intantiateMaterial: {fileID: 0}
+  modelPrefab: {fileID: 5617462457154879600, guid: 579e84f80a7294a09bcfdbd2196eb4ec, type: 3}
+  itemName: Land Interactor

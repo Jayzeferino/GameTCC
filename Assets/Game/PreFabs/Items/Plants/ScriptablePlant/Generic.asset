@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c812e71b1915942ab819e05ca1b46803, type: 3}
+  m_Name: Generic
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
+  itemName: Generic
+  ModelPlantPhases:
+  - {fileID: 7777790686743275813, guid: 2dd247cba168c4bb3965e49f81566b7f, type: 3}
+  - {fileID: 6945279553689255275, guid: 3b6d7af04e3d64ded8fba8950be2f610, type: 3}
+  - {fileID: 2127168941432623219, guid: 97254a0707a494a02859eada15bf49e6, type: 3}
+  - {fileID: 5643201544167425368, guid: 56a55287e83964e1ab8ac4cacf4473b6, type: 3}
+  TimeToEvolve: 3000

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Land : MonoBehaviour
 {
 
+
     private Renderer render;
     public float valorMolhado = 1.09f;
     public float valorSoloSaudavel = 0.70f;
@@ -25,7 +26,7 @@ public class Land : MonoBehaviour
 
     private void Update()
     {
-
+        SwitchLandStatus(landStatus);
     }
 
     private void SwitchLandStatus(LandStatus statusSwitch)

@@ -42,9 +42,9 @@ public class SelectionManager : MonoBehaviour
 
             InteractableObject ourInteractable = selectionTransform.GetComponent<InteractableObject>();
 
-            if (ourInteractable && ourInteractable.playerInRange == true)
+            if (ourInteractable)
             {
-                // selectionIconInstantiate = Instantiate(selectionIcon, ourInteractable.transform.position + new Vector3(0, 2, 0), Quaternion.Euler(180, 0, 0));
+                selectionIconInstantiate = Instantiate(selectionIcon, ourInteractable.transform.position + new Vector3(0, 2, 0), Quaternion.Euler(180, 0, 0));
                 selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
                 selectionIconInstantiate.SetActive(true);
                 var text = ourInteractable.GetItemName();
@@ -59,9 +59,6 @@ public class SelectionManager : MonoBehaviour
                 // interactionInfoUi.SetActive(false);
 
             }
-
-            Vector3 groundPosition = hit.point;
-            Debug.Log("Ground Position: " + groundPosition);
             Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward * hit.distance), Color.red);
 
         }
@@ -69,9 +66,6 @@ public class SelectionManager : MonoBehaviour
         {
             selectionIconInstantiate.SetActive(false);
             EnableActionButton(0.5f);
-            // interactionInfoUi.SetActive(false);
-
-
             Debug.DrawRay(origin, transform.TransformDirection(Vector3.forward * 5f), Color.black);
 
         }

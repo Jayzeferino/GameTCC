@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 772accd3d7ef94d44adaa90377e1eafb, type: 3}
-  m_Name: Hoe
+  m_Name: Semente de Tomate
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 0}
-  itemName: Enchada
-  modelPrefab: {fileID: 8009635667394626920, guid: 9a5d34b6cde0d489489ed93ea45d5fa6, type: 3}
+  itemName: Pacote de Semente
+  modelPrefab: {fileID: 9200428883946443380, guid: 6d870d48e92aa4209984fcfc53a93a95, type: 3}
   isUnarmed: 0
-  isTool: 1
-  isHavestItem: 0
-  ACTION_TOOL: Heavy Weapon Swing
-  hasInteractor: 1
-  previewInterationItem: {fileID: 11400000, guid: 2f33e3d964d95496ab5604265800d0b7, type: 2}
+  isTool: 0
+  ACTION_TOOL: 
+  hasInteractor: 0
+  previewInterationItem: {fileID: 0}
+  isHavestItem: 1
+  landItem: {fileID: 11400000, guid: dd4b7a44bd650497ab2061ac062b8af1, type: 2}
