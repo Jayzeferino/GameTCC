@@ -22,13 +22,18 @@ Material:
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _MainText:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
     m_Colors:
     - _Color: {r: 0.13296987, g: 0.7264151, b: 0, a: 0.15686275}
+    - _MainTex: {r: 1, g: 1, b: 1, a: 0.427451}
   m_BuildTextureStacks: []
 --- !u!114 &2107455889905049734
 MonoBehaviour:

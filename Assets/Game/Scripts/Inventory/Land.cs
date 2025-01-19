@@ -24,12 +24,7 @@ public class Land : MonoBehaviour
 
     }
 
-    private void Update()
-    {
-        SwitchLandStatus(landStatus);
-    }
-
-    private void SwitchLandStatus(LandStatus statusSwitch)
+    public void SwitchLandStatus(LandStatus statusSwitch)
     {
         landStatus = statusSwitch;
         switch (statusSwitch)
@@ -49,8 +44,9 @@ public class Land : MonoBehaviour
     private void ChangeMaterialColor(float tilingX)
     {
         // If the prefab has a renderer and material
-        if (render != null && render.material != null)
+        if (render != null && render.material != null && render.material.HasProperty("_MainTex") == true)
         {
+            Debug.Log("changing");
             // Change the tiling of the material
             render.material.mainTextureScale = new Vector2(tilingX, 1);
         }

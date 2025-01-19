@@ -15,7 +15,6 @@ public class RayInteraction : MonoBehaviour
     private GameObject selectionIconInstantiate;
     private GameObject ourInteractable;
     private RaycastHit hit;
-
     public bool isBuilding;
 
     private void Start()
@@ -29,7 +28,6 @@ public class RayInteraction : MonoBehaviour
     {
         StartPreview();
     }
-
     private void StartPreview()
     {
 
@@ -40,23 +38,7 @@ public class RayInteraction : MonoBehaviour
                 ShowPreview(hit);
             }
 
-            var selectionTransform = hit.transform;
-
-            ourInteractable = selectionTransform.gameObject;
-
-            if (hit.transform.CompareTag("FarmLand"))
-            {
-
-                selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
-                selectionIconInstantiate.SetActive(true);
-
-            }
-            else
-            {
-                selectionIconInstantiate.SetActive(false);
-
-
-            }
+            ShowSelectIcon();
 
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down * hit.distance), Color.red);
         }
@@ -64,6 +46,25 @@ public class RayInteraction : MonoBehaviour
         {
             selectionIconInstantiate.SetActive(false);
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down * hit.distance), Color.red);
+        }
+    }
+
+    private void ShowSelectIcon()
+    {
+        var selectionTransform = hit.transform;
+
+        ourInteractable = selectionTransform.gameObject;
+
+        if (hit.transform.CompareTag("FarmLand") && !isBuilding)
+        {
+
+            selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
+            selectionIconInstantiate.SetActive(true);
+
+        }
+        else
+        {
+            selectionIconInstantiate.SetActive(false);
         }
     }
 
@@ -103,10 +104,14 @@ public class RayInteraction : MonoBehaviour
         if (hit.transform.gameObject != null)
         {
             LandManager landManager = hit.transform.gameObject.GetComponent<LandManager>();
-            if (landManager.hasPlant == false)
-            {
-                landManager.LoadPlantOnSlot(landItem);
-            }
+            landManager.LoadPlantOnSlot(landItem);
+
         }
+    }
+
+    public void WaterFarmLand()
+    {
+        LandManager landManager = hit.transform.gameObject.GetComponent<LandManager>();
+        landManager.WaterFarmLand();
     }
 }

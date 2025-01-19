@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6649809569522895275}
   - component: {fileID: 1194570652654822931}
   - component: {fileID: 7547481692422126769}
+  - component: {fileID: 3430097805754330644}
+  - component: {fileID: 2657727852816656547}
   m_Layer: 0
   m_Name: Tillage_1x1
   m_TagString: FarmLand
@@ -63,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ccef3d23e06f045fbbb45310e32b48aa, type: 2}
+  - {fileID: 2100000, guid: 3dec69da912f944b1a624a1adcbf8481, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -102,11 +104,39 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3417964714629170170, guid: c3568e678d846a349a694e4904eb4247, type: 3}
+--- !u!114 &3430097805754330644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5617462457154879600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b706ae5bbaf14966b575f1877101990, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  valorMolhado: 1.09
+  valorSoloSaudavel: 0.7
+  landStatus: 0
+--- !u!114 &2657727852816656547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5617462457154879600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53db64eb207b243c49031a6995d36bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hasPlant: 0
 --- !u!1 &9099120217345723095
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +163,7 @@ Transform:
   m_GameObject: {fileID: 9099120217345723095}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.14, y: 0, z: 0.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -151,6 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5db7769c16734bb491fab53575a54bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentOverride: {fileID: 8271883296791284310}
+  parentOverride: {fileID: 5227054466611862907}
   currentLandPlant: {fileID: 0}
   currentHavestPlantModel: {fileID: 0}

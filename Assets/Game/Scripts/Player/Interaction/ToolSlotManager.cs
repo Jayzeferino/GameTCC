@@ -39,14 +39,23 @@ public class ToolSlotManager : MonoBehaviour
         var actionInput = inputActions.Game.Action.WasPressedThisFrame();
         if (actionInput)
         {
-            if (rightHandSlot != null && rightHandSlot.currentToolItem.isTool && rightHandSlot.currentToolItem.hasInteractor)
+            if (rightHandSlot != null && rightHandSlot.currentToolItem.isTool)
             {
-                rayInteraction.PlacePreview();
+                if (rightHandSlot.currentToolItem.name == "Hoe")
+                {
+                    HoeAction();
+                }
+
+                if (rightHandSlot.currentToolItem.name == "Regador")
+                {
+                    WateringAction();
+                }
             }
 
             if (rightHandSlot != null && rightHandSlot.currentToolItem.isHavestItem)
             {
-                CheckInteractionHavestItem();
+                PlantAction();
+
             }
         }
     }
@@ -61,11 +70,11 @@ public class ToolSlotManager : MonoBehaviour
         else
         {
             rightHandSlot.LoadToolModel(toolItem);
-            SetInteractionPreview();
+            SetPreviewToolInteract();
         }
     }
 
-    public void SetInteractionPreview()
+    public void SetPreviewToolInteract()
     {
 
         if (rightHandSlot != null && rightHandSlot.currentToolItem.isTool && rightHandSlot.currentToolItem.hasInteractor)
@@ -74,10 +83,22 @@ public class ToolSlotManager : MonoBehaviour
         }
     }
 
-    private void CheckInteractionHavestItem()
+    private void PlantAction()
     {
-
-        rayInteraction.SetPlantInFarmLand(rightHandSlot.currentToolItem.landItem);
-
+        if (rightHandSlot.currentToolItem.isHavestItem)
+        {
+            rayInteraction.SetPlantInFarmLand(rightHandSlot.currentToolItem.landItem);
+        }
+    }
+    private void HoeAction()
+    {
+        if (rightHandSlot.currentToolItem.hasInteractor)
+        {
+            rayInteraction.PlacePreview();
+        }
+    }
+    private void WateringAction()
+    {
+        rayInteraction.WaterFarmLand();
     }
 }
