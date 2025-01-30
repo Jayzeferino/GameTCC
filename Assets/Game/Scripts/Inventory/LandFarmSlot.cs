@@ -7,7 +7,13 @@ public class LandFarmSlot : MonoBehaviour
     public LandItem currentLandPlant;
     public GameObject currentHavestPlantModel;
 
-    private int evolve = 0;
+    private int grow = 0;
+
+    private void Start()
+    {
+        grow = 0;
+    }
+
     public void UnloadLand()
     {
         if (currentLandPlant != null)
@@ -34,7 +40,7 @@ public class LandFarmSlot : MonoBehaviour
             UnloadLand();
             return;
         }
-        GameObject seed = Instantiate(plant.ModelPlantPhases[evolve]) as GameObject;
+        GameObject seed = Instantiate(plant.ModelPlantPhases[grow]) as GameObject;
         if (seed != null)
         {
             if (parentOverride != null)
@@ -55,10 +61,12 @@ public class LandFarmSlot : MonoBehaviour
         currentHavestPlantModel = seed;
     }
 
-    public void EvolvePlant()
+    public void GrowPlant()
     {
-        evolve++;
-        LoadPlantlModel(currentLandPlant);
-
+        if (grow < currentLandPlant.ModelPlantPhases.Count - 1)
+        {
+            grow++;
+            LoadPlantlModel(currentLandPlant);
+        }
     }
 }

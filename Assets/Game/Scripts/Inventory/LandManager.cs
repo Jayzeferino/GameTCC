@@ -1,17 +1,28 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LandManager : MonoBehaviour
+public class LandManager : MonoBehaviour, ITimeTracker
 {
-    LandFarmSlot landSlot;
-
+    [SerializeField] LandFarmSlot landSlot;
     Land land;
+    public GameTimestamp timeToGrow;
     public bool hasPlant = false;
+
+    private void Update()
+    {
+
+    }
     private void Awake()
     {
         landSlot = GetComponentInChildren<LandFarmSlot>();
         land = GetComponent<Land>();
+    }
+
+    private void Start()
+    {
+        TimeManager.Instance.RegisterTracker(this);
     }
     public void LoadPlantOnSlot(LandItem landItem)
     {
@@ -19,6 +30,7 @@ public class LandManager : MonoBehaviour
         {
             landSlot.LoadPlantlModel(landItem);
             hasPlant = true;
+
         }
     }
     public void UnLoadPlantOnSlot()
@@ -31,6 +43,21 @@ public class LandManager : MonoBehaviour
         if (hasPlant)
         {
             land.SwitchLandStatus(Land.LandStatus.Watered);
+        }
+    }
+
+    public void ClockUpdate(GameTimestamp timestamp)
+    {
+        if (land.landStatus == Land.LandStatus.Watered && hasPlant && landSlot != null)
+        {
+            int growTime = GameTimestamp.CompareTimestampInMinutes(timeToGrow, timestamp);
+            Debug.Log("GROWTIME:" + growTime);
+            if (growTime == landSlot.currentLandPlant.minutesToGrow)
+            {
+                landSlot.GrowPlant();
+                timeToGrow.realElapsedTime = timestamp.realElapsedTime;
+            }
+
         }
     }
 }

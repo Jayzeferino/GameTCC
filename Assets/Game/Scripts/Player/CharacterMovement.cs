@@ -16,7 +16,7 @@ public class CharacterMovement : MonoBehaviour, ICharacterController
     private Vector3 moveInput;
     public KinematicCharacterMotor Motor;
     [SerializeField] private PlayerController playerController;
-    [SerializeField] private PlayerAnimatorController animatorController;
+    private PlayerAnimatorController animatorController;
     [Header("Movement Flags")]
     public bool isGrounded;
     public bool isJumping;
@@ -40,7 +40,9 @@ public class CharacterMovement : MonoBehaviour, ICharacterController
     private void Awake()
     {
         Motor.CharacterController = this;
+        animatorController = GetComponentInChildren<PlayerAnimatorController>();
     }
+
     public void SetNewPosition(Vector3 position)
     {
         Motor.SetPosition(position);
@@ -86,9 +88,17 @@ public class CharacterMovement : MonoBehaviour, ICharacterController
         if (Motor.GroundingStatus.IsStableOnGround)
         {
             var targetVelocity = moveInput * MaxSpeed;
-            currentVelocity = Vector3.MoveTowards(currentVelocity, targetVelocity, Acceleration * deltaTime);
+
             if (playerController.isInteracting)
+            {
                 currentVelocity = Vector3.zero;
+            }
+            else
+            {
+                currentVelocity = Vector3.MoveTowards(currentVelocity, targetVelocity, Acceleration * deltaTime);
+
+            }
+
             if (Time.time < JumpRequestExpireTime)
             {
                 currentVelocity.y = JumpSpeed;

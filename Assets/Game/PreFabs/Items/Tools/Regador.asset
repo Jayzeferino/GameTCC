@@ -18,7 +18,7 @@ MonoBehaviour:
   isUnarmed: 0
   isTool: 1
   ACTION_TOOL: Watering
-  hasInteractor: 1
+  hasInteractor: 0
   previewInterationItem: {fileID: 0}
-  isHavestItem: 1
+  isHavestItem: 0
   landItem: {fileID: 0}

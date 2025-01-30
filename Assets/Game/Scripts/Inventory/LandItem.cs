@@ -7,6 +7,6 @@ public class LandItem : Item
 {
     public List<GameObject> ModelPlantPhases;
 
-    public double TimeToEvolve;
+    public int minutesToGrow;
 
 }

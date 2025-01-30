@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95fd1b61a3a9542e69165eb2a5d36650, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightHandTool: {fileID: 0}
+  rightHandTool: {fileID: 11400000, guid: c4160bbbe556844d7ad4fd8f289705a8, type: 2}
   leftHandTool: {fileID: 0}
 --- !u!114 &6854677230584886447
 MonoBehaviour:
@@ -431,6 +431,10 @@ PrefabInstance:
     - target: {fileID: 5570952413493179356, guid: 42af9444b6b5d4ba99a9cbd26af60030, type: 3}
       propertyPath: m_Center.y
       value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 8621990949621980919, guid: 42af9444b6b5d4ba99a9cbd26af60030, type: 3}
+      propertyPath: isBuilding
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
