@@ -67,6 +67,7 @@ public class GameTimestamp
     {
         gameStartTime = DateTime.Parse(stringData);
         realStartTime = DateTime.Now;
+        UpdateClock();
     }
 
     public void ExtractInfoFromDate(DateTime agora)

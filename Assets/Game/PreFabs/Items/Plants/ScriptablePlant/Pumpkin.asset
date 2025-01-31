@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c812e71b1915942ab819e05ca1b46803, type: 3}
+  m_Name: Pumpkin
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
+  itemName: Pumpkin
+  ModelPlantPhases:
+  - {fileID: 306927630390728076, guid: 1f8b2997134424339b7be7f09bfa3188, type: 3}
+  - {fileID: 5866534264103017353, guid: d2ed29b20acf84b1cbd2e4758c71c1f7, type: 3}
+  - {fileID: 2259797588502511085, guid: 53bc5fdc9a26c49a1bd32550e0ec72b1, type: 3}
+  - {fileID: 4363569702436362276, guid: 9a6af6f380f9843f0b3141e3f40861f7, type: 3}
+  - {fileID: 7209942458560415503, guid: 5685432716d904029827a55404e3ef14, type: 3}
+  minutesToGrow: 1

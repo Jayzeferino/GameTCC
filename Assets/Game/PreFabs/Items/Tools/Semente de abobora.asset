@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 772accd3d7ef94d44adaa90377e1eafb, type: 3}
+  m_Name: Semente de abobora
+  m_EditorClassIdentifier: 
+  itemIcon: {fileID: 0}
+  itemName: Semente de Abobora
+  modelPrefab: {fileID: 9200428883946443380, guid: 6d870d48e92aa4209984fcfc53a93a95, type: 3}
+  isUnarmed: 0
+  isTool: 0
+  ACTION_TOOL: Interact
+  hasInteractor: 0
+  previewInterationItem: {fileID: 0}
+  isHavestItem: 1
+  landItem: {fileID: 11400000, guid: 8a38e29ea83214599b1a34a1ace099e2, type: 2}

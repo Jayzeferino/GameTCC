@@ -51,7 +51,6 @@ public class LandManager : MonoBehaviour, ITimeTracker
         if (land.landStatus == Land.LandStatus.Watered && hasPlant && landSlot != null)
         {
             int growTime = GameTimestamp.CompareTimestampInMinutes(timeToGrow, timestamp);
-            Debug.Log("GROWTIME:" + growTime);
             if (growTime == landSlot.currentLandPlant.minutesToGrow)
             {
                 landSlot.GrowPlant();

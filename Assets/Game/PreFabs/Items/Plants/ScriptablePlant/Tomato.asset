@@ -15,8 +15,8 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   itemName: Tomato
   ModelPlantPhases:
+  - {fileID: 3032766788555881932, guid: 792fad8e2777e4e84b5767c578aefece, type: 3}
   - {fileID: 7777790686743275813, guid: 2dd247cba168c4bb3965e49f81566b7f, type: 3}
   - {fileID: 2138935187385370434, guid: 8b14bc28494d84494a9f736fd6b3ac6e, type: 3}
   - {fileID: 7538829542269370984, guid: 60e638a7565ef4c6ea15d6ea3f2b846f, type: 3}
-  - {fileID: 3032766788555881932, guid: 792fad8e2777e4e84b5767c578aefece, type: 3}
   minutesToGrow: 1
