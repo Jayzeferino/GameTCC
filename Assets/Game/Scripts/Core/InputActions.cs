@@ -71,6 +71,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""4f935fb3-eb95-4548-a8c8-deb5035a948d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -227,6 +236,28 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ShowHistory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""680c2a29-21b5-4f0d-af54-825a6b4501c5"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b1e4cbd-80b9-4671-9411-8042d601dae0"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""GamePad"",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -257,6 +288,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Game_Look = m_Game.FindAction("Look", throwIfNotFound: true);
         m_Game_Action = m_Game.FindAction("Action", throwIfNotFound: true);
         m_Game_ShowHistory = m_Game.FindAction("ShowHistory", throwIfNotFound: true);
+        m_Game_Inventory = m_Game.FindAction("Inventory", throwIfNotFound: true);
         // Ui
         m_Ui = asset.FindActionMap("Ui", throwIfNotFound: true);
     }
@@ -325,6 +357,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Game_Look;
     private readonly InputAction m_Game_Action;
     private readonly InputAction m_Game_ShowHistory;
+    private readonly InputAction m_Game_Inventory;
     public struct GameActions
     {
         private @InputActions m_Wrapper;
@@ -334,6 +367,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Look => m_Wrapper.m_Game_Look;
         public InputAction @Action => m_Wrapper.m_Game_Action;
         public InputAction @ShowHistory => m_Wrapper.m_Game_ShowHistory;
+        public InputAction @Inventory => m_Wrapper.m_Game_Inventory;
         public InputActionMap Get() { return m_Wrapper.m_Game; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -358,6 +392,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @ShowHistory.started += instance.OnShowHistory;
             @ShowHistory.performed += instance.OnShowHistory;
             @ShowHistory.canceled += instance.OnShowHistory;
+            @Inventory.started += instance.OnInventory;
+            @Inventory.performed += instance.OnInventory;
+            @Inventory.canceled += instance.OnInventory;
         }
 
         private void UnregisterCallbacks(IGameActions instance)
@@ -377,6 +414,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @ShowHistory.started -= instance.OnShowHistory;
             @ShowHistory.performed -= instance.OnShowHistory;
             @ShowHistory.canceled -= instance.OnShowHistory;
+            @Inventory.started -= instance.OnInventory;
+            @Inventory.performed -= instance.OnInventory;
+            @Inventory.canceled -= instance.OnInventory;
         }
 
         public void RemoveCallbacks(IGameActions instance)
@@ -457,6 +497,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnAction(InputAction.CallbackContext context);
         void OnShowHistory(InputAction.CallbackContext context);
+        void OnInventory(InputAction.CallbackContext context);
     }
     public interface IUiActions
     {
