@@ -6,11 +6,13 @@ public class UIController : MonoBehaviour
 {
     private InputActions inputActions;
     public GameObject inventoryScreen;
+    public GameObject itemSlots;
 
     private void Awake()
     {
         inputActions = new InputActions();
         inputActions.Enable();
+        itemSlots = inventoryScreen.transform.GetChild(0).GetChild(0).gameObject;
     }
 
     private void Update()

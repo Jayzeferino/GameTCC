@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 772accd3d7ef94d44adaa90377e1eafb, type: 3}
-  m_Name: Semente de abobora
+  m_Name: PumpkinFruit
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 5c51ee6d0a0ea42e1b6bd749fad83c8b, type: 3}
-  itemName: Semente de Abobora
-  type: 1
-  modelPrefab: {fileID: 9200428883946443380, guid: 6d870d48e92aa4209984fcfc53a93a95, type: 3}
-  ACTION_TOOL: Interact
+  itemIcon: {fileID: 21300000, guid: 093b355686b8f42c8aa0e734a1ffc7d1, type: 3}
+  itemName: pumpikin
+  type: 2
+  modelPrefab: {fileID: 199514, guid: 626f1b816ba1ee64a9f7cea6ceb529cd, type: 3}
+  ACTION_TOOL: 
   hasInteractor: 0
   previewInterationItem: {fileID: 0}
-  landItem: {fileID: 11400000, guid: 8a38e29ea83214599b1a34a1ace099e2, type: 2}
+  landItem: {fileID: 0}

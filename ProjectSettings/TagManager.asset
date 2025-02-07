@@ -18,6 +18,9 @@ TagManager:
   - UI
   - FarmLand
   - ObjPreview
+  - Slot
+  - Item
+  - InteractableItem
   layers:
   - Default
   - TransparentFX

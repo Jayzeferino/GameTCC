@@ -9,7 +9,6 @@ public class UpdateKinematicOfBeforeFloors : MonoBehaviour
     {
         if (collider.gameObject.CompareTag("Player"))
         {
-            Debug.Log(id);
             GameEventManager.instance.CurrentFloorId(id);
         }
     }

@@ -39,7 +39,7 @@ public class ToolSlotManager : MonoBehaviour
         var actionInput = inputActions.Game.Action.WasPressedThisFrame();
         if (actionInput)
         {
-            if (rightHandSlot != null && rightHandSlot.currentToolItem.isTool)
+            if (rightHandSlot != null && rightHandSlot.currentToolItem.type == Item.ItemType.Tool)
             {
                 if (rightHandSlot.currentToolItem.name == "Hoe")
                 {
@@ -52,7 +52,7 @@ public class ToolSlotManager : MonoBehaviour
                 }
             }
 
-            if (rightHandSlot != null && rightHandSlot.currentToolItem.isHavestItem)
+            if (rightHandSlot != null && rightHandSlot.currentToolItem.type == Item.ItemType.Seed)
             {
                 PlantAction();
 
@@ -77,7 +77,7 @@ public class ToolSlotManager : MonoBehaviour
     public void SetPreviewToolInteract()
     {
 
-        if (rightHandSlot != null && rightHandSlot.currentToolItem.isTool && rightHandSlot.currentToolItem.hasInteractor)
+        if (rightHandSlot != null && rightHandSlot.currentToolItem.type == Item.ItemType.Tool && rightHandSlot.currentToolItem.hasInteractor)
         {
             rayInteraction.SetInteractionModelPreview(rightHandSlot.currentToolItem.previewInterationItem);
         }
@@ -85,7 +85,7 @@ public class ToolSlotManager : MonoBehaviour
 
     private void PlantAction()
     {
-        if (rightHandSlot.currentToolItem.isHavestItem)
+        if (rightHandSlot.currentToolItem.type == Item.ItemType.Seed)
         {
             rayInteraction.SetPlantInFarmLand(rightHandSlot.currentToolItem.landItem);
         }

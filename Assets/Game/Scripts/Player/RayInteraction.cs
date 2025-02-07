@@ -4,7 +4,7 @@ using UnityEngine;
 public class RayInteraction : MonoBehaviour
 {
 
-
+    public static RayInteraction instance { get; set; }
     public GameObject instantiateObject;
     public GameObject objectPreview;
     public Material originalMaterial;
@@ -16,6 +16,21 @@ public class RayInteraction : MonoBehaviour
     private GameObject ourInteractable;
     private RaycastHit hit;
     public bool isBuilding;
+    public bool onTarget = false;
+
+
+    private void Awake()
+    {
+        if (instance != null && instance != null)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            instance = this;
+        }
+
+    }
 
     private void Start()
     {
@@ -55,16 +70,19 @@ public class RayInteraction : MonoBehaviour
 
         ourInteractable = selectionTransform.gameObject;
 
-        if (hit.transform.CompareTag("FarmLand") && !isBuilding)
+        if (!isBuilding)
         {
-
-            selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
-            selectionIconInstantiate.SetActive(true);
-
+            if (!hit.transform.CompareTag("Ground"))
+            {
+                onTarget = true;
+                selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
+                selectionIconInstantiate.SetActive(true);
+            }
         }
         else
         {
             selectionIconInstantiate.SetActive(false);
+            onTarget = false;
         }
     }
 
@@ -101,7 +119,7 @@ public class RayInteraction : MonoBehaviour
 
     public void SetPlantInFarmLand(LandItem landItem)
     {
-        if (hit.transform.gameObject != null)
+        if (hit.transform.gameObject != null && hit.transform.CompareTag("FarmLand"))
         {
             LandManager landManager = hit.transform.gameObject.GetComponent<LandManager>();
             landManager.LoadPlantOnSlot(landItem);
