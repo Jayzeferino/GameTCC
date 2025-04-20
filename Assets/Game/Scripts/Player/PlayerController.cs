@@ -30,4 +30,12 @@ public class PlayerController : MonoBehaviour
     animator.SetBool("isGrounded", characterMovement.isGrounded);
   }
 
+
+  public void SaveCharacterDataToCurrentSaveData(ref CharacterSaveData currentCharacterSaveData)
+  {
+    currentCharacterSaveData.xPosition = transform.position.x;
+    currentCharacterSaveData.yPosition = transform.position.y;
+    currentCharacterSaveData.zPosition = transform.position.z;
+  }
+
 }

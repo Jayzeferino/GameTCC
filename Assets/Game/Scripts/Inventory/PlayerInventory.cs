@@ -10,6 +10,7 @@ public class PlayerInventory : MonoBehaviour
     ToolSlotManager toolSlotManager;
     UIController uIController;
     public List<GameObject> slotList = new();
+    public List<GameObject> tabBarList = new();
     private GameObject itemToAdd;
     private GameObject whatSlotToEquip;
 
@@ -31,6 +32,7 @@ public class PlayerInventory : MonoBehaviour
         }
 
         toolSlotManager = GetComponent<ToolSlotManager>();
+
         uIController = GetComponent<UIController>();
 
 
@@ -43,6 +45,18 @@ public class PlayerInventory : MonoBehaviour
         toolSlotManager.LoadToolOnSlot(leftHandTool, true);
     }
 
+    private void Update()
+    {
+        if (tabBarList[0].GetComponent<ItemSlot>().Item)
+        {
+            rightHandTool = tabBarList[0].GetComponentInChildren<ItemInSlot>().itemInSlot;
+            toolSlotManager.LoadToolOnSlot(rightHandTool, false);
+        }
+        else
+        {
+            toolSlotManager.UnloadRightToolSlot();
+        }
+    }
     private void PopulateSlotList()
     {
         foreach (Transform child in uIController.itemSlots.transform)
@@ -50,6 +64,14 @@ public class PlayerInventory : MonoBehaviour
             if (child.CompareTag("Slot"))
             {
                 slotList.Add(child.gameObject);
+            }
+        }
+
+        foreach (Transform child in uIController.itemBox.transform)
+        {
+            if (child.CompareTag("Slot"))
+            {
+                tabBarList.Add(child.gameObject);
             }
         }
 
@@ -64,7 +86,7 @@ public class PlayerInventory : MonoBehaviour
         else
         {
             FindNextEmptySlot();
-            itemToAdd = Instantiate(Resources.Load<GameObject>("UiPrefabs/ItemImage"), whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
+            itemToAdd = Instantiate(Resources.Load<GameObject>("UiPrefabs/SlotItem"), whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
             itemToAdd.transform.SetParent(whatSlotToEquip.transform);
             itemToAdd.GetComponentInChildren<ItemInSlot>().itemInSlot = item;
             itemToAdd.GetComponent<Image>().sprite = item.itemIcon;
@@ -82,6 +104,7 @@ public class PlayerInventory : MonoBehaviour
         {
             if (slot.GetComponent<ItemSlot>().Item == null)
             {
+                Debug.Log(slot.GetComponent<ItemSlot>().Item);
                 whatSlotToEquip = slot;
                 return;
             }

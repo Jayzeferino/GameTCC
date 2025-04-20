@@ -6,13 +6,16 @@ public class UIController : MonoBehaviour
 {
     private InputActions inputActions;
     public GameObject inventoryScreen;
+    public GameObject toolBox;
     public GameObject itemSlots;
+    public GameObject itemBox;
 
     private void Awake()
     {
         inputActions = new InputActions();
         inputActions.Enable();
         itemSlots = inventoryScreen.transform.GetChild(0).GetChild(0).gameObject;
+        itemBox = toolBox.transform.GetChild(0).gameObject;
     }
 
     private void Update()
@@ -26,7 +29,6 @@ public class UIController : MonoBehaviour
 
         if (OpenInventory)
         {
-
             inventoryScreen.SetActive(!inventoryScreen.activeInHierarchy);
         }
     }

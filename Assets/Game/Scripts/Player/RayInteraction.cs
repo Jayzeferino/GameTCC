@@ -13,7 +13,7 @@ public class RayInteraction : MonoBehaviour
     private Renderer renderer;
     private GameObject selectionIcon;
     private GameObject selectionIconInstantiate;
-    private GameObject ourInteractable;
+    public GameObject ourInteractable;
     private RaycastHit hit;
     public bool isBuilding;
     public bool onTarget = false;
@@ -72,11 +72,24 @@ public class RayInteraction : MonoBehaviour
 
         if (!isBuilding)
         {
-            if (!hit.transform.CompareTag("Ground"))
+            if (hit.transform.CompareTag("InteractableItem") && ourInteractable.GetComponent<InteractacleItem>().playerInRange)
             {
                 onTarget = true;
-                selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
                 selectionIconInstantiate.SetActive(true);
+                selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
+            }
+            else if (hit.transform.CompareTag("FarmLand"))
+            {
+                onTarget = true;
+
+                selectionIconInstantiate.SetActive(true);
+                selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
+
+            }
+            else
+            {
+                selectionIconInstantiate.SetActive(false);
+                onTarget = false;
             }
         }
         else

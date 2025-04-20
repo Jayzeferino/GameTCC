@@ -4,7 +4,7 @@ using System.Collections.Generic;
 class RoundRobinWeighted
 {
     private List<SceneData> items;
-    private int currentIndex = -1;
+    private int currentIndex = 0;
     private int currentWeight = 0;
     private int maxWeight;
     private int gcdWeight;

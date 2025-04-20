@@ -70,8 +70,18 @@ public class ToolSlotManager : MonoBehaviour
         else
         {
             rightHandSlot.LoadToolModel(toolItem);
-            SetPreviewToolInteract();
+            // SetPreviewToolInteract();
         }
+    }
+    public void UnloadRightToolSlot()
+    {
+        rightHandSlot.UnloadToolAndDestroy();
+
+    }
+    public void UnloadLeftToolSlot()
+    {
+        leftHandSlot.UnloadToolAndDestroy();
+
     }
 
     public void SetPreviewToolInteract()

@@ -21,6 +21,7 @@ TagManager:
   - Slot
   - Item
   - InteractableItem
+  - BoxSlot
   layers:
   - Default
   - TransparentFX
