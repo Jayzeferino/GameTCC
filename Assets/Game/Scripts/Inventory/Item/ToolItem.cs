@@ -5,13 +5,18 @@ public class ToolItem : InvetoryItem
 {
     [Header("Tool Interaction ModelPreview")]
     public bool hasPreview;
-    // public PreviewModel previewInterationItem;
     public IToolPreview toolPreview;
 
-    public override void UseItem()
+    public override void UseItem(RaycastHit hit)
     {
-        this.itemAction?.Execute();
+
+        if (itemAction)
+        {
+            itemAction.Execute(hit);
+        }
+
     }
+
     public void ShowPreviewTool(RaycastHit hit)
     {
         if (hasPreview)
@@ -23,19 +28,19 @@ public class ToolItem : InvetoryItem
 
 }
 
-public class UsePotion : IItemAction
-{
-    public void Execute()
-    {
-        Debug.Log("Curando o jogador...");
-    }
-}
+// public class UsePotion : IItemAction
+// {
+//     public void Execute()
+//     {
+//         Debug.Log("Curando o jogador...");
+//     }
+// }
 
-public class EquipSword : IItemAction
-{
-    public void Execute()
-    {
-        Debug.Log("Espada equipada!");
-    }
-}
+// public class EquipSword : IItemAction
+// {
+//     public void Execute()
+//     {
+//         Debug.Log("Espada equipada!");
+//     }
+// }
 

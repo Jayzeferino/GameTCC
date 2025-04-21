@@ -34,7 +34,6 @@ public class ToolPreview : IToolPreview
         var groundPosition = hit.point;
         if (hit.collider.CompareTag("Ground"))
         {
-            Debug.Log(hit.collider.gameObject.name);
             objectPreview.transform.position = groundPosition;
         }
     }

@@ -1,5 +1,7 @@
 
-public interface IItemAction
+using UnityEngine;
+
+public abstract class IItemAction : ScriptableObject
 {
-    void Execute();
+    public abstract void Execute(RaycastHit hit);
 }

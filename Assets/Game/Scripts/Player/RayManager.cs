@@ -33,6 +33,8 @@ public class RayManager : MonoBehaviour
 
             ourInteractable = hit.transform.gameObject;
 
+            Debug.Log(ourInteractable.tag);
+
             actualHit = hit;
 
             marker.ShowSelectIcon(hit);
@@ -55,4 +57,8 @@ public class RayManager : MonoBehaviour
         item.ShowPreviewTool(actualHit);
     }
 
+    public void DoToolAction(ToolItem item)
+    {
+        item.UseItem(actualHit);
+    }
 }

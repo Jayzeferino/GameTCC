@@ -7,13 +7,15 @@ public class ToolSlotManager : MonoBehaviour
     ToolHolderSlot leftHandSlot;
     ToolHolderSlot rightHandSlot;
     RayManager rayManager;
+    private PlayerToolInteractor playerToolInteractor;
+
     private InputActions inputActions;
 
 
     private void Awake()
     {
         rayManager = GetComponentInChildren<RayManager>();
-        // rayInteraction = rayInteraction.GetComponent<RayInteraction>();
+        playerToolInteractor = GetComponent<PlayerToolInteractor>();
 
         ToolHolderSlot[] toolHolderslots = GetComponentsInChildren<ToolHolderSlot>();
         foreach (ToolHolderSlot toolSlot in toolHolderslots)
@@ -42,7 +44,9 @@ public class ToolSlotManager : MonoBehaviour
 
             if (rightHandSlot != null)
             {
-                rightHandSlot.currentToolItem.UseItem();
+
+                rayManager.DoToolAction(rightHandSlot.currentToolItem);
+                playerToolInteractor.HandleToolInteraction(rightHandSlot.currentToolItem);
 
             }
             // if (rightHandSlot != null && rightHandSlot.currentToolItem.type == Item.ItemType.Tool)

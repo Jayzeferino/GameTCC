@@ -6,7 +6,7 @@ public abstract class InvetoryItem : Item
     [Header("Tool Interaction Animation")]
     public string ACTION_TOOL;
 
-    public abstract void UseItem();
+    public abstract void UseItem(RaycastHit hit);
 
     // [Header("Tool Interaction ModelPreview")]
 
@@ -15,5 +15,4 @@ public abstract class InvetoryItem : Item
 
     // [Header("Havest Item Land Item")]
     // public LandItem landItem;
-
 }
