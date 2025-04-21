@@ -16,8 +16,8 @@ public class PlayerInventory : MonoBehaviour
 
     public bool isFull;
 
-    public ToolItem rightHandTool;
-    public ToolItem leftHandTool;
+    public ToolItem rightHandToolItem;
+    public ToolItem leftHandToolItem;
 
     private void Awake()
     {
@@ -41,16 +41,16 @@ public class PlayerInventory : MonoBehaviour
     private void Start()
     {
         PopulateSlotList();
-        toolSlotManager.LoadToolOnSlot(rightHandTool, false);
-        toolSlotManager.LoadToolOnSlot(leftHandTool, true);
+        // toolSlotManager.LoadToolOnSlot(rightHandTool, false);
+        // toolSlotManager.LoadToolOnSlot(leftHandTool, true);
     }
 
     private void Update()
     {
         if (tabBarList[0].GetComponent<ItemSlot>().Item)
         {
-            rightHandTool = tabBarList[0].GetComponentInChildren<ItemInSlot>().itemInSlot;
-            toolSlotManager.LoadToolOnSlot(rightHandTool, false);
+            rightHandToolItem = (ToolItem)tabBarList[0].GetComponentInChildren<ItemInSlot>().itemInSlot;
+            toolSlotManager.LoadToolOnSlot(rightHandToolItem, false);
         }
         else
         {
@@ -77,7 +77,7 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
-    public void AddToInvetory(ToolItem item)
+    public void AddToInvetory(InvetoryItem item)
     {
         if (CheckFull())
         {

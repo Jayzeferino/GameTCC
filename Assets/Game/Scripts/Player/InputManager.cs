@@ -76,13 +76,13 @@ public class InputManager : MonoBehaviour
         var wasAction = inputActions.Game.Action.WasPerformedThisFrame();
         if (wasAction)
         {
-            if (RayInteraction.instance.ourInteractable.CompareTag("InteractableItem"))
+            if (RayManager.Instance.ourInteractable.CompareTag("InteractableItem"))
             {
                 animatorController.PlayTargetAnimator("Interact", true);
             }
             else
             {
-                playerToolInteractor.HandleToolInteraction(playerInventory.rightHandTool);
+                playerToolInteractor.HandleToolInteraction(playerInventory.rightHandToolItem);
             }
         }
     }

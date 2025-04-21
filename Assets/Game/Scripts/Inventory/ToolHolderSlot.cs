@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ToolHolderSlot : MonoBehaviour
@@ -8,7 +6,7 @@ public class ToolHolderSlot : MonoBehaviour
     public bool isLeftHandSlot;
     public bool isRightHandSlot;
     public ToolItem currentToolItem;
-    public GameObject currentToolModel;
+    private GameObject currentToolModel;
 
 
     public void UnloadTool()
@@ -57,4 +55,5 @@ public class ToolHolderSlot : MonoBehaviour
 
         currentToolModel = model;
     }
+
 }

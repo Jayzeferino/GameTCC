@@ -5,7 +5,7 @@ public class InteractacleItem : MonoBehaviour
 {
 
     private InputActions inputActions;
-    public ToolItem item;
+    public InvetoryItem item;
     public bool playerInRange;
 
     private void Start()
@@ -14,7 +14,7 @@ public class InteractacleItem : MonoBehaviour
         inputActions.Enable();
     }
 
-    public ToolItem GetItem()
+    public InvetoryItem GetItem()
     {
         return this.item;
     }
@@ -22,7 +22,7 @@ public class InteractacleItem : MonoBehaviour
     private void Update()
     {
         var actionCollect = inputActions.Game.Action.WasPressedThisFrame();
-        if (actionCollect && playerInRange && RayInteraction.instance.onTarget)
+        if (actionCollect && playerInRange && RayManager.Instance.onTarget)
         {
             PlayerInventory.instance.AddToInvetory(this.item);
             Destroy(gameObject);

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Itens/Interaction Preview")]
-public class PreviewInterationItem : ScriptableObject
+public class PreviewModel : ScriptableObject
 {
     [Header("Preview Informations")]
     public Material previewMaterial;

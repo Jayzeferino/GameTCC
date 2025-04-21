@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class ItemInSlot : MonoBehaviour
 {
-    public ToolItem itemInSlot;
+    public InvetoryItem itemInSlot;
 
 
     // private void Start()

@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 7ff2330aec6a142e9a8230bb4b80b3b7
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - previewInterationItem: {fileID: 11400000, guid: 2f33e3d964d95496ab5604265800d0b7, type: 2}
+  - landItem: {instanceID: 0}
+  - instantiateObject: {instanceID: 0}
+  - objectPreview: {instanceID: 0}
+  - originalMaterial: {instanceID: 0}
+  - previewMaterial: {instanceID: 0}
+  - renderer: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

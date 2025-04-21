@@ -2,16 +2,14 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
-    public enum ItemType
-    {
-        Tool, Seed, fruit
-    }
-
-
+    // public enum ItemType
+    // {
+    //     Tool, Seed, fruit
+    // }
 
     [Header("Item Information")]
     public Sprite itemIcon;
     public string itemName;
+    public IItemAction itemAction;
 
-    public ItemType type;
 }

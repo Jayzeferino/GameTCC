@@ -4,145 +4,146 @@ using UnityEngine;
 public class RayInteraction : MonoBehaviour
 {
 
-    public static RayInteraction instance { get; set; }
-    public GameObject instantiateObject;
-    public GameObject objectPreview;
-    public Material originalMaterial;
-    public Material previewMaterial;
-    private Vector3 groundPosition;
-    private Renderer renderer;
-    private GameObject selectionIcon;
-    private GameObject selectionIconInstantiate;
-    public GameObject ourInteractable;
-    private RaycastHit hit;
-    public bool isBuilding;
-    public bool onTarget = false;
-
+    public RayManager rayManager;
+    // public GameObject instantiateObject;
+    // public GameObject objectPreview;
+    // public Material originalMaterial;
+    // public Material previewMaterial;
+    // private Vector3 groundPosition;
+    // private Renderer renderer;
+    // private GameObject selectionIcon;
+    // private GameObject selectionIconInstantiate;
+    // public GameObject ourInteractable;
+    public RaycastHit actualHit;
+    // public bool isBuilding;
 
     private void Awake()
     {
-        if (instance != null && instance != null)
-        {
-            Destroy(this);
-        }
-        else
-        {
-            instance = this;
-        }
 
+        rayManager = new();
     }
 
-    private void Start()
-    {
-        selectionIcon = Resources.Load<GameObject>("UiPrefabs/Sinal");
-        selectionIconInstantiate = Instantiate(selectionIcon, new Vector3(0, -50, 0), Quaternion.Euler(180, 0, 0));
-        selectionIconInstantiate.SetActive(false);
-        isBuilding = false;
-    }
+    // private void Start()
+    // {
+    //     rayManager.ShowMarkerItemIteractor();
+    // }
     void Update()
     {
-        StartPreview();
+
+        ActualHit();
+        //StartPreview();
     }
-    private void StartPreview()
+    // private void StartPreview()
+    // {
+
+    //     if (Physics.SphereCast(transform.position, 0.5f, Vector3.down, out hit, 10f))
+    //     {
+    //         if (isBuilding)
+    //         {
+    //             ShowPreview(hit);
+    //         }
+
+    //         ShowSelectIcon();
+
+    //         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down * hit.distance), Color.red);
+    //     }
+    //     else
+    //     {
+    //         selectionIconInstantiate.SetActive(false);
+    //         Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down * hit.distance), Color.red);
+    //     }
+    // }
+
+
+    public void ActualHit()
     {
-
-        if (Physics.SphereCast(transform.position, 0.5f, Vector3.down, out hit, 10f))
+        if (Physics.SphereCast(transform.position, 0.5f, Vector3.down, out RaycastHit hit, 10f))
         {
-            if (isBuilding)
-            {
-                ShowPreview(hit);
-            }
-
-            ShowSelectIcon();
-
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down * hit.distance), Color.red);
-        }
-        else
-        {
-            selectionIconInstantiate.SetActive(false);
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down * hit.distance), Color.red);
+            this.actualHit = hit;
         }
     }
 
-    private void ShowSelectIcon()
-    {
-        var selectionTransform = hit.transform;
 
-        ourInteractable = selectionTransform.gameObject;
+    // private void ShowSelectIcon()
+    // {
+    //     var selectionTransform = hit.transform;
 
-        if (!isBuilding)
-        {
-            if (hit.transform.CompareTag("InteractableItem") && ourInteractable.GetComponent<InteractacleItem>().playerInRange)
-            {
-                onTarget = true;
-                selectionIconInstantiate.SetActive(true);
-                selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
-            }
-            else if (hit.transform.CompareTag("FarmLand"))
-            {
-                onTarget = true;
+    //     ourInteractable = selectionTransform.gameObject;
 
-                selectionIconInstantiate.SetActive(true);
-                selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
+    //     if (!isBuilding)
+    //     {
+    //         if (hit.transform.CompareTag("InteractableItem") && ourInteractable.GetComponent<InteractacleItem>().playerInRange)
+    //         {
+    //             onTarget = true;
+    //             selectionIconInstantiate.SetActive(true);
+    //             selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
+    //         }
+    //         else if (hit.transform.CompareTag("FarmLand"))
+    //         {
+    //             onTarget = true;
 
-            }
-            else
-            {
-                selectionIconInstantiate.SetActive(false);
-                onTarget = false;
-            }
-        }
-        else
-        {
-            selectionIconInstantiate.SetActive(false);
-            onTarget = false;
-        }
-    }
+    //             selectionIconInstantiate.SetActive(true);
+    //             selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
 
-    public void PlacePreview()
-    {
+    //         }
+    //         else
+    //         {
+    //             selectionIconInstantiate.SetActive(false);
+    //             onTarget = false;
+    //         }
+    //     }
+    //     else
+    //     {
+    //         selectionIconInstantiate.SetActive(false);
+    //         onTarget = false;
+    //     }
+    // }
 
-        if (hit.collider.CompareTag("ObjPreview") || hit.collider.CompareTag("Ground"))
-        {
-            GameObject land = Instantiate(instantiateObject, objectPreview.transform.position, Quaternion.identity);
-            renderer = land.GetComponent<Renderer>();
-            renderer.material = originalMaterial;
-        }
-    }
+    // public void PlacePreview()
+    // {
 
-    void ShowPreview(RaycastHit hit)
-    {
-        groundPosition = hit.point;
-        if (hit.collider.CompareTag("Ground"))
-        {
-            objectPreview.transform.position = groundPosition;
-        }
-    }
+    //     if (hit.collider.CompareTag("ObjPreview") || hit.collider.CompareTag("Ground"))
+    //     {
+    //         GameObject land = Instantiate(instantiateObject, objectPreview.transform.position, Quaternion.identity);
+    //         renderer = land.GetComponent<Renderer>();
+    //         renderer.material = originalMaterial;
+    //     }
+    // }
 
-    public void SetInteractionModelPreview(PreviewInterationItem previewInterationItem)
-    {
-        originalMaterial = previewInterationItem.intantiateMaterial;
-        previewMaterial = previewInterationItem.previewMaterial;
-        objectPreview = Instantiate(previewInterationItem.modelPrefab, Vector3.zero, Quaternion.identity);
-        renderer = objectPreview.GetComponent<Renderer>();
-        renderer.material = previewMaterial;
-        objectPreview.gameObject.tag = "ObjPreview";
-        isBuilding = true;
-    }
+    // void ShowPreview(RaycastHit hit)
+    // {
+    //     groundPosition = hit.point;
+    //     if (hit.collider.CompareTag("Ground"))
+    //     {
+    //         objectPreview.transform.position = groundPosition;
+    //     }
+    // }
 
-    public void SetPlantInFarmLand(LandItem landItem)
-    {
-        if (hit.transform.gameObject != null && hit.transform.CompareTag("FarmLand"))
-        {
-            LandManager landManager = hit.transform.gameObject.GetComponent<LandManager>();
-            landManager.LoadPlantOnSlot(landItem);
+    // public void SetInteractionModelPreview(PreviewModel previewInterationItem)
+    // {
+    //     originalMaterial = previewInterationItem.intantiateMaterial;
+    //     previewMaterial = previewInterationItem.previewMaterial;
+    //     objectPreview = Instantiate(previewInterationItem.modelPrefab, Vector3.zero, Quaternion.identity);
+    //     renderer = objectPreview.GetComponent<Renderer>();
+    //     renderer.material = previewMaterial;
+    //     objectPreview.gameObject.tag = "ObjPreview";
+    //     isBuilding = true;
+    // }
 
-        }
-    }
+    // public void SetPlantInFarmLand(LandItem landItem)
+    // {
+    //     if (hit.transform.gameObject != null && hit.transform.CompareTag("FarmLand"))
+    //     {
+    //         LandManager landManager = hit.transform.gameObject.GetComponent<LandManager>();
+    //         landManager.LoadPlantOnSlot(landItem);
 
-    public void WaterFarmLand()
-    {
-        LandManager landManager = hit.transform.gameObject.GetComponent<LandManager>();
-        landManager.WaterFarmLand();
-    }
+    //     }
+    // }
+
+    // public void WaterFarmLand()
+    // {
+    //     LandManager landManager = hit.transform.gameObject.GetComponent<LandManager>();
+    //     landManager.WaterFarmLand();
+    // }
 }
