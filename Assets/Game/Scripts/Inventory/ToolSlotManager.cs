@@ -91,6 +91,7 @@ public class ToolSlotManager : MonoBehaviour
     public void UnloadRightToolSlot()
     {
         rightHandSlot.UnloadToolAndDestroy();
+
         if (rightHandSlot.currentToolItem != null && rightHandSlot.currentToolItem.hasPreview)
         {
             rayManager.StopToolPreview(rightHandSlot.currentToolItem);

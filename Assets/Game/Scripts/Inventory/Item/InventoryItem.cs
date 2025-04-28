@@ -7,12 +7,4 @@ public abstract class InvetoryItem : Item
     public string ACTION_TOOL;
 
     public abstract void UseItem(RaycastHit hit);
-
-    // [Header("Tool Interaction ModelPreview")]
-
-    // public bool hasInteractor;
-    // public PreviewInterationItem previewInterationItem;
-
-    // [Header("Havest Item Land Item")]
-    // public LandItem landItem;
 }

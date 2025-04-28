@@ -65,16 +65,15 @@ public class RayManager : MonoBehaviour
 
     public void DoToolPreview(ToolItem item)
     {
-
         item.ShowPreviewTool(actualHit);
     }
 
     public void StopToolPreview(ToolItem item)
     {
-
-        item.StopShowPreviewTool(actualHit);
-
-
+        if (item != null && ourInteractable.CompareTag("ObjPreview"))
+        {
+            item.StopShowPreviewTool(actualHit);
+        }
     }
     public void DoToolAction(ToolItem item)
     {

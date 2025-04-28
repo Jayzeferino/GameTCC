@@ -31,7 +31,7 @@ public class ToolPreview : IToolPreview
     public override void StopShowPreview(RaycastHit hit)
     {
 
-        if (hit.collider.CompareTag("ObjPreview"))
+        if (objectPreview != null && hit.collider.CompareTag("ObjPreview"))
         {
             Destroy(objectPreview);
         }
