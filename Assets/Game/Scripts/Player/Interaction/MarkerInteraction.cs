@@ -26,7 +26,6 @@ public class MarkerInteraction : MonoBehaviour
         var selectionTransform = hit.transform;
 
         ourInteractable = selectionTransform.gameObject;
-
         if (!isBuilding)
         {
             if (hit.transform.CompareTag("InteractableItem") && ourInteractable.GetComponent<InteractacleItem>().playerInRange)

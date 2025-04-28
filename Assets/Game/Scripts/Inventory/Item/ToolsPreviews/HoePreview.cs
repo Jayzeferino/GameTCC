@@ -41,7 +41,7 @@ public class ToolPreview : IToolPreview
     {
 
         var groundPosition = hit.point;
-        if (hit.collider.CompareTag("Ground"))
+        if (hit.collider.CompareTag("Ground") && !hit.collider.CompareTag("FarmLand"))
         {
             objectPreview.transform.position = groundPosition;
         }

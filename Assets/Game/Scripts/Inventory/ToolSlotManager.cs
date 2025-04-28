@@ -38,36 +38,7 @@ public class ToolSlotManager : MonoBehaviour
     }
     private void Update()
     {
-        // var actionInput = inputActions.Game.Action.WasPressedThisFrame();
-        // if (actionInput)
-        // {
 
-        //     if (rightHandSlot != null)
-        //     {
-
-        //         rayManager.DoToolAction(rightHandSlot.currentToolItem);
-        //         playerToolInteractor.HandleToolInteraction(rightHandSlot.currentToolItem);
-
-        //     }
-        // if (rightHandSlot != null && rightHandSlot.currentToolItem.type == Item.ItemType.Tool)
-        // {
-        //     if (rightHandSlot.currentToolItem.name == "Hoe")
-        //     {
-        //         HoeAction();
-        //     }
-
-        //     if (rightHandSlot.currentToolItem.name == "Regador")
-        //     {
-        //         WateringAction();
-        //     }
-        // }
-
-        // if (rightHandSlot != null && rightHandSlot.currentToolItem.type == Item.ItemType.Seed)
-        // {
-        //     PlantAction();
-
-        // }
-        // }
     }
 
     public void LoadToolOnSlot(ToolItem toolItem, bool isLeft)
@@ -95,6 +66,7 @@ public class ToolSlotManager : MonoBehaviour
         if (rightHandSlot.currentToolItem != null && rightHandSlot.currentToolItem.hasPreview)
         {
             rayManager.StopToolPreview(rightHandSlot.currentToolItem);
+            RayManager.Instance.isBuilding = false;
 
         }
 
@@ -105,31 +77,4 @@ public class ToolSlotManager : MonoBehaviour
 
     }
 
-    // public void SetPreviewToolInteract()
-    // {
-
-    //     if (rightHandSlot != null && rightHandSlot.currentToolItem.type == Item.ItemType.Tool && rightHandSlot.currentToolItem.hasInteractor)
-    //     {
-    //         rayInteraction.SetInteractionModelPreview(rightHandSlot.currentToolItem.previewInterationItem);
-    //     }
-    // }
-
-    // private void PlantAction()
-    // {
-    //     if (rightHandSlot.currentToolItem.type == Item.ItemType.Seed)
-    //     {
-    //         rayInteraction.SetPlantInFarmLand(rightHandSlot.currentToolItem.landItem);
-    //     }
-    // }
-    // private void HoeAction()
-    // {
-    //     if (rightHandSlot.currentToolItem.hasInteractor)
-    //     {
-    //         rayInteraction.PlacePreview();
-    //     }
-    // }
-    // private void WateringAction()
-    // {
-    //     rayInteraction.WaterFarmLand();
-    // }
 }

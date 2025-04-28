@@ -52,6 +52,7 @@ public class TimeManager : MonoBehaviour
         {
             listener.ClockUpdate(gameTimestamp);
         }
+
         UpdateSunMovement();
     }
 
@@ -66,19 +67,21 @@ public class TimeManager : MonoBehaviour
     public void MudarSkybox()
     {
 
-        if (gameTimestamp.hour > 17 && gameTimestamp.hour <= 19 || gameTimestamp.hour > 6 && gameTimestamp.hour <= 7)
-        {
-            RenderSettings.skybox = tarde;
-        }
         if (gameTimestamp.hour > 7 && gameTimestamp.hour <= 17)
         {
             RenderSettings.skybox = dia;
+        }
+
+        if (gameTimestamp.hour > 17 && gameTimestamp.hour <= 19 || gameTimestamp.hour > 6 && gameTimestamp.hour <= 7)
+        {
+            RenderSettings.skybox = tarde;
         }
 
         if (gameTimestamp.hour > 19 && gameTimestamp.hour <= 6)
         {
             RenderSettings.skybox = noite;
         }
+
         DynamicGI.UpdateEnvironment();
     }
 

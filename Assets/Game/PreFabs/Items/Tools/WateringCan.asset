@@ -10,15 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 772accd3d7ef94d44adaa90377e1eafb, type: 3}
-  m_Name: Regador
+  m_Name: WateringCan
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 414ba8fb76c004768b918001e3bb7cdc, type: 3}
   itemName: Regador
+  itemAction: {fileID: 11400000, guid: 5ee2b64531f414cd89ad958df26bbb82, type: 2}
   modelPrefab: {fileID: 4228213889018907545, guid: 1d7cc3d733122437496702f5b0a13d06, type: 3}
-  isUnarmed: 0
-  isTool: 1
   ACTION_TOOL: Watering
-  hasInteractor: 0
-  previewInterationItem: {fileID: 0}
-  isHavestItem: 0
-  landItem: {fileID: 0}
+  hasPreview: 0
+  toolPreview: {fileID: 0}
