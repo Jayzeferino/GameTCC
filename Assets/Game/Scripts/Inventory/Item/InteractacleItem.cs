@@ -22,7 +22,7 @@ public class InteractacleItem : MonoBehaviour
     private void Update()
     {
         var actionCollect = inputActions.Game.Action.WasPressedThisFrame();
-        if (actionCollect && playerInRange && RayManager.Instance.onTarget)
+        if (actionCollect && playerInRange && RayManager.Instance.RayOnTarget())
         {
             PlayerInventory.instance.AddToInvetory(this.item);
             Destroy(gameObject);

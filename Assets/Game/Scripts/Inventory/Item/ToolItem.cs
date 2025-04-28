@@ -26,6 +26,15 @@ public class ToolItem : InvetoryItem
 
     }
 
+    public void StopShowPreviewTool(RaycastHit hit)
+    {
+        if (hasPreview)
+        {
+            toolPreview.StopShowPreview(hit);
+        }
+
+    }
+
 }
 
 // public class UsePotion : IItemAction

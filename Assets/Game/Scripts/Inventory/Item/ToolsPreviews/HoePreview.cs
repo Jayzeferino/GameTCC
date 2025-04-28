@@ -28,6 +28,15 @@ public class ToolPreview : IToolPreview
 
     }
 
+    public override void StopShowPreview(RaycastHit hit)
+    {
+
+        if (hit.collider.CompareTag("ObjPreview"))
+        {
+            Destroy(objectPreview);
+        }
+    }
+
     private void ShowPreview(RaycastHit hit)
     {
 
@@ -37,6 +46,8 @@ public class ToolPreview : IToolPreview
             objectPreview.transform.position = groundPosition;
         }
     }
+
+
 
     private void SetInteractionModelPreview()
     {
@@ -49,4 +60,5 @@ public class ToolPreview : IToolPreview
         renderer.material = previewMaterial;
         RayManager.Instance.isBuilding = true;
     }
+
 }

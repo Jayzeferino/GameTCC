@@ -38,36 +38,36 @@ public class ToolSlotManager : MonoBehaviour
     }
     private void Update()
     {
-        var actionInput = inputActions.Game.Action.WasPressedThisFrame();
-        if (actionInput)
-        {
+        // var actionInput = inputActions.Game.Action.WasPressedThisFrame();
+        // if (actionInput)
+        // {
 
-            if (rightHandSlot != null)
-            {
+        //     if (rightHandSlot != null)
+        //     {
 
-                rayManager.DoToolAction(rightHandSlot.currentToolItem);
-                playerToolInteractor.HandleToolInteraction(rightHandSlot.currentToolItem);
+        //         rayManager.DoToolAction(rightHandSlot.currentToolItem);
+        //         playerToolInteractor.HandleToolInteraction(rightHandSlot.currentToolItem);
 
-            }
-            // if (rightHandSlot != null && rightHandSlot.currentToolItem.type == Item.ItemType.Tool)
-            // {
-            //     if (rightHandSlot.currentToolItem.name == "Hoe")
-            //     {
-            //         HoeAction();
-            //     }
+        //     }
+        // if (rightHandSlot != null && rightHandSlot.currentToolItem.type == Item.ItemType.Tool)
+        // {
+        //     if (rightHandSlot.currentToolItem.name == "Hoe")
+        //     {
+        //         HoeAction();
+        //     }
 
-            //     if (rightHandSlot.currentToolItem.name == "Regador")
-            //     {
-            //         WateringAction();
-            //     }
-            // }
+        //     if (rightHandSlot.currentToolItem.name == "Regador")
+        //     {
+        //         WateringAction();
+        //     }
+        // }
 
-            // if (rightHandSlot != null && rightHandSlot.currentToolItem.type == Item.ItemType.Seed)
-            // {
-            //     PlantAction();
+        // if (rightHandSlot != null && rightHandSlot.currentToolItem.type == Item.ItemType.Seed)
+        // {
+        //     PlantAction();
 
-            // }
-        }
+        // }
+        // }
     }
 
     public void LoadToolOnSlot(ToolItem toolItem, bool isLeft)
@@ -91,6 +91,11 @@ public class ToolSlotManager : MonoBehaviour
     public void UnloadRightToolSlot()
     {
         rightHandSlot.UnloadToolAndDestroy();
+        if (rightHandSlot.currentToolItem != null && rightHandSlot.currentToolItem.hasPreview)
+        {
+            rayManager.StopToolPreview(rightHandSlot.currentToolItem);
+
+        }
 
     }
     public void UnloadLeftToolSlot()

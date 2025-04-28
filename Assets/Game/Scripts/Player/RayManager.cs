@@ -10,7 +10,17 @@ public class RayManager : MonoBehaviour
     public RaycastHit actualHit;
     public GameObject ourInteractable;
     public bool onTarget = false;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
     void Start()
     {
         isBuilding = false;
@@ -33,8 +43,6 @@ public class RayManager : MonoBehaviour
 
             ourInteractable = hit.transform.gameObject;
 
-            Debug.Log(ourInteractable.tag);
-
             actualHit = hit;
 
             marker.ShowSelectIcon(hit);
@@ -50,6 +58,10 @@ public class RayManager : MonoBehaviour
     {
         return actualHit;
     }
+    public bool RayOnTarget()
+    {
+        return onTarget;
+    }
 
     public void DoToolPreview(ToolItem item)
     {
@@ -57,6 +69,13 @@ public class RayManager : MonoBehaviour
         item.ShowPreviewTool(actualHit);
     }
 
+    public void StopToolPreview(ToolItem item)
+    {
+
+        item.StopShowPreviewTool(actualHit);
+
+
+    }
     public void DoToolAction(ToolItem item)
     {
         item.UseItem(actualHit);

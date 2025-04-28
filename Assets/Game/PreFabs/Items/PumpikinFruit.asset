@@ -9,14 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 772accd3d7ef94d44adaa90377e1eafb, type: 3}
-  m_Name: PumpkinFruit
+  m_Script: {fileID: 11500000, guid: f0181ee37d3194ab8aa18d7ca7d876ef, type: 3}
+  m_Name: PumpikinFruit
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: 093b355686b8f42c8aa0e734a1ffc7d1, type: 3}
   itemName: pumpikin
-  type: 2
-  modelPrefab: {fileID: 199514, guid: 626f1b816ba1ee64a9f7cea6ceb529cd, type: 3}
+  itemAction: {fileID: 0}
+  modelPrefab: {fileID: 0}
   ACTION_TOOL: 
-  hasInteractor: 0
-  previewInterationItem: {fileID: 0}
-  landItem: {fileID: 0}

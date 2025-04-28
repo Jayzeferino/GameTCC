@@ -41,8 +41,7 @@ public class PlayerInventory : MonoBehaviour
     private void Start()
     {
         PopulateSlotList();
-        // toolSlotManager.LoadToolOnSlot(rightHandTool, false);
-        // toolSlotManager.LoadToolOnSlot(leftHandTool, true);
+
     }
 
     private void Update()
@@ -86,7 +85,7 @@ public class PlayerInventory : MonoBehaviour
         else
         {
             FindNextEmptySlot();
-            itemToAdd = Instantiate(Resources.Load<GameObject>("UiPrefabs/SlotItem"), whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
+            itemToAdd = Instantiate(Resources.Load<GameObject>("UiPrefabs/ItemImage"), whatSlotToEquip.transform.position, whatSlotToEquip.transform.rotation);
             itemToAdd.transform.SetParent(whatSlotToEquip.transform);
             itemToAdd.GetComponentInChildren<ItemInSlot>().itemInSlot = item;
             itemToAdd.GetComponent<Image>().sprite = item.itemIcon;
@@ -104,7 +103,7 @@ public class PlayerInventory : MonoBehaviour
         {
             if (slot.GetComponent<ItemSlot>().Item == null)
             {
-                Debug.Log(slot.GetComponent<ItemSlot>().Item);
+
                 whatSlotToEquip = slot;
                 return;
             }

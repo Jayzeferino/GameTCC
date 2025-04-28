@@ -9,6 +9,6 @@ public class SceneData
     public SceneData(string item, int weight)
     {
         this.item = item;
-        weight = weight;
+        // weight = weight;
     }
 }

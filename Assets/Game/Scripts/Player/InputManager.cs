@@ -7,7 +7,9 @@ public class InputManager : MonoBehaviour
     [SerializeField] private CharacterMovement characterMovement;
     [SerializeField] private CameraController cameraController;
     [SerializeField] private PlayerAnimatorController animatorController;
-    // private PlayerToolInteractor playerToolInteractor;
+    private PlayerToolInteractor playerToolInteractor;
+    private RayManager rayManager;
+
     private PlayerInventory playerInventory;
 
     private float moveAmount;
@@ -18,8 +20,10 @@ public class InputManager : MonoBehaviour
 
     private void Awake()
     {
-        // playerToolInteractor = GetComponent<PlayerToolInteractor>();
+        playerToolInteractor = GetComponent<PlayerToolInteractor>();
         playerInventory = GetComponent<PlayerInventory>();
+        rayManager = GetComponentInChildren<RayManager>();
+
     }
     private void OnEnable()
     {
@@ -78,12 +82,17 @@ public class InputManager : MonoBehaviour
         {
             if (RayManager.Instance.ourInteractable.CompareTag("InteractableItem"))
             {
-
+                animatorController.animator.SetBool("usingTool", true);
                 animatorController.PlayTargetAnimator("Interact", true);
-                // playerToolInteractor.HandleToolInteraction(playerInventory.rightHandToolItem);
             }
+
+            if (playerInventory.rightHandToolItem != null && !rayManager.ourInteractable.CompareTag("InteractableItem"))
+            {
+                rayManager.DoToolAction(playerInventory.rightHandToolItem);
+                playerToolInteractor.HandleToolInteraction(playerInventory.rightHandToolItem);
+
+            }
+
         }
     }
-
-
 }

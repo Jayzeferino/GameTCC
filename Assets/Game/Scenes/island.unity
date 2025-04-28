@@ -20143,7 +20143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6d79cd7a0e94df985ba87f2272e1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: 87f43650374234019ace4e0fd1213f05, type: 2}
+  item: {fileID: 11400000, guid: 52f507a93e8c14c2d8aed06c10f0017d, type: 2}
   playerInRange: 0
 --- !u!4 &1230028725 stripped
 Transform:
@@ -35614,6 +35614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff346ae80239f4087a0fd1d2c3c332df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  marker: {fileID: 0}
+  isBuilding: 0
   ourInteractable: {fileID: 0}
   onTarget: 0
 --- !u!114 &2065404890

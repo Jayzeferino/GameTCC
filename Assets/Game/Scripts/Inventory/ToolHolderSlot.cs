@@ -23,6 +23,7 @@ public class ToolHolderSlot : MonoBehaviour
         {
             Destroy(currentToolModel);
         }
+
     }
     public void LoadToolModel(ToolItem toolItem)
     {
