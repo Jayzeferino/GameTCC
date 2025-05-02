@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772accd3d7ef94d44adaa90377e1eafb, type: 3}
   m_Name: WateringCan
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 414ba8fb76c004768b918001e3bb7cdc, type: 3}
+  itemIcon: {fileID: 21300000, guid: 1722c0c6277204faeb0bc0b26e3498ce, type: 3}
   itemName: Regador
   itemAction: {fileID: 11400000, guid: 5ee2b64531f414cd89ad958df26bbb82, type: 2}
   modelPrefab: {fileID: 4228213889018907545, guid: 1d7cc3d733122437496702f5b0a13d06, type: 3}

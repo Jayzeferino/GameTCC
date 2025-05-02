@@ -45,21 +45,23 @@ public class PlayerInventory : MonoBehaviour
         {
             PopulateSlotList();
         }
-
     }
 
     private void Update()
     {
 
-        if (tabBarList.Count() > 0 && tabBarList[0].GetComponent<ItemSlot>().Item)
+        if (tabBarList.Count() > 0 && tabBarList[0].GetComponent<ItemSlot>().Item && rightHandToolItem == null)
         {
             rightHandToolItem = (ToolItem)tabBarList[0].GetComponentInChildren<ItemInSlot>().itemInSlot;
             toolSlotManager.LoadToolOnSlot(rightHandToolItem, false);
         }
-        else
+
+        if (tabBarList[0].GetComponent<ItemSlot>().Item == null)
         {
             toolSlotManager.UnloadRightToolSlot();
+            rightHandToolItem = null;
         }
+
     }
     private void PopulateSlotList()
     {

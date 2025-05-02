@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0181ee37d3194ab8aa18d7ca7d876ef, type: 3}
   m_Name: PumpikinFruit
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: 093b355686b8f42c8aa0e734a1ffc7d1, type: 3}
+  itemIcon: {fileID: 21300000, guid: 5fb0f5bd8fa9f43deae825286c4641fa, type: 3}
   itemName: pumpikin
   itemAction: {fileID: 0}
   modelPrefab: {fileID: 0}

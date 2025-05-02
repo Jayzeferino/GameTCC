@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ToolSlotManager : MonoBehaviour
 {
     ToolHolderSlot leftHandSlot;
     ToolHolderSlot rightHandSlot;
+    bool rightHandIsEquiped = false;
     RayManager rayManager;
     private PlayerToolInteractor playerToolInteractor;
 
@@ -38,7 +37,10 @@ public class ToolSlotManager : MonoBehaviour
     }
     private void Update()
     {
-
+        if (rightHandIsEquiped && rightHandSlot.currentToolItem.hasPreview)
+        {
+            rayManager.DoToolPreview(rightHandSlot.currentToolItem);
+        }
     }
 
     public void LoadToolOnSlot(ToolItem toolItem, bool isLeft)
@@ -51,12 +53,7 @@ public class ToolSlotManager : MonoBehaviour
         else
         {
             rightHandSlot.LoadToolModel(toolItem);
-
-            if (rightHandSlot.currentToolItem.hasPreview)
-            {
-                rayManager.DoToolPreview(rightHandSlot.currentToolItem);
-            }
-
+            rightHandIsEquiped = true;
         }
     }
     public void UnloadRightToolSlot()
@@ -67,14 +64,14 @@ public class ToolSlotManager : MonoBehaviour
         {
             rayManager.StopToolPreview(rightHandSlot.currentToolItem);
             RayManager.Instance.isBuilding = false;
-
+            rightHandIsEquiped = false;
         }
 
     }
     public void UnloadLeftToolSlot()
     {
         leftHandSlot.UnloadToolAndDestroy();
-
+        rightHandIsEquiped = false;
     }
 
 }

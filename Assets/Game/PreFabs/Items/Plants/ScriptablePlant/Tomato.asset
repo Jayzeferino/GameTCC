@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c812e71b1915942ab819e05ca1b46803, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: 94780c021a9fb43c3819f5e711a61a09, type: 3}
   itemName: Tomato
   itemAction: {fileID: 0}
   ModelPlantPhases:
