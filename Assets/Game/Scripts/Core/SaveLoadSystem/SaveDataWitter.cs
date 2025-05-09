@@ -29,6 +29,7 @@ public class SaveDataWitter
 
                     }
                 }
+
                 loadedSaveData = JsonUtility.FromJson<CharacterSaveData>(saveDataToLoad);
 
             }
@@ -52,8 +53,9 @@ public class SaveDataWitter
         try
         {
             Directory.CreateDirectory(Path.GetDirectoryName(savePath));
-            // Debug.Log("SAVEPATH = " + savePath);
             string dataToStore = JsonUtility.ToJson(characterData, true);
+
+            // Debug.Log(dataToStore);
 
             using (FileStream stream = new FileStream(savePath, FileMode.Create))
             {

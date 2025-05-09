@@ -60,8 +60,11 @@ public class TimeManager : MonoBehaviour
     {
         int timeInMinutes = GameTimestamp.HourToMinutes(gameTimestamp.hour) + gameTimestamp.minute;
         float sunAngle = .25f * timeInMinutes - 90;
-        sunTransform.eulerAngles = new Vector3(sunAngle, 0, 0);
-        MudarSkybox();
+        if (sunTransform)
+        {
+            sunTransform.eulerAngles = new Vector3(sunAngle, 0, 0);
+            MudarSkybox();
+        }
     }
 
     public void MudarSkybox()

@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class Item : ScriptableObject
 {
-    // public enum ItemType
-    // {
-    //     Tool, Seed, fruit
-    // }
+    public int itemID;
 
     [Header("Item Information")]
     public Sprite itemIcon;

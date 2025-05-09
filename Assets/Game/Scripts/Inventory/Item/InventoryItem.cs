@@ -7,4 +7,5 @@ public abstract class InvetoryItem : Item
     public string ACTION_TOOL;
 
     public abstract void UseItem(RaycastHit hit);
+
 }

@@ -1,12 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WorldSaveGameManager : MonoBehaviour
 {
 
     public static WorldSaveGameManager instance;
-    [SerializeField] PlayerController player;
+    public PlayerController player;
 
     [Header("Save Data Writer")]
     SaveDataWitter saveDataWitter;
@@ -32,7 +32,6 @@ public class WorldSaveGameManager : MonoBehaviour
         }
     }
 
-
     private void Start()
     {
         DontDestroyOnLoad(gameObject);
@@ -47,6 +46,7 @@ public class WorldSaveGameManager : MonoBehaviour
         else if (loadGame)
         {
             loadGame = false;
+            LoadGame();
         }
 
     }
@@ -63,6 +63,35 @@ public class WorldSaveGameManager : MonoBehaviour
         Debug.Log("SAVING GAME ... ");
         Debug.Log("SAVED IN: " + filename);
         Debug.Log(Application.persistentDataPath);
+    }
+
+    public void LoadGame()
+    {
+        saveDataWitter = new SaveDataWitter();
+        saveDataWitter.saveDataDirectoryPath = Application.persistentDataPath;
+        saveDataWitter.dataSaveFileName = filename;
+
+        currentCharacterSaveData = saveDataWitter.LoadCharacterSaveDataFromJson();
+
+        StartCoroutine(LoadWorldSceneAsynchronously());
+    }
+
+    private IEnumerator LoadWorldSceneAsynchronously()
+    {
+        if (player == null)
+        {
+            player = FindObjectOfType<PlayerController>();
+        }
+
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(0);
+
+        while (!loadOperation.isDone)
+        {
+            float loadingProgress = Mathf.Clamp01(loadOperation.progress / 0.9f);
+            yield return null;
+        }
+
+        player.LoadCharacterDataFromCurrentCharacterSaveData(ref currentCharacterSaveData);
     }
 }
 

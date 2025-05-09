@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 772accd3d7ef94d44adaa90377e1eafb, type: 3}
   m_Name: Picth Fork
   m_EditorClassIdentifier: 
+  itemID: 2
   itemIcon: {fileID: 0}
   itemName: Forquilha
+  itemAction: {fileID: 0}
   modelPrefab: {fileID: 8674215349734189027, guid: 3c2bd61925f2e411d8099ddd26053887, type: 3}
-  isUnarmed: 0
-  isTool: 1
-  isHavestItem: 0
   ACTION_TOOL: Digging
-  hasInteractor: 0
-  previewInterationItem: {fileID: 0}
+  hasPreview: 0
+  toolPreview: {fileID: 0}
