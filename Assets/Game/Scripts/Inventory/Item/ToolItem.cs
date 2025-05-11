@@ -36,20 +36,3 @@ public class ToolItem : InvetoryItem
     }
 
 }
-
-// public class UsePotion : IItemAction
-// {
-//     public void Execute()
-//     {
-//         Debug.Log("Curando o jogador...");
-//     }
-// }
-
-// public class EquipSword : IItemAction
-// {
-//     public void Execute()
-//     {
-//         Debug.Log("Espada equipada!");
-//     }
-// }
-

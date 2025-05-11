@@ -6,4 +6,5 @@ using UnityEngine.UIElements;
 public class ItemInSlot : MonoBehaviour
 {
     public InvetoryItem itemInSlot;
+    public int qnty = 1;
 }

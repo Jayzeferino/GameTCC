@@ -81,6 +81,7 @@ public class WorldSaveGameManager : MonoBehaviour
         if (player == null)
         {
             player = FindObjectOfType<PlayerController>();
+
         }
 
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(0);

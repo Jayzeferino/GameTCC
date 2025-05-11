@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour
   private InputManager inputManager;
   private PlayerStatsManager playerStatsManager;
   private PlayerInventory playerInventory;
-
   [SerializeField] private CharacterMovement characterMovement;
   [SerializeField] private Animator animator;
   [SerializeField] private PlayerAnimatorController animatorController;
+
   [Header("Player Flags")]
   public bool isInteracting;
 
@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
     currentCharacterSaveData.zPosition = transform.position.z;
     currentCharacterSaveData.invetoryItems = playerInventory.SlotItemsInventoryToSavaData();
     currentCharacterSaveData.tabBarItems = playerInventory.ToolBoxItemsInventoryToSavaData();
+    // currentCharacterSaveData.landSaveData = WorldLandSaveManager.Instance.GetLandManagerSaveDataList();
 
   }
 

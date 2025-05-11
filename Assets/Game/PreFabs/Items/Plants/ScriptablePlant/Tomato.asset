@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c812e71b1915942ab819e05ca1b46803, type: 3}
   m_Name: Tomato
   m_EditorClassIdentifier: 
+  itemID: 3
   itemIcon: {fileID: 21300000, guid: 94780c021a9fb43c3819f5e711a61a09, type: 3}
   itemName: Tomato
   itemAction: {fileID: 0}
@@ -20,4 +21,4 @@ MonoBehaviour:
   - {fileID: 2138935187385370434, guid: 8b14bc28494d84494a9f736fd6b3ac6e, type: 3}
   - {fileID: 7538829542269370984, guid: 60e638a7565ef4c6ea15d6ea3f2b846f, type: 3}
   - {fileID: 3032766788555881932, guid: 792fad8e2777e4e84b5767c578aefece, type: 3}
-  minutesToGrow: 1
+  minutesToGrow: 2

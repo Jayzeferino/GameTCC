@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c812e71b1915942ab819e05ca1b46803, type: 3}
   m_Name: Carrot
   m_EditorClassIdentifier: 
+  itemID: 1
   itemIcon: {fileID: 21300000, guid: ec11367a4b8be4a3bb6c1a79fce45f20, type: 3}
   itemName: Carrot
   itemAction: {fileID: 0}

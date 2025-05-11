@@ -54,9 +54,6 @@ public class SaveDataWitter
         {
             Directory.CreateDirectory(Path.GetDirectoryName(savePath));
             string dataToStore = JsonUtility.ToJson(characterData, true);
-
-            // Debug.Log(dataToStore);
-
             using (FileStream stream = new FileStream(savePath, FileMode.Create))
             {
                 using (StreamWriter writer = new StreamWriter(stream))
@@ -67,7 +64,6 @@ public class SaveDataWitter
         }
         catch (Exception ex)
         {
-
             Debug.LogError("ERROR WHILE TRYING TO  SAVE DATA, GAME COULD NOT BE SAVED" + ex);
         }
     }

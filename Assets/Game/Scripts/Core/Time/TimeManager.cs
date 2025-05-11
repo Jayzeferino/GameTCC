@@ -7,7 +7,6 @@ public class TimeManager : MonoBehaviour
 {
     public static TimeManager Instance { get; private set; }
     public GameTimestamp gameTimestamp;
-
     public Material dia;
     public Material tarde;
     public Material noite;

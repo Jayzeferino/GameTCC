@@ -137,20 +137,6 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    private void FindNextEmptyTabBarSlot()
-    {
-        foreach (GameObject slot in tabBarList)
-        {
-            if (slot.GetComponent<ItemSlot>().Item == null)
-            {
-
-                whatSlotToEquip = slot;
-                return;
-            }
-
-        }
-    }
-
     public List<InventoryItemDict> SlotItemsInventoryToSavaData()
     {
 

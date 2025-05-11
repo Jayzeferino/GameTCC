@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Land : MonoBehaviour, ITimeTracker
 {
-
-
     private Renderer render;
     public float valorMolhado = 1.09f;
     public float valorSoloSaudavel = 0.70f;
@@ -13,7 +9,7 @@ public class Land : MonoBehaviour, ITimeTracker
 
     public int TimeWaterToExpireInHours = 24;
 
-    public GameTimestamp timeWatered;
+    public GameTimestamp dryTime;
 
     public enum LandStatus
     {
@@ -42,7 +38,7 @@ public class Land : MonoBehaviour, ITimeTracker
                 break;
             case LandStatus.Watered:
                 ChangeMaterialColor(valorMolhado);
-                timeWatered = TimeManager.Instance.GetGameTimestamp();
+                dryTime.StartClock();
                 break;
         }
     }
@@ -65,15 +61,27 @@ public class Land : MonoBehaviour, ITimeTracker
     {
         if (landStatus == LandStatus.Watered)
         {
-
-            int timeElapsed = GameTimestamp.CompareTimestampInHours(timeWatered, timestamp);
+            int timeElapsed = GameTimestamp.CompareTimestampInHours(dryTime, timestamp);
 
             if (timeElapsed > TimeWaterToExpireInHours)
             {
                 SwitchLandStatus(Land.LandStatus.Farmland);
-                timeWatered.StartClock();
+                dryTime.StartClock();
             }
-
         }
     }
+
+    public LandSaveData GetLandSaveData()
+    {
+
+        LandSaveData landSaveData = new();
+
+        landSaveData.landStatus = landStatus;
+        landSaveData.startWateredTime = dryTime.gameStartTime.ToString();
+        landSaveData.currentDryTimestamp = dryTime.realElapsedTime.ToString();
+
+        return landSaveData;
+
+    }
+
 }
