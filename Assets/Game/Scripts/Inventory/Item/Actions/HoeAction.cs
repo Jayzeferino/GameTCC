@@ -13,6 +13,8 @@ public class HoeAction : IItemAction
         {
             GameObject land = Instantiate(previewInterationItem.modelPrefab, hit.collider.transform.position, Quaternion.identity);
             renderer = land.GetComponent<Renderer>();
+            LandManager landManager = land.GetComponent<LandManager>();
+            landManager.previewLand = false;
             renderer.material = previewInterationItem.intantiateMaterial;
             hit.collider.transform.position = land.transform.position + new Vector3(5f, 5f, 0);
         }

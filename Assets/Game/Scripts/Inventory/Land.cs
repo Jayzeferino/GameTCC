@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Land : MonoBehaviour, ITimeTracker
@@ -18,13 +19,14 @@ public class Land : MonoBehaviour, ITimeTracker
 
     public LandStatus landStatus;
 
-    private void Start()
+    private void Awake()
     {
         render = gameObject.GetComponent<Renderer>();
-        SwitchLandStatus(LandStatus.Farmland);
+    }
+    private void Start()
+    {
         TimeManager.Instance.RegisterTracker(this);
     }
-
     public void SwitchLandStatus(LandStatus statusSwitch)
     {
         landStatus = statusSwitch;
@@ -45,6 +47,8 @@ public class Land : MonoBehaviour, ITimeTracker
 
     private void ChangeMaterialColor(float tilingX)
     {
+
+        Debug.Log(render.material.color);
         // If the prefab has a renderer and material
         if (render != null && render.material != null && render.material.HasProperty("_MainTex") == true)
         {
@@ -65,7 +69,7 @@ public class Land : MonoBehaviour, ITimeTracker
 
             if (timeElapsed > TimeWaterToExpireInHours)
             {
-                SwitchLandStatus(Land.LandStatus.Farmland);
+                SwitchLandStatus(LandStatus.Farmland);
                 dryTime.StartClock();
             }
         }
@@ -82,6 +86,12 @@ public class Land : MonoBehaviour, ITimeTracker
 
         return landSaveData;
 
+    }
+    public void SetLandFromSaveData(LandSaveData landSaveData)
+    {
+        dryTime.gameStartTime = DateTime.Parse(landSaveData.startWateredTime);
+        dryTime.realElapsedTime = TimeSpan.Parse(landSaveData.currentDryTimestamp);
+        SwitchLandStatus(landSaveData.landStatus);
     }
 
 }

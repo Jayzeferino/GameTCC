@@ -7,6 +7,8 @@ public class LandManager : MonoBehaviour, ITimeTracker
     Land land;
     public GameTimestamp growingTime;
     public bool hasPlant = false;
+    public bool previewLand = true;
+
     private void Awake()
     {
         landSlot = GetComponentInChildren<LandFarmSlot>();
@@ -16,7 +18,7 @@ public class LandManager : MonoBehaviour, ITimeTracker
     private void Start()
     {
         TimeManager.Instance.RegisterTracker(this);
-        if (this.isActiveAndEnabled)
+        if (previewLand == false)
         {
             WorldLandSaveManager.Instance.RegisterLandManager(this);
         }
@@ -85,13 +87,13 @@ public class LandManager : MonoBehaviour, ITimeTracker
     public void SetLandManagerSaveData(LandManagerSaveData landSaveData)
     {
         hasPlant = landSaveData.hasPlant;
-        LoadPlantOnSlot(WorldLandItemDatabase.Instance.GetLandItem(landSaveData.landItemId));
-        // transform.position = new Vector3(landSaveData.xPosition, landSaveData.yPosition, landSaveData.zPosition);
+        transform.position = new Vector3(landSaveData.xPosition, landSaveData.yPosition, landSaveData.zPosition);
         growingTime.gameStartTime = DateTime.Parse(landSaveData.startGrowTime);
         growingTime.realElapsedTime = TimeSpan.Parse(landSaveData.currentGrowingTimestamp);
         land.dryTime.gameStartTime = DateTime.Parse(landSaveData.landSaveData.startWateredTime);
         land.dryTime.realElapsedTime = TimeSpan.Parse(landSaveData.landSaveData.currentDryTimestamp);
-        land.landStatus = landSaveData.landSaveData.landStatus;
+        land.SetLandFromSaveData(landSaveData.landSaveData);
+
     }
 
 }

@@ -12,12 +12,13 @@ public class WorldLandSaveManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            lands = new();
+
         }
         else
         {
             Destroy(gameObject);
         }
-        lands = new();
     }
     public void RegisterLandManager(LandManager landManager)
     {
@@ -39,16 +40,19 @@ public class WorldLandSaveManager : MonoBehaviour
         return landSaveData;
     }
 
-    // public void InstanciateAndLoadLandManagerSaveDataList(List<LandManagerSaveData> landSaveData)
-    // {
+    public void InstanciateAndLoadLandManagerSaveDataList(List<LandManagerSaveData> landSaveData)
+    {
+        lands = new();
+        foreach (LandManagerSaveData landSaveManagerData in landSaveData)
+        {
+            GameObject crop = Instantiate(landToInstantiate, new Vector3(landSaveManagerData.xPosition, landSaveManagerData.yPosition, landSaveManagerData.zPosition), Quaternion.identity);
+            LandManager landManager = crop.GetComponent<LandManager>();
+            landManager.previewLand = false;
+            landManager.LoadPlantOnSlot(WorldLandItemDatabase.Instance.GetLandItem(landSaveManagerData.landItemId));
+            landManager.SetLandManagerSaveData(landSaveManagerData);
 
-    //     Debug.Log("LANDSAVEDATA " + landSaveData.Count);
-    //     // foreach (LandManagerSaveData landManager in landSaveData)
-    //     // {
-
-    //     //     // Instantiate(landToInstantiate, new Vector3(landManager.xPosition, landManager.yPosition, landManager.zPosition), Quaternion.identity);
-    //     // }
-    // }
+        }
+    }
 
     // public void LoadLandSaveDataList(List<LandSaveData> landSaveData)
     // {

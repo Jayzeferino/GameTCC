@@ -168,9 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b706ae5bbaf14966b575f1877101990, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  valorMolhado: 1.09
-  valorSoloSaudavel: 0.7
-  valorSoloSeco: 0.4
+  valorMolhado: 1.14
+  valorSoloSaudavel: 0.76
+  valorSoloSeco: 2.5
   TimeWaterToExpireInHours: 24
   dryTime:
     day: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
     year: 0
     season: 0
     currentGameTimeString: 
-  landStatus: 2
+  landStatus: 1
 --- !u!114 &4434065886711182544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,3 +204,4 @@ MonoBehaviour:
     season: 0
     currentGameTimeString: 
   hasPlant: 0
+  previewLand: 1

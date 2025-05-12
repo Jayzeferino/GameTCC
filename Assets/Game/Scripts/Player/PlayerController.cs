@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     currentCharacterSaveData.zPosition = transform.position.z;
     currentCharacterSaveData.invetoryItems = playerInventory.SlotItemsInventoryToSavaData();
     currentCharacterSaveData.tabBarItems = playerInventory.ToolBoxItemsInventoryToSavaData();
-    // currentCharacterSaveData.landSaveData = WorldLandSaveManager.Instance.GetLandManagerSaveDataList();
+    currentCharacterSaveData.landSaveData = WorldLandSaveManager.Instance.GetLandManagerSaveDataList();
 
   }
 
@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
     transform.position = new Vector3(currentCharacterSaveData.xPosition, currentCharacterSaveData.yPosition, currentCharacterSaveData.zPosition);
     playerInventory.InventorySlotListToSavaData(currentCharacterSaveData.invetoryItems);
     playerInventory.InventoryTabBarListToSavaData(currentCharacterSaveData.tabBarItems);
+    WorldLandSaveManager.Instance.InstanciateAndLoadLandManagerSaveDataList(currentCharacterSaveData.landSaveData);
   }
 
 }

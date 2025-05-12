@@ -19,8 +19,8 @@ public class CharacterSaveData
     public List<InventoryItemDict> invetoryItems;
     public List<InventoryItemDict> tabBarItems;
 
-    // [Header("Lands")]
-    // public List<LandManagerSaveData> landSaveData;
+    [Header("Lands")]
+    public List<LandManagerSaveData> landSaveData;
 
 
 }
