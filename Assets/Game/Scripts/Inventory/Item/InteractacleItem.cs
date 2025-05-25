@@ -6,6 +6,8 @@ public class InteractacleItem : MonoBehaviour
 
     private InputActions inputActions;
     public InvetoryItem item;
+    public ButtonAction buttonAction;
+
     public bool playerInRange;
 
     private void Start()
@@ -34,15 +36,17 @@ public class InteractacleItem : MonoBehaviour
         if (collider.gameObject.CompareTag("Player"))
         {
             playerInRange = true;
+            UIController.Instance.ActiveButton(buttonAction);
         }
-
     }
+
 
     private void OnTriggerExit(Collider collider)
     {
         if (collider.gameObject.CompareTag("Player"))
         {
             playerInRange = false;
+            UIController.Instance.SetStandardButton();
         }
     }
 

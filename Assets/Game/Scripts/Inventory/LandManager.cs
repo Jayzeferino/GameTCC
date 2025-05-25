@@ -77,6 +77,7 @@ public class LandManager : MonoBehaviour, ITimeTracker
         if (landSlot.currentLandPlant != null)
         {
             landSaveData.landItemId = landSlot.currentLandPlant.itemID;
+            landSaveData.grow = landSlot.GetGrow();
         }
         landSaveData.landSaveData = land.GetLandSaveData();
 
@@ -88,11 +89,14 @@ public class LandManager : MonoBehaviour, ITimeTracker
     {
         hasPlant = landSaveData.hasPlant;
         transform.position = new Vector3(landSaveData.xPosition, landSaveData.yPosition, landSaveData.zPosition);
+        landSlot.SetGrow(landSaveData.grow);
+        landSlot.GrowPlant();
         growingTime.gameStartTime = DateTime.Parse(landSaveData.startGrowTime);
         growingTime.realElapsedTime = TimeSpan.Parse(landSaveData.currentGrowingTimestamp);
         land.dryTime.gameStartTime = DateTime.Parse(landSaveData.landSaveData.startWateredTime);
         land.dryTime.realElapsedTime = TimeSpan.Parse(landSaveData.landSaveData.currentDryTimestamp);
         land.SetLandFromSaveData(landSaveData.landSaveData);
+
 
     }
 

@@ -18,10 +18,11 @@ public class PlayerController : MonoBehaviour
   {
     playerStatsManager = GetComponent<PlayerStatsManager>();
     playerInventory = GetComponent<PlayerInventory>();
-    WorldSaveGameManager.instance.player = this;
+
   }
   private void Start()
   {
+    WorldSaveGameManager.instance.player = this;
     inputManager = GetComponent<InputManager>();
   }
 
@@ -41,9 +42,9 @@ public class PlayerController : MonoBehaviour
 
   public void SaveCharacterDataToCurrentSaveData(ref CharacterSaveData currentCharacterSaveData)
   {
-    currentCharacterSaveData.xPosition = transform.position.x;
-    currentCharacterSaveData.yPosition = transform.position.y;
-    currentCharacterSaveData.zPosition = transform.position.z;
+    currentCharacterSaveData.xPosition = characterMovement.transform.position.x;
+    currentCharacterSaveData.yPosition = characterMovement.transform.position.y;
+    currentCharacterSaveData.zPosition = characterMovement.transform.position.z;
     currentCharacterSaveData.invetoryItems = playerInventory.SlotItemsInventoryToSavaData();
     currentCharacterSaveData.tabBarItems = playerInventory.ToolBoxItemsInventoryToSavaData();
     currentCharacterSaveData.landSaveData = WorldLandSaveManager.Instance.GetLandManagerSaveDataList();
@@ -55,7 +56,7 @@ public class PlayerController : MonoBehaviour
     playerStatsManager.characterName = currentCharacterSaveData.characterName;
     playerStatsManager.mathLv = currentCharacterSaveData.mathLv;
     playerStatsManager.portLv = currentCharacterSaveData.portLv;
-    transform.position = new Vector3(currentCharacterSaveData.xPosition, currentCharacterSaveData.yPosition, currentCharacterSaveData.zPosition);
+    characterMovement.SetNewPosition(new Vector3(currentCharacterSaveData.xPosition, currentCharacterSaveData.yPosition, currentCharacterSaveData.zPosition));
     playerInventory.InventorySlotListToSavaData(currentCharacterSaveData.invetoryItems);
     playerInventory.InventoryTabBarListToSavaData(currentCharacterSaveData.tabBarItems);
     WorldLandSaveManager.Instance.InstanciateAndLoadLandManagerSaveDataList(currentCharacterSaveData.landSaveData);

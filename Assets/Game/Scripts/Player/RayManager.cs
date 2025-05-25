@@ -34,12 +34,15 @@ public class RayManager : MonoBehaviour
         onTarget = marker.onTarget;
         marker.isBuilding = isBuilding;
     }
+    Vector3 halfExtents = new Vector3(0.25f, 0.1f, 0.5f); // Metade do tamanho da caixa
 
     public void ActualHit()
     {
-        if (Physics.SphereCast(transform.position, 0.5f, Vector3.down, out RaycastHit hit, 10f))
+        // if (Physics.SphereCast(transform.position, 0.2f, Vector3.down, out RaycastHit hit, 10f))
+        if (Physics.BoxCast(transform.position, halfExtents, Vector3.down, out RaycastHit hit, Quaternion.identity, 10f))
         {
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.down * hit.distance), Color.red);
+            DrawBox(transform.position + Vector3.down * hit.distance, halfExtents, Quaternion.identity, Color.green);
 
             ourInteractable = hit.transform.gameObject;
 
@@ -79,4 +82,38 @@ public class RayManager : MonoBehaviour
     {
         item.UseItem(actualHit);
     }
+
+    void DrawBox(Vector3 center, Vector3 halfExtents, Quaternion orientation, Color color)
+    {
+        Vector3[] corners = new Vector3[8];
+
+        Vector3 right = orientation * Vector3.right * halfExtents.x;
+        Vector3 up = orientation * Vector3.up * halfExtents.y;
+        Vector3 forward = orientation * Vector3.forward * halfExtents.z;
+
+        // Calcular os 8 cantos da caixa
+        corners[0] = center + right + up + forward;
+        corners[1] = center + right + up - forward;
+        corners[2] = center + right - up + forward;
+        corners[3] = center + right - up - forward;
+        corners[4] = center - right + up + forward;
+        corners[5] = center - right + up - forward;
+        corners[6] = center - right - up + forward;
+        corners[7] = center - right - up - forward;
+
+        // Desenhar arestas da caixa
+        Debug.DrawLine(corners[0], corners[1], color);
+        Debug.DrawLine(corners[0], corners[2], color);
+        Debug.DrawLine(corners[0], corners[4], color);
+        Debug.DrawLine(corners[1], corners[3], color);
+        Debug.DrawLine(corners[1], corners[5], color);
+        Debug.DrawLine(corners[2], corners[3], color);
+        Debug.DrawLine(corners[2], corners[6], color);
+        Debug.DrawLine(corners[3], corners[7], color);
+        Debug.DrawLine(corners[4], corners[5], color);
+        Debug.DrawLine(corners[4], corners[6], color);
+        Debug.DrawLine(corners[5], corners[7], color);
+        Debug.DrawLine(corners[6], corners[7], color);
+    }
+
 }

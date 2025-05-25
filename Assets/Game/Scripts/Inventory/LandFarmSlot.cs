@@ -9,11 +9,6 @@ public class LandFarmSlot : MonoBehaviour
 
     private int grow = 0;
 
-    private void Start()
-    {
-        grow = 0;
-    }
-
     public void UnloadLand()
     {
         if (currentLandPlant != null)
@@ -61,6 +56,15 @@ public class LandFarmSlot : MonoBehaviour
         currentHavestPlantModel = seed;
     }
 
+
+    public void SetGrow(int growTime)
+    {
+        grow = growTime;
+    }
+    public int GetGrow()
+    {
+        return grow;
+    }
     public void GrowPlant()
     {
         if (grow < currentLandPlant.ModelPlantPhases.Count - 1)

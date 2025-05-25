@@ -19,6 +19,9 @@ public class CharacterSaveData
     public List<InventoryItemDict> invetoryItems;
     public List<InventoryItemDict> tabBarItems;
 
+    [Header("Game Time")]
+    public GameTimestamp WorldTime;
+
     [Header("Lands")]
     public List<LandManagerSaveData> landSaveData;
 

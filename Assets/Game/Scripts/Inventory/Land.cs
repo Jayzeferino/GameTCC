@@ -47,8 +47,6 @@ public class Land : MonoBehaviour, ITimeTracker
 
     private void ChangeMaterialColor(float tilingX)
     {
-
-        Debug.Log(render.material.color);
         // If the prefab has a renderer and material
         if (render != null && render.material != null && render.material.HasProperty("_MainTex") == true)
         {

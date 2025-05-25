@@ -9,7 +9,7 @@ public class MarkerInteraction : MonoBehaviour
     public GameObject ourInteractable;
     public bool onTarget = false;
 
-    void Start()
+    void Awake()
     {
         ShowMarkerItemIteractor();
     }

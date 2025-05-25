@@ -53,13 +53,4 @@ public class WorldLandSaveManager : MonoBehaviour
 
         }
     }
-
-    // public void LoadLandSaveDataList(List<LandSaveData> landSaveData)
-    // {
-
-    //     for (int i = 0; i < lands.Count; i++)
-    //     {
-    //         lands[i].SetLandSaveData(landSaveData[i]);
-    //     }
-    // }
 }

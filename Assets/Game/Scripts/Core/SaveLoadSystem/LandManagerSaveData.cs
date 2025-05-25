@@ -8,6 +8,7 @@ public class LandManagerSaveData
 
     public bool hasPlant;
     public string currentGrowingTimestamp;
+    public int grow;
     public string startGrowTime;
     public int landItemId;
 
