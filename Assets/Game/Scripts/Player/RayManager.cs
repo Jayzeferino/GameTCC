@@ -16,13 +16,12 @@ public class RayManager : MonoBehaviour
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
-            return;
         }
-        Instance = this;
-    }
+        else
+        {
+            Instance = this;
 
-    void Start()
-    {
+        }
         isBuilding = false;
         marker = GetComponent<MarkerInteraction>();
     }

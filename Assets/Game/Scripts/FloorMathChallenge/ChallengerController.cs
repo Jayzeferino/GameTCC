@@ -13,16 +13,17 @@ public class ChallengerController : MonoBehaviour
     private bool playerFall = false;
     private int vidas = 3;
 
-    private void Start()
+    private void Awake()
     {
         GameEventManager.instance.OnFallOfBridgeHandler += FailInCalc;
         GameEventManager.instance.OnNextFloorStepHandler += UpdateBeforeFloorsStepsBasedInAtualFloor;
     }
+
     private void Update()
     {
         if (vidas == 0)
         {
-            SceneManager.LoadScene("Island");
+            SceneManager.LoadScene("MainMap");
         }
 
         if (playerFall)

@@ -8,6 +8,7 @@ public class WorldSaveGameManager : MonoBehaviour
     public static WorldSaveGameManager instance;
     public PlayerController player;
 
+
     [Header("Save Data Writer")]
     SaveDataWitter saveDataWitter;
 
@@ -30,11 +31,6 @@ public class WorldSaveGameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    private void Start()
-    {
-        DontDestroyOnLoad(gameObject);
     }
     private void Update()
     {
@@ -93,6 +89,12 @@ public class WorldSaveGameManager : MonoBehaviour
         }
 
         player.LoadCharacterDataFromCurrentCharacterSaveData(ref currentCharacterSaveData);
+    }
+
+    public void SetLandInWorld()
+    {
+
+        WorldLandSaveManager.Instance.InstanciateAndLoadLandManagerSaveDataList(currentCharacterSaveData.landSaveData);
     }
 }
 

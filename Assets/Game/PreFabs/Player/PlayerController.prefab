@@ -57,7 +57,7 @@ Transform:
   m_GameObject: {fileID: 970123030270476600}
   serializedVersion: 2
   m_LocalRotation: {x: 0.33535472, y: -0.009612636, z: 0.003422001, w: 0.94203675}
-  m_LocalPosition: {x: 1, y: 2.024127, z: -2.7634964}
+  m_LocalPosition: {x: 1, y: 2.591154, z: -4.6814423}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -151,8 +151,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterMovement: {fileID: 7457390953122162745}
   CameraTarget: {fileID: 5916166515511060179}
-  TargetHeight: 0.5
-  TargetDistance: 0.6
+  TargetHeight: 1
+  TargetDistance: 3
   XRotationRange: {x: -50, y: 70}
 --- !u!1 &3699466252109669449
 GameObject:
@@ -281,9 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopUI: {fileID: 0}
-  standardButtonIcon: {fileID: 0}
   actionButtonBase: {fileID: 0}
-  actionButtonIcon: {fileID: 0}
   inventoryScreen: {fileID: 0}
   toolBox: {fileID: 0}
   itemSlots: {fileID: 0}
@@ -369,7 +367,7 @@ MonoBehaviour:
   ShoulderOffset: {x: 1, y: 0, z: 0}
   VerticalArmLength: 0.4
   CameraSide: 1
-  CameraDistance: 3
+  CameraDistance: 5
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 128
@@ -468,6 +466,10 @@ PrefabInstance:
     - target: {fileID: 9202829665368798695, guid: cc91eb3f163cd47e89b9b4ef4d40a373, type: 3}
       propertyPath: m_Name
       value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202829665368798695, guid: cc91eb3f163cd47e89b9b4ef4d40a373, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

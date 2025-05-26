@@ -7,9 +7,13 @@ public class CharacterSaveData
 {
     public string characterName;
 
+    [Header("Stamina")]
+    public float maxStamina;
+    public float currentStamina;
+
     [Header("SkillLevels")]
-    public int mathLv;
-    public int portLv;
+    public float mathLv;
+    public float portLv;
 
     [Header("WorldCoordinates")]
     public float xPosition;
@@ -19,11 +23,7 @@ public class CharacterSaveData
     public List<InventoryItemDict> invetoryItems;
     public List<InventoryItemDict> tabBarItems;
 
-    [Header("Game Time")]
-    public GameTimestamp WorldTime;
-
     [Header("Lands")]
     public List<LandManagerSaveData> landSaveData;
-
 
 }

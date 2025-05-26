@@ -77,6 +77,8 @@ MonoBehaviour:
   player: {fileID: 0}
   currentCharacterSaveData:
     characterName: 
+    maxStamina: 0
+    currentStamina: 0
     mathLv: 0
     portLv: 0
     xPosition: 0
@@ -84,6 +86,15 @@ MonoBehaviour:
     zPosition: 0
     invetoryItems: []
     tabBarItems: []
+    WorldTime:
+      day: 0
+      hour: 0
+      minute: 0
+      diaDaSemana: 
+      month: 0
+      year: 0
+      season: 0
+      currentGameTimeString: 
     landSaveData: []
   filename: SaveGameFile
   saveGame: 0

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MarkerInteraction : MonoBehaviour
 {
-    public GameObject selectionIcon;
+    // public GameObject selectionIcon;
     public GameObject selectionIconInstantiate;
     public bool isBuilding;
     public GameObject ourInteractable;
@@ -11,13 +11,14 @@ public class MarkerInteraction : MonoBehaviour
 
     void Awake()
     {
+        // selectionIcon = Resources.Load<GameObject>("UiPrefabs/Sinal");
         ShowMarkerItemIteractor();
     }
 
     public void ShowMarkerItemIteractor()
     {
-        selectionIcon = Resources.Load<GameObject>("UiPrefabs/Sinal");
-        selectionIconInstantiate = Instantiate(selectionIcon, new Vector3(0, -50, 0), Quaternion.Euler(180, 0, 0));
+        // selectionIcon = Resources.Load<GameObject>("UiPrefabs/Sinal");
+        // selectionIconInstantiate = Instantiate(selectionIcon, new Vector3(0, -50, 0), Quaternion.Euler(180, 0, 0));
         selectionIconInstantiate.SetActive(false);
     }
 

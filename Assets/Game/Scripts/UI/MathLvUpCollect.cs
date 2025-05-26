@@ -25,7 +25,7 @@ public class MathLvUpCollect : MonoBehaviour
         {
             playerStats.SetMathLv();
             gameObject.SetActive(false);
-            SceneManager.LoadScene("Island");
+            SceneManager.LoadScene("MainMap");
         }
 
     }

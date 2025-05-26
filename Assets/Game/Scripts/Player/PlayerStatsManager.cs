@@ -25,7 +25,6 @@ public class PlayerStatsManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-
         }
         else
         {
