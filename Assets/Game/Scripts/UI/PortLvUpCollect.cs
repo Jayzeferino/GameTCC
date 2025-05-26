@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PortLvUpCollect : MonoBehaviour
@@ -24,6 +22,8 @@ public class PortLvUpCollect : MonoBehaviour
         {
             playerStats.SetPortLv();
             gameObject.SetActive(false);
+            UIController.Instance.SetStandardButton();
+
         }
 
     }
@@ -45,5 +45,7 @@ public class PortLvUpCollect : MonoBehaviour
         inArea = false;
         UIController.Instance.SetStandardButton();
     }
+
+
 
 }

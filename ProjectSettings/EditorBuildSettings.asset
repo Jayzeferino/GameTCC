@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Game/Scenes/Island.unity
+    path: Assets/Game/Scenes/MainMap.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Game/Scenes/PT2.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Game/Scenes/PonteDoCalculo.unity
     guid: ee93e2214b5794f0ca1c9d69755fd849
+  - enabled: 1
+    path: Assets/Game/Scenes/HouseLv0.unity
+    guid: cf57f2ca5e5654b85b532624d293dce0
   m_configObjects: {}

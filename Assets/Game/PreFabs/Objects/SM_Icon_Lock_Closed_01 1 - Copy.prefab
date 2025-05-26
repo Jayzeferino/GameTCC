@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33726958520426460}
   - component: {fileID: 23833796641787866}
   m_Layer: 0
-  m_Name: SM_Icon_Lock_Closed_01 1
+  m_Name: SM_Icon_Lock_Closed_01 1 - Copy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

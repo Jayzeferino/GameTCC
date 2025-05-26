@@ -14,7 +14,7 @@ public class FutMathController : MonoBehaviour
     public int dificulty = 1;
     [SerializeField] TextMeshPro billboardScore;
     [SerializeField] TextMeshPro goalScore;
-    [SerializeField] GameObject key;
+    [SerializeField] GameObject altar;
 
     public GameObject ball;
     public GameObject[] lifesUI;
@@ -50,8 +50,7 @@ public class FutMathController : MonoBehaviour
 
         if (rightAnswer == 3)
         {
-            key.SetActive(true);
-
+            altar.SetActive(true);
         }
     }
 

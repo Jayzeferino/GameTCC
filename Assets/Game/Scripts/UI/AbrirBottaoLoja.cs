@@ -20,6 +20,8 @@ public class AbrirBottaoLoja : MonoBehaviour
         if (buttonPressed && inArea)
         {
             UIController.Instance.OpenShopUI();
+            UIController.Instance.SetStandardButton();
+
         }
 
     }
@@ -39,7 +41,5 @@ public class AbrirBottaoLoja : MonoBehaviour
         inArea = false;
         UIController.Instance.SetStandardButton();
     }
-
-
 
 }

@@ -93,7 +93,6 @@ public class WorldSaveGameManager : MonoBehaviour
 
     public void SetLandInWorld()
     {
-
         WorldLandSaveManager.Instance.InstanciateAndLoadLandManagerSaveDataList(currentCharacterSaveData.landSaveData);
     }
 }

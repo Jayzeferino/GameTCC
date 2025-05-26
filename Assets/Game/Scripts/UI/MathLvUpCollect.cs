@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -37,7 +35,7 @@ public class MathLvUpCollect : MonoBehaviour
             inArea = true;
             UIController.Instance.ActiveButton(action);
             playerStats = ColliderPlayer.gameObject.GetComponentInParent<PlayerStatsManager>();
-
+            UIController.Instance.SetStandardButton();
         }
 
     }
@@ -47,5 +45,7 @@ public class MathLvUpCollect : MonoBehaviour
         inArea = false;
         UIController.Instance.SetStandardButton();
     }
+
+
 
 }

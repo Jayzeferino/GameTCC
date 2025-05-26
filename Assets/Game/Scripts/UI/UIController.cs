@@ -80,9 +80,12 @@ public class UIController : MonoBehaviour
     {
         Image buttonImg = actionButtonBase.GetComponent<Image>();
         Color color = buttonImg.color;
-        color.a = 0.4f; // 30% de opacidade
+        color.a = 0.3f; // 30% de opacidade
         buttonImg.color = color;
         actionButtonIcon.GetComponent<Image>().sprite = standardButtonIcon;
+        color = actionButtonIcon.GetComponent<Image>().color;
+        color.a = 0f;
+        actionButtonIcon.GetComponent<Image>().color = color;
     }
 
 }
