@@ -16,7 +16,6 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
     private void Awake()
     {
-
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
 
@@ -31,7 +30,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
         canvasGroup.blocksRaycasts = false;
         startPosition = transform.position;
         startParent = transform.parent;
-        transform.SetParent(transform.root);
+        transform.SetParent(transform.root.GetChild(0));
         itemBeingDragged = gameObject;
     }
 
@@ -49,7 +48,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDrag
 
         itemBeingDragged = null;
 
-        if (transform.parent == startParent || transform.parent == transform.root)
+        if (transform.parent == startParent || transform.parent == transform.root.GetChild(0))
         {
             transform.position = startPosition;
             transform.SetParent(startParent);

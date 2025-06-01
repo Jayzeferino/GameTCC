@@ -22,4 +22,4 @@ MonoBehaviour:
   - {fileID: 2259797588502511085, guid: 53bc5fdc9a26c49a1bd32550e0ec72b1, type: 3}
   - {fileID: 4363569702436362276, guid: 9a6af6f380f9843f0b3141e3f40861f7, type: 3}
   - {fileID: 7209942458560415503, guid: 5685432716d904029827a55404e3ef14, type: 3}
-  minutesToGrow: 1
+  minutesToGrow: 12

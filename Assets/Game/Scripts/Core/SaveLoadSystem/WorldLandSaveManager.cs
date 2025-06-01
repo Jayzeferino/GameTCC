@@ -48,7 +48,7 @@ public class WorldLandSaveManager : MonoBehaviour
             GameObject crop = Instantiate(landToInstantiate, new Vector3(landSaveManagerData.xPosition, landSaveManagerData.yPosition, landSaveManagerData.zPosition), Quaternion.identity);
             LandManager landManager = crop.GetComponent<LandManager>();
             landManager.previewLand = false;
-            landManager.LoadPlantOnSlot(WorldLandItemDatabase.Instance.GetLandItem(landSaveManagerData.landItemId));
+            // landManager.LoadPlantOnSlot(WorldLandItemDatabase.Instance.GetLandItem(landSaveManagerData.landItemId));
             landManager.SetLandManagerSaveData(landSaveManagerData);
 
         }

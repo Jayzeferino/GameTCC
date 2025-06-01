@@ -7,7 +7,6 @@ public class LandManagerSaveData
     [Header("LandManager")]
 
     public bool hasPlant;
-    public string currentGrowingTimestamp;
     public int grow;
     public string startGrowTime;
     public int landItemId;

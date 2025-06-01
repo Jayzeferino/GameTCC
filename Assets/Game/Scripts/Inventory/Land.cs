@@ -64,7 +64,6 @@ public class Land : MonoBehaviour, ITimeTracker
         if (landStatus == LandStatus.Watered)
         {
             int timeElapsed = GameTimestamp.CompareTimestampInHours(dryTime, timestamp);
-
             if (timeElapsed > TimeWaterToExpireInHours)
             {
                 SwitchLandStatus(LandStatus.Farmland);
@@ -80,15 +79,13 @@ public class Land : MonoBehaviour, ITimeTracker
 
         landSaveData.landStatus = landStatus;
         landSaveData.startWateredTime = dryTime.gameStartTime.ToString();
-        landSaveData.currentDryTimestamp = dryTime.realElapsedTime.ToString();
-
         return landSaveData;
 
     }
     public void SetLandFromSaveData(LandSaveData landSaveData)
     {
         dryTime.gameStartTime = DateTime.Parse(landSaveData.startWateredTime);
-        dryTime.realElapsedTime = TimeSpan.Parse(landSaveData.currentDryTimestamp);
+        dryTime.RestoreGameTime(dryTime.gameStartTime);
         SwitchLandStatus(landSaveData.landStatus);
     }
 

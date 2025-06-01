@@ -70,6 +70,7 @@ public class LandFarmSlot : MonoBehaviour
         if (grow < currentLandPlant.ModelPlantPhases.Count - 1)
         {
             grow++;
+            Debug.Log("GROWINNG ...");
             LoadPlantlModel(currentLandPlant);
         }
     }

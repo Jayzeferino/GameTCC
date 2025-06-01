@@ -50,4 +50,9 @@ public class InteractacleItem : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        UIController.Instance.SetStandardButton();
+    }
+
 }

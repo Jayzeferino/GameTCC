@@ -71,7 +71,6 @@ public class ForcaController : MonoBehaviour
 
         if (palavraOfuscada == palavraDesafio)
         {
-
             key.SetActive(true);
             Buttons.SetActive(false);
         }

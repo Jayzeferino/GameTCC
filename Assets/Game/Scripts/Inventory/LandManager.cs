@@ -18,6 +18,7 @@ public class LandManager : MonoBehaviour, ITimeTracker
     private void Start()
     {
         TimeManager.Instance.RegisterTracker(this);
+
         if (previewLand == false)
         {
             WorldLandSaveManager.Instance.RegisterLandManager(this);
@@ -57,7 +58,29 @@ public class LandManager : MonoBehaviour, ITimeTracker
                 landSlot.GrowPlant();
                 growingTime.realElapsedTime = timestamp.realElapsedTime;
             }
+
         }
+    }
+
+    public void UpdateGrowState()
+    {
+        GameTimestamp gameTimestamp = TimeManager.Instance.GetGameTimestamp();
+
+        int growTime = GameTimestamp.CompareTimestampInMinutes(growingTime, gameTimestamp);
+        int growState = growTime / landSlot.currentLandPlant.minutesToGrow;
+
+        Debug.Log("elapsed time: " + growTime);
+        Debug.Log("plants grows stages: " + growTime / landSlot.currentLandPlant.minutesToGrow);
+
+        for (int i = 0; i < growState; i++)
+        {
+            if (i < landSlot.currentLandPlant.ModelPlantPhases.Count)
+            {
+                Debug.Log("GROWINNG ...");
+                landSlot.GrowPlant();
+            }
+        }
+
     }
 
     public LandManagerSaveData GetLandManagerSaveData()
@@ -65,7 +88,6 @@ public class LandManager : MonoBehaviour, ITimeTracker
 
         LandManagerSaveData landSaveData = new();
         landSaveData.hasPlant = hasPlant;
-        landSaveData.currentGrowingTimestamp = growingTime.realElapsedTime.ToString();
         landSaveData.startGrowTime = growingTime.gameStartTime.ToString();
         if (landSlot.currentLandPlant != null)
         {
@@ -89,15 +111,12 @@ public class LandManager : MonoBehaviour, ITimeTracker
     {
         hasPlant = landSaveData.hasPlant;
         transform.position = new Vector3(landSaveData.xPosition, landSaveData.yPosition, landSaveData.zPosition);
-        landSlot.SetGrow(landSaveData.grow);
-        landSlot.GrowPlant();
         growingTime.gameStartTime = DateTime.Parse(landSaveData.startGrowTime);
-        growingTime.realElapsedTime = TimeSpan.Parse(landSaveData.currentGrowingTimestamp);
-        land.dryTime.gameStartTime = DateTime.Parse(landSaveData.landSaveData.startWateredTime);
-        land.dryTime.realElapsedTime = TimeSpan.Parse(landSaveData.landSaveData.currentDryTimestamp);
+        landSlot.SetGrow(landSaveData.grow);
         land.SetLandFromSaveData(landSaveData.landSaveData);
-
-
+        landSlot.LoadPlantlModel(WorldLandItemDatabase.Instance.GetLandItem(landSaveData.landItemId));
+        growingTime.RestoreGameTime(growingTime.gameStartTime);
+        UpdateGrowState();
     }
 
 }

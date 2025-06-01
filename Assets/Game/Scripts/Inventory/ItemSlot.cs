@@ -20,7 +20,6 @@ public class ItemSlot : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
 
-        //if there is not item already then set our item.
         if (!Item)
         {
             DragDrop.itemBeingDragged.transform.SetParent(transform);

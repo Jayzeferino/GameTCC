@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 [System.Serializable]
 public class GameTimestamp
@@ -61,10 +62,9 @@ public class GameTimestamp
     {
         return this;
     }
-    public void RestoreGameTime(string stringData)
+    public void RestoreGameTime(DateTime gameStartTime)
     {
-        gameStartTime = DateTime.Parse(stringData);
-        realStartTime = DateTime.Now;
+        realStartTime = gameStartTime;
         UpdateClock();
     }
 
@@ -111,7 +111,7 @@ public class GameTimestamp
     {
 
         TimeSpan timeDif = time1.realElapsedTime - time2.realElapsedTime;
-        int difference = Math.Abs(timeDif.Hours);
+        int difference = (int)Math.Abs(timeDif.TotalHours);
         return difference;
 
     }
@@ -119,7 +119,7 @@ public class GameTimestamp
     {
 
         TimeSpan timeDif = time1.realElapsedTime - time2.realElapsedTime;
-        int difference = Math.Abs(timeDif.Minutes);
+        int difference = (int)Math.Abs(timeDif.TotalMinutes);
         return difference;
 
     }
