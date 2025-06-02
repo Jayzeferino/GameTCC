@@ -23,6 +23,7 @@ public class ChallengerController : MonoBehaviour
     {
         if (vidas == 0)
         {
+            EnterChallengesManager.Instance.UpdatePriorityMT();
             SceneManager.LoadScene("MainMap");
         }
 

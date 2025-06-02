@@ -130,19 +130,19 @@ MonoBehaviour:
   m_fontSizeBase: 34.7
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
+  m_fontSizeMin: 5.5
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
-  m_lineSpacingMax: 0
+  m_lineSpacingMax: -4.65
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -273,7 +273,6 @@ MonoBehaviour:
   moveAmount: 0.11
   yOrigin: -0.16
   buttonId: 26
-  HitSmoke: {fileID: 0}
 --- !u!64 &4171483942849667610
 MeshCollider:
   m_ObjectHideFlags: 0

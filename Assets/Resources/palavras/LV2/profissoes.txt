@@ -1,0 +1,14 @@
+médico
+professor
+policial
+bombeiro
+cozinheiro
+padeiro
+motorista
+fazendeiro
+pintor
+cantor
+ator
+dentista
+veterinário
+carteiro

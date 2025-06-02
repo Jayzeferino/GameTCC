@@ -1,0 +1,10 @@
+paises
+animais
+alimentos
+superherois
+sentimentos
+profissoes
+partes do corpo humano
+adjetivos
+verbos
+geral

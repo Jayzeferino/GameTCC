@@ -2,53 +2,76 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Text;
 using TMPro;
-using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class ForcaController : MonoBehaviour
 {
     [SerializeField] GameObject Buttons;
     [SerializeField] TextMeshPro challengeText;
-    [SerializeField] Transform Player;
+    [SerializeField] CharacterMovement Player;
+    [SerializeField] Transform entrada;
     [SerializeField] TextMeshPro temaText;
     [SerializeField] GameObject key;
     public List<GameObject> lifesUI;
     public int limiteErros = 5;
     public int vidas = 3;
     public int tryWord = 0;
+    public int dificulty = 1;
+    private int buttonsIndexCount = 0;
     private string palavraDesafio;
     private string palavraDesafioSemAcento;
     private string palavraOfuscada;
     private string temaEscolhido;
+    private List<string> listSyllables;
+
 
     void Start()
     {
-        InitButtons();
+        listSyllables = new();
         IniciarLevel();
+        InitButtons();
         GameEventManager.instance.OnTermoButtonPressedHandler += ButtonPressed;
+        if (Player == null)
+        {
+            Player = FindObjectOfType<CharacterMovement>();
+        }
     }
 
     private void IniciarLevel()
     {
         tryWord = 0;
         temaEscolhido = EscolheTema();
-        (palavraDesafio, palavraOfuscada) = BuscaPalavraEmArquivo($"palavras/{temaEscolhido}");
+        (palavraDesafio, palavraOfuscada) = BuscaPalavraEmArquivo($"palavras/LV{dificulty}/{temaEscolhido}");
         temaText.text = temaEscolhido;
         challengeText.text = palavraOfuscada;
         palavraDesafioSemAcento = RemoverAcentuacao(palavraDesafio);
+        int novoLimiteDeErros = (int)Math.Ceiling((decimal)(palavraDesafio.Length / 2));
 
-        limiteErros = (int)Math.Ceiling((decimal)(palavraDesafio.Length / 2));
+        if (novoLimiteDeErros > limiteErros)
+        {
+            limiteErros = novoLimiteDeErros;
+        }
     }
     private void ReiniciarLevel()
     {
-        Player.GetComponent<CharacterMovement>().SetNewPosition(new Vector3(-4f, 1.584463f, -39.71f));
+        listSyllables = new();
+        buttonsIndexCount = 0;
+        Player.GetComponent<CharacterMovement>().SetNewPosition(entrada.transform.position);
         IniciarLevel();
         RevertButtonsMaterials();
         InitButtons();
 
+    }
+
+    private void FimDesafio()
+    {
+        EnterChallengesManager.Instance.UpdatePriorityMT();
+        SceneManager.LoadScene("MainMap");
     }
 
     private void RevertButtonsMaterials()
@@ -62,11 +85,17 @@ public class ForcaController : MonoBehaviour
     }
     private void Update()
     {
-        if (tryWord == limiteErros)
+        if (tryWord >= limiteErros)
         {
             ReiniciarLevel();
             lifesUI[vidas - 1].SetActive(false);
             vidas--;
+
+        }
+
+        if (vidas == 0)
+        {
+            FimDesafio();
         }
 
         if (palavraOfuscada == palavraDesafio)
@@ -76,46 +105,106 @@ public class ForcaController : MonoBehaviour
         }
     }
 
-    public bool CheckAndModifyPalavraOfuscada(string letraApertada)
+    // public bool CheckAndModifyPalavraOfuscada(string letraApertada)
+    // {
+    //     bool hasLetter = false;
+
+    //     StringBuilder palavraAlterada = new(palavraOfuscada);
+
+    //     letraApertada = letraApertada.ToString();
+
+    //     if (palavraDesafioSemAcento.Contains(letraApertada))
+    //     {
+    //         Debug.Log($"letraApertada:{letraApertada} tem o Index {palavraDesafioSemAcento.IndexOf(letraApertada)}");
+
+    //         for (int i = 0; i < letraApertada.Length; i++)
+    //         {
+    //             if (letraApertada[i] == palavraDesafioSemAcento[palavraDesafioSemAcento.IndexOf(letraApertada) + i])
+    //             {
+    //                 palavraAlterada[i] = palavraDesafio[i];
+    //                 hasLetter = true;
+    //             }
+    //         }
+    //     }
+
+
+    //     // for (int i = 0; i < palavraDesafio.Length; i++)
+    //     // {
+    //     //     if (palavraDesafioSemAcento[i].ToString() == letraApertada.ToLower())
+    //     //     {
+    //     //         palavraAlterada[i] = palavraDesafio[i];
+    //     //         hasLetter = true;
+    //     //     }
+
+    //     // }
+
+
+    //     palavraOfuscada = palavraAlterada.ToString();
+    //     Debug.Log($"letraApertada:{letraApertada} palavraDesafio:{palavraDesafio}  palavraOfuscada:{palavraOfuscada}");
+
+    //     return hasLetter;
+
+    // }
+
+    public bool CheckAndModifyPalavraOfuscada(string entradaApertada)
     {
-        bool hasLetter = false;
+        bool foundMatch = false;
+        StringBuilder palavraAlteradaBuilder = new StringBuilder(palavraOfuscada);
 
-        StringBuilder palavraAlterada = new(palavraOfuscada);
+        string entradaFormatada = entradaApertada.ToLower();
 
-        for (int i = 0; i < palavraDesafio.Length; i++)
+        for (int i = 0; i < palavraDesafioSemAcento.Length; i++)
         {
-            if (palavraDesafioSemAcento[i].ToString() == letraApertada.ToLower())
+            if (i + entradaFormatada.Length <= palavraDesafioSemAcento.Length &&
+                palavraDesafioSemAcento.Substring(i, entradaFormatada.Length) == entradaFormatada)
             {
-                palavraAlterada[i] = palavraDesafio[i];
-                hasLetter = true;
+                for (int j = 0; j < entradaFormatada.Length; j++)
+                {
+                    palavraAlteradaBuilder[i + j] = palavraDesafio[i + j];
+                }
+                foundMatch = true;
             }
         }
 
+        palavraOfuscada = palavraAlteradaBuilder.ToString();
 
-        palavraOfuscada = palavraAlterada.ToString();
-        Debug.Log($"letraApertada:{letraApertada} palavraDesafio:{palavraDesafio}  palavraOfuscada:{palavraOfuscada}");
+        Debug.Log($"Entrada: '{entradaApertada}' | Desafio: '{palavraDesafio}' | Ofuscada: '{palavraOfuscada}' | Encontrado: {foundMatch}");
 
-        return hasLetter;
-
+        return foundMatch;
     }
 
     private void InitButtons()
     {
-        char letter = 'A';
         List<int> buttonsIndex = new();
 
         for (int i = 0; i <= 25; i++)
         {
             buttonsIndex.Add(i);
+            buttonsIndexCount++;
         }
 
         Shuffle(buttonsIndex);
 
-        foreach (var button in buttonsIndex)
+        if (dificulty <= 2)
         {
-            Buttons.transform.GetChild(button).transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = letter.ToString();
-            letter++;
+            SepararPalavraEAdicionaNaLista(palavraDesafio);
+            BuscarListaDePalavras();
+            while (buttonsIndexCount > 1)
+            {
+                SepararPalavraEAdicionaNaLista(listSyllables[buttonsIndexCount - 1]);
+            }
+
         }
+        else
+        {
+            char letter = 'A';
+            foreach (var button in buttonsIndex)
+            {
+                Buttons.transform.GetChild(button).transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = letter.ToString();
+                letter++;
+            }
+        }
+
     }
 
     private void Shuffle(List<int> list)
@@ -180,7 +269,7 @@ public class ForcaController : MonoBehaviour
     private string EscolheTema()
     {
         // Caminho para o arquivo que contém as palavras (nomes de arquivos)
-        string wordFilePath = "Assets/Resources/palavras/temas.txt";
+        string wordFilePath = $"Assets/Resources/palavras/LV{dificulty}/temas.txt";
 
         // Verificar se o arquivo com a lista de palavras existe
         if (!File.Exists(wordFilePath))
@@ -206,7 +295,7 @@ public class ForcaController : MonoBehaviour
     }
     private void ButtonPressed(string letter, int id)
     {
-        bool hasLetter = CheckAndModifyPalavraOfuscada(letraApertada: letter);
+        bool hasLetter = CheckAndModifyPalavraOfuscada(letter);
         if (hasLetter)
         {
             challengeText.text = palavraOfuscada;
@@ -216,10 +305,32 @@ public class ForcaController : MonoBehaviour
         {
             tryWord += 1;
         }
-
-
-
         GameEventManager.instance.ChangedButtonColor(hasLetter, id);
+    }
+
+    private void SepararPalavraEAdicionaNaLista(string palavra)
+    {
+        List<string> syllables = SyllableSeparator.SeparateSyllables(palavra);
+        foreach (string sil in syllables)
+        {
+            if (buttonsIndexCount > 1 && sil.Count() >= 2)
+            {
+                Debug.Log("IndexButton: " + buttonsIndexCount);
+                Buttons.transform.GetChild(buttonsIndexCount - 1).transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = sil;
+                buttonsIndexCount--;
+            }
+        }
+
+    }
+
+    private void BuscarListaDePalavras()
+    {
+        string palavra;
+        for (int i = 0; i < buttonsIndexCount; i++)
+        {
+            (palavra, _) = BuscaPalavraEmArquivo($"palavras/LV10/{temaEscolhido}");
+            listSyllables.Add(palavra);
+        }
     }
 
     private string RemoverAcentuacao(string palavra)

@@ -76,7 +76,7 @@ public class LandManager : MonoBehaviour, ITimeTracker
         {
             if (i < landSlot.currentLandPlant.ModelPlantPhases.Count)
             {
-                Debug.Log("GROWINNG ...");
+
                 landSlot.GrowPlant();
             }
         }

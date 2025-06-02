@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PortLvUpCollect : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class PortLvUpCollect : MonoBehaviour
             playerStats.SetPortLv();
             gameObject.SetActive(false);
             UIController.Instance.SetStandardButton();
+            SceneManager.LoadScene("MainMap");
 
         }
 

@@ -1,0 +1,16 @@
+bom
+mau
+feliz
+triste
+grande
+pequeno
+alto
+baixo
+forte
+fraco
+limpo
+sujo
+quente
+frio
+novo
+velho

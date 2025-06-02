@@ -3,31 +3,61 @@ using UnityEngine;
 
 public class EnterChallengesManager : MonoBehaviour
 {
+    public static EnterChallengesManager Instance;
+    private RoundRobinWeighted PTroundRobin;
+    private RoundRobinWeighted MTroundRobin;
+    public List<SceneData> PTsceneListWeighted;
+    public List<SceneData> MTsceneListWeighted;
+    private string currentPTScene;
+    private string currentMTScene;
 
-    private RoundRobinWeighted roundRobin;
-    private List<SceneData> sceneListWeighted;
-    private string currentScene;
-
-    public void Init(List<SceneData> sceneList)
+    private void Awake()
     {
-        sceneListWeighted = sceneList;
-        roundRobin = new RoundRobinWeighted(sceneListWeighted);
-        currentScene = roundRobin.GetAtualItem();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(Instance);
+        }
+        PTroundRobin = new RoundRobinWeighted(PTsceneListWeighted);
+        MTroundRobin = new RoundRobinWeighted(MTsceneListWeighted);
+        currentPTScene = PTroundRobin.GetAtualItem();
+        currentMTScene = MTroundRobin.GetAtualItem();
+
     }
 
-    void Start()
+    // public void Init(List<SceneData> sceneList)
+    // {
+    //     sceneListWeighted = sceneList;
+    //     roundRobin = new RoundRobinWeighted(sceneListWeighted);
+    //     currentScene = roundRobin.GetAtualItem();
+    // }
+
+    // void Start()
+    // {
+    //     sceneListWeighted = new();
+    // }
+
+    public string NextScenePT()
     {
-        sceneListWeighted = new();
+        return PTroundRobin.Next();
     }
 
-    public string NextScene()
+    public void UpdatePriorityPT()
     {
-        return roundRobin.Next();
+        PTroundRobin.ExecUpdateWeightList(currentPTScene);
+    }
+    public string NextSceneMT()
+    {
+        return MTroundRobin.Next();
     }
 
-    public void UpdatePriority()
+    public void UpdatePriorityMT()
     {
-        roundRobin.ExecUpdateWeightList(currentScene);
+        MTroundRobin.ExecUpdateWeightList(currentMTScene);
+
     }
 
 }

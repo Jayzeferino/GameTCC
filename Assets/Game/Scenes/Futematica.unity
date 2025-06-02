@@ -2228,7 +2228,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &995931197
 Transform:
   m_ObjectHideFlags: 0
@@ -2238,7 +2238,7 @@ Transform:
   m_GameObject: {fileID: 995931196}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 94.75, y: -18.82, z: 21.53}
+  m_LocalPosition: {x: 94.75, y: -18.65, z: 21.53}
   m_LocalScale: {x: 1.8881207, y: 1.8881207, z: 1.8881207}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2440,7 +2440,7 @@ MonoBehaviour:
   dificulty: 1
   billboardScore: {fileID: 352192595}
   goalScore: {fileID: 362449892}
-  altar: {fileID: 0}
+  altar: {fileID: 995931196}
   ball: {fileID: 9203679405131745187, guid: e544592be2d0140daa629411cca65b21, type: 3}
   lifesUI:
   - {fileID: 357672878}
@@ -3008,6 +3008,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 995931197}
     m_Modifications:
+    - target: {fileID: 3238306770092229682, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4827621096470487371, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
       propertyPath: m_Name
       value: TriggerArea
@@ -3051,6 +3055,10 @@ PrefabInstance:
     - target: {fileID: 8221576217057474225, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 117.785
+      objectReference: {fileID: 0}
+    - target: {fileID: 8361716621223675015, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8373833091518779753, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
       propertyPath: m_LocalScale.x
@@ -3395,7 +3403,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2031558552}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 303cbef4f23cd42de935c5fb8cd4fa41, type: 3}
   m_Name: 

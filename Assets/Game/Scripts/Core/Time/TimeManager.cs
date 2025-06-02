@@ -68,7 +68,6 @@ public class TimeManager : MonoBehaviour
 
     public void MudarSkybox()
     {
-
         if (gameTimestamp.hour > 7 && gameTimestamp.hour <= 17)
         {
             RenderSettings.skybox = dia;

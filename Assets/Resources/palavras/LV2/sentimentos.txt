@@ -1,0 +1,12 @@
+alegria
+tristeza
+amor
+raiva
+medo
+paz
+calma
+sono
+fome
+sede
+calor
+frio

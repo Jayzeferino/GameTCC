@@ -23,6 +23,7 @@ public class MathLvUpCollect : MonoBehaviour
         {
             playerStats.SetMathLv();
             gameObject.SetActive(false);
+            UIController.Instance.SetStandardButton();
             SceneManager.LoadScene("MainMap");
         }
 

@@ -690,6 +690,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 11
@@ -845,6 +853,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 12
@@ -4618,6 +4634,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 14
@@ -4851,6 +4875,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 2
@@ -5562,6 +5594,7 @@ MonoBehaviour:
   Buttons: {fileID: 1219715889}
   challengeText: {fileID: 1282596868}
   Player: {fileID: 0}
+  entrada: {fileID: 369712380}
   temaText: {fileID: 2087324661}
   key: {fileID: 1307607944}
   lifesUI:
@@ -5571,6 +5604,7 @@ MonoBehaviour:
   limiteErros: 5
   vidas: 3
   tryWord: 0
+  dificulty: 3
 --- !u!4 &479286934
 Transform:
   m_ObjectHideFlags: 0
@@ -5815,10 +5849,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1219715890}
     m_Modifications:
-    - target: {fileID: 2579049459993348420, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
-      propertyPath: HitSmoke
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
       value: 
-      objectReference: {fileID: 3675430470461826549, guid: 8d76e008b01094163935e6339403540a, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5972139090709768236, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.5799997
@@ -6720,6 +6758,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 17
@@ -7150,6 +7196,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 9
@@ -7233,6 +7287,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 21
@@ -8959,6 +9021,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 25
@@ -9229,6 +9299,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 15
@@ -10687,6 +10765,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 5
@@ -10842,6 +10928,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 23
@@ -11673,6 +11767,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 22
@@ -13462,6 +13564,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 16
@@ -13904,6 +14014,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 3
@@ -14267,6 +14385,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 20
@@ -15615,6 +15741,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 24
@@ -16953,6 +17087,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 6
@@ -17423,6 +17565,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 8
@@ -18986,6 +19136,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 13
@@ -20066,6 +20224,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 117.785
       objectReference: {fileID: 0}
+    - target: {fileID: 8361716621223675015, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8373833091518779753, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.4660719
@@ -20120,6 +20282,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2976892991273101373, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
+    - {fileID: 6146632430903545903, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -21712,6 +21875,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 18
@@ -22000,6 +22171,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 7
@@ -23259,6 +23438,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 1
@@ -23397,6 +23584,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 4
@@ -24187,6 +24382,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 10
@@ -25224,6 +25427,14 @@ PrefabInstance:
       propertyPath: challengerController
       value: 
       objectReference: {fileID: 479286933}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4002529930641822139, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
+      propertyPath: m_fontSize
+      value: 34.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5009136409330706886, guid: 3eca1c85c9b384973a8f7b1a92d54e0e, type: 3}
       propertyPath: buttonId
       value: 19

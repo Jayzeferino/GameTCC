@@ -4,8 +4,8 @@ using System.Collections.Generic;
 class RoundRobinWeighted
 {
     private List<SceneData> items;
-    private int currentIndex = 0;
-    private int currentWeight = 0;
+    private int currentIndex;
+    private int currentWeight;
     private int maxWeight;
     private int gcdWeight;
 
@@ -17,10 +17,13 @@ class RoundRobinWeighted
 
     private void UpdateWeights()
     {
-        this.maxWeight = GetMaxWeight();
-        this.gcdWeight = GetGCDWeight();
+        maxWeight = GetMaxWeight();
+        gcdWeight = GetGCDWeight();
     }
-
+    public List<SceneData> GetSceneDataRound()
+    {
+        return items;
+    }
     private int GetMaxWeight()
     {
         int max = 0;

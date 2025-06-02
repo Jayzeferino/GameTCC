@@ -13,8 +13,10 @@ public class EnterChallenge : MonoBehaviour
     public bool entrada = false;
 
     private InputActions inputActions;
-    public List<SceneData> scenesList;
     private EnterChallengesManager enterChallengesManager;
+    public bool isMatScene;
+    public bool isPtScene;
+    public bool isEnScene;
 
     private void Awake()
     {
@@ -24,8 +26,7 @@ public class EnterChallenge : MonoBehaviour
 
     private void Start()
     {
-        enterChallengesManager = GetComponent<EnterChallengesManager>();
-        enterChallengesManager.Init(scenesList);
+        enterChallengesManager = FindObjectOfType<EnterChallengesManager>();
     }
 
     private void Update()
@@ -34,11 +35,19 @@ public class EnterChallenge : MonoBehaviour
 
         if (buttonPressed && inArea)
         {
+            string sceneTarget = "";
             SceneTransitionManager.Instance.SalvarLocalizaçaoNaCena(entrada);
-            string sceneTarget = enterChallengesManager.NextScene();
+            if (isPtScene)
+            {
+                sceneTarget = enterChallengesManager.NextScenePT();
+
+            }
+            if (isMatScene)
+            {
+                sceneTarget = enterChallengesManager.NextSceneMT();
+            }
             SceneManager.LoadScene(sceneTarget);
             UIController.Instance.SetStandardButton();
-
         }
 
     }
@@ -58,6 +67,7 @@ public class EnterChallenge : MonoBehaviour
         inArea = false;
         UIController.Instance.SetStandardButton();
     }
+
 
 
 }

@@ -1,0 +1,16 @@
+gato
+cão
+pato
+galo
+peixe
+vaca
+porco
+rato
+macaco
+urso
+galinha
+coelho
+cavalo
+tigre
+leão
+elefante
