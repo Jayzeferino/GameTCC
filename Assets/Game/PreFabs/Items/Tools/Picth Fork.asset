@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Picth Fork
   m_EditorClassIdentifier: 
   itemID: 2
-  itemIcon: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: c6052db32e3df4a2ebffe90dbdcc0885, type: 3}
   itemName: Forquilha
   itemAction: {fileID: 0}
   modelPrefab: {fileID: 8674215349734189027, guid: 3c2bd61925f2e411d8099ddd26053887, type: 3}
+  price: 0
   ACTION_TOOL: Digging
   hasPreview: 0
   toolPreview: {fileID: 0}

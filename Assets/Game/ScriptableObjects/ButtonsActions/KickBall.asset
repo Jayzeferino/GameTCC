@@ -9,13 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0181ee37d3194ab8aa18d7ca7d876ef, type: 3}
-  m_Name: PumpikinFruit
+  m_Script: {fileID: 11500000, guid: 189c01d5ff0ff4f21a7b6617cf4072d1, type: 3}
+  m_Name: KickBall
   m_EditorClassIdentifier: 
-  itemID: 5
-  itemIcon: {fileID: 21300000, guid: 5fb0f5bd8fa9f43deae825286c4641fa, type: 3}
-  itemName: pumpikin
-  itemAction: {fileID: 0}
-  modelPrefab: {fileID: 0}
-  price: 2
-  ACTION_TOOL: 
+  actionIcon: {fileID: 21300000, guid: 962f424763d184832a8e51863433003f, type: 3}
+  actionName: kick

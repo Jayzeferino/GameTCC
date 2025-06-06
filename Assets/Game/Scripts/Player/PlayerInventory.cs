@@ -83,6 +83,29 @@ public class PlayerInventory : MonoBehaviour
 
     }
 
+    public void RemoveFromInventory(int itemID)
+    {
+        foreach (GameObject slot in slotList)
+        {
+            if (slot.GetComponent<ItemSlot>().Item != null && slot.GetComponentInChildren<ItemInSlot>().itemInSlot.itemID == itemID)
+            {
+                Destroy(slot.transform.GetChild(0).gameObject);
+                return;
+            }
+
+        }
+
+        foreach (GameObject slot in tabBarList)
+        {
+            if (slot.GetComponent<ItemSlot>().Item != null && slot.GetComponentInChildren<ItemInSlot>().itemInSlot.itemID == itemID)
+            {
+                Destroy(slot.transform.GetChild(0).gameObject);
+                return;
+            }
+        }
+
+    }
+
     public void AddToInvetory(InvetoryItem item)
     {
         if (CheckFull())
@@ -186,5 +209,30 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+
+    public List<InvetoryItem> GetInventoryitemsFromInventory()
+    {
+        List<InvetoryItem> items = new();
+
+        foreach (GameObject slot in slotList)
+        {
+            if (slot.GetComponent<ItemSlot>().Item != null)
+            {
+                items.Add(slot.GetComponentInChildren<ItemInSlot>().itemInSlot);
+            }
+
+        }
+
+        foreach (GameObject slot in tabBarList)
+        {
+            if (slot.GetComponent<ItemSlot>().Item != null)
+            {
+                items.Add(slot.GetComponentInChildren<ItemInSlot>().itemInSlot);
+
+            }
+        }
+
+        return items;
+    }
 }
 

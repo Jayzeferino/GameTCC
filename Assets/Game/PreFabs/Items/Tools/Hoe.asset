@@ -17,6 +17,7 @@ MonoBehaviour:
   itemName: Enchada
   itemAction: {fileID: 11400000, guid: 4670df70dd5e44560a5a1883937328b8, type: 2}
   modelPrefab: {fileID: 8009635667394626920, guid: 9a5d34b6cde0d489489ed93ea45d5fa6, type: 3}
+  price: 5
   ACTION_TOOL: Heavy Weapon Swing
   hasPreview: 1
   toolPreview: {fileID: 11400000, guid: ee82decd78a564a86901762093925e27, type: 2}

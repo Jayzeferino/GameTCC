@@ -6,5 +6,6 @@ public class SceneManagerMap : MonoBehaviour
     {
         SceneTransitionManager.Instance.CarregarLocalizaçaoNaCena();
         WorldSaveGameManager.instance.SetLandInWorld();
+        FindObjectOfType<DisableEnergyUI>().SetActive();
     }
 }

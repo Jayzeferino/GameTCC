@@ -31,6 +31,7 @@ public class InterpretationChallengeController : MonoBehaviour
     private void Start()
     {
         GameEventManager.instance.OnCollectTreasureHandler += TreasureCollect;
+        FindObjectOfType<DisableEnergyUI>().SetUnactive();
 
         JsonReader();
     }

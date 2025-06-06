@@ -17,6 +17,13 @@ public class ChallengerController : MonoBehaviour
     {
         GameEventManager.instance.OnFallOfBridgeHandler += FailInCalc;
         GameEventManager.instance.OnNextFloorStepHandler += UpdateBeforeFloorsStepsBasedInAtualFloor;
+
+    }
+
+    private void Start()
+    {
+        FindObjectOfType<DisableEnergyUI>().SetUnactive();
+
     }
 
     private void Update()

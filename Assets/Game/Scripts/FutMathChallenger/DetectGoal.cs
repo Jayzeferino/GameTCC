@@ -12,9 +12,9 @@ public class DetectGoal : MonoBehaviour
         if (ball.gameObject.CompareTag("OpBall"))
         {
             string valor = ball.transform.GetChild(0).GetComponent<TMP_Text>().text.ToString();
+            Destroy(ball);
             lastTag = ball.gameObject.tag;
             GameEventManager.instance.BallInGoal(valor, lastTag);
-            Destroy(ball);
         }
 
 
@@ -22,9 +22,9 @@ public class DetectGoal : MonoBehaviour
         {
 
             string valor = ball.transform.GetChild(0).GetComponent<TMP_Text>().text.ToString();
+            Destroy(ball);
             lastTag = ball.gameObject.tag;
             GameEventManager.instance.BallInGoal(valor, lastTag);
-            Destroy(ball);
 
         }
     }

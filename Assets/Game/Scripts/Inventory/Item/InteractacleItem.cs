@@ -3,7 +3,6 @@ using UnityEngine;
 public class InteractacleItem : MonoBehaviour
 
 {
-
     private InputActions inputActions;
     public InvetoryItem item;
     public ButtonAction buttonAction;
@@ -28,6 +27,7 @@ public class InteractacleItem : MonoBehaviour
         {
             PlayerInventory.instance.AddToInvetory(this.item);
             Destroy(gameObject);
+            UIController.Instance.SetStandardButton();
         }
     }
 
@@ -48,11 +48,6 @@ public class InteractacleItem : MonoBehaviour
             playerInRange = false;
             UIController.Instance.SetStandardButton();
         }
-    }
-
-    void OnDestroy()
-    {
-        UIController.Instance.SetStandardButton();
     }
 
 }

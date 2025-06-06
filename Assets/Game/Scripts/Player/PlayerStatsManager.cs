@@ -7,6 +7,8 @@ public class PlayerStatsManager : MonoBehaviour
     public static PlayerStatsManager Instance { get; set; }
     public string characterName;
 
+    public double wallet;
+
     [Header("Stamina")]
     public float maxStamina;
     public float currentStamina;

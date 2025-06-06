@@ -17,6 +17,7 @@ MonoBehaviour:
   itemName: Regador
   itemAction: {fileID: 11400000, guid: 5ee2b64531f414cd89ad958df26bbb82, type: 2}
   modelPrefab: {fileID: 4228213889018907545, guid: 1d7cc3d733122437496702f5b0a13d06, type: 3}
+  price: 2
   ACTION_TOOL: Watering
   hasPreview: 0
   toolPreview: {fileID: 0}

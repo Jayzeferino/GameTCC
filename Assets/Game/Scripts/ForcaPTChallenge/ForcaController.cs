@@ -40,6 +40,8 @@ public class ForcaController : MonoBehaviour
         {
             Player = FindObjectOfType<CharacterMovement>();
         }
+        FindObjectOfType<DisableEnergyUI>().SetUnactive();
+
     }
 
     private void IniciarLevel()

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using TMPro;
-using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -37,6 +36,8 @@ public class FutMathController : MonoBehaviour
         GameEventManager.instance.OnEnterResetMathExpressionHandler += ResetTry;
         GerarDificuldade(dificulty);
         goalScore.text = "";
+        FindObjectOfType<DisableEnergyUI>().SetUnactive();
+
 
     }
 
