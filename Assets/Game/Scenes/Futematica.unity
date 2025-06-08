@@ -177,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5d8c7060a40f4b9db4f13a066bcb9ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initPosition: {fileID: 1546997030}
 --- !u!65 &68244333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1088,7 +1089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4674346692853048059, guid: 9019d546131194801a6ba533bdde1d86, type: 3}
       propertyPath: m_Size.z
-      value: 0.11679068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4674346692853048059, guid: 9019d546131194801a6ba533bdde1d86, type: 3}
       propertyPath: m_Center.x
@@ -1100,7 +1101,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4674346692853048059, guid: 9019d546131194801a6ba533bdde1d86, type: 3}
       propertyPath: m_Center.z
-      value: 0.4990653
+      value: 0.4589309
       objectReference: {fileID: 0}
     - target: {fileID: 4674346692853048059, guid: 9019d546131194801a6ba533bdde1d86, type: 3}
       propertyPath: m_IsTrigger
@@ -3008,6 +3009,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b1ad8ef6890687249a641abef8e26baf, type: 3}
+--- !u!4 &1546997030 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2497667240087241428, guid: e8cf458693895466fb573f0b4ad15d27, type: 3}
+  m_PrefabInstance: {fileID: 762357318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1593597559
 PrefabInstance:
   m_ObjectHideFlags: 0

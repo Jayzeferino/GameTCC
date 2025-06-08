@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -6,26 +5,25 @@ using UnityEngine;
 public class DetectGoal : MonoBehaviour
 {
     private string lastTag;
+    private bool goalProcessed = false;
+    private HashSet<GameObject> processedBalls = new HashSet<GameObject>();
 
     private void OnTriggerEnter(Collider ball)
     {
-        if (ball.gameObject.CompareTag("OpBall"))
-        {
-            string valor = ball.transform.GetChild(0).GetComponent<TMP_Text>().text.ToString();
-            Destroy(ball);
-            lastTag = ball.gameObject.tag;
-            GameEventManager.instance.BallInGoal(valor, lastTag);
-        }
+        if (!ball.CompareTag("OpBall") && !ball.CompareTag("MathBall"))
+            return;
 
+        if (processedBalls.Contains(ball.gameObject))
+            return;
 
-        if (ball.gameObject.CompareTag("MathBall"))
-        {
+        processedBalls.Add(ball.gameObject);
 
-            string valor = ball.transform.GetChild(0).GetComponent<TMP_Text>().text.ToString();
-            Destroy(ball);
-            lastTag = ball.gameObject.tag;
-            GameEventManager.instance.BallInGoal(valor, lastTag);
+        string valor = ball.transform.GetChild(0).GetComponent<TMP_Text>().text;
+        string tag = ball.gameObject.tag;
 
-        }
+        GameEventManager.instance.BallInGoal(valor, tag);
+        Destroy(ball.gameObject);
     }
+
+
 }

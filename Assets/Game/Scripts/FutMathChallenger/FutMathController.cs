@@ -28,6 +28,8 @@ public class FutMathController : MonoBehaviour
     private double resultado;
     private string expressao;
 
+    public bool lastIsOp = false;
+
     private Regex operatorRegex = new(@"^[+\-*/]$");
 
     private void Start()
@@ -37,7 +39,6 @@ public class FutMathController : MonoBehaviour
         GerarDificuldade(dificulty);
         goalScore.text = "";
         FindObjectOfType<DisableEnergyUI>().SetUnactive();
-
 
     }
 
@@ -61,10 +62,11 @@ public class FutMathController : MonoBehaviour
 
         double resultadoNoGol;
 
-        if (tag == "OpBall")
+        if (tag == "OpBall" && !lastIsOp)
         {
             goalScore.text += valor;
             chances--;
+            lastIsOp = true;
         }
 
         if (tag == "MathBall")
@@ -73,21 +75,20 @@ public class FutMathController : MonoBehaviour
             resultadoNoGol = MathGen.Calculate(goalScore.text);
             goalScore.text = resultadoNoGol.ToString();
 
-            if (resultadoNoGol == resultado)
+            if (resultadoNoGol == resultado && lastIsOp)
             {
                 thopyWins[rightAnswer].SetActive(true);
                 rightAnswer++;
-                chances = 0;
-                GerarDificuldade(dificulty);
+                NovaTentativa();
             }
 
             if (resultadoNoGol != resultado && chances == 0)
             {
                 lifesUI[lifesTry - 1].SetActive(false);
                 lifesTry--;
-                chances = 0;
-                GerarDificuldade(dificulty);
+                NovaTentativa();
             }
+            lastIsOp = false;
         }
 
     }
@@ -179,11 +180,14 @@ public class FutMathController : MonoBehaviour
 
     private void NovaTentativa()
     {
-        chances = 0;
-        foreach (GameObject ball in ballInScene)
+        if (ballInScene.Count > 0)
         {
-            Destroy(ball);
+            foreach (GameObject ball in ballInScene)
+            {
+                Destroy(ball);
+            }
         }
+        chances = 0;
 
         ballInScene.Clear();
         GerarDificuldade(dificulty);

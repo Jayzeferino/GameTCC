@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,15 @@ public class UIController : MonoBehaviour
     public GameObject itemSlots;
     public GameObject itemBox;
 
+    public TextMeshProUGUI staminaUI;
+    public TextMeshProUGUI walletUI;
+    public TextMeshProUGUI walletInfo;
+    public TextMeshProUGUI mathLvInfo;
+    public TextMeshProUGUI portLvInfo;
+
+    [Header("PlayerStats")]
+    public PlayerStatsManager statsManager;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -26,6 +36,7 @@ public class UIController : MonoBehaviour
         inputActions = new InputActions();
         inputActions.Enable();
 
+        statsManager = PlayerStatsManager.Instance;
         if (inventoryScreen != null && toolBox != null)
         {
             itemSlots = inventoryScreen.transform.GetChild(0).GetChild(0).gameObject;
@@ -39,11 +50,23 @@ public class UIController : MonoBehaviour
             actionButtonIcon = actionButtonBase.transform.GetChild(0).gameObject;
         }
 
+
+
     }
 
     private void Update()
     {
         OpenInventory();
+        InfosUIUpdate();
+    }
+
+    private void InfosUIUpdate()
+    {
+        staminaUI.text = statsManager.currentStamina.ToString();
+        walletUI.text = statsManager.wallet.ToString();
+        walletInfo.text = statsManager.wallet.ToString();
+        mathLvInfo.text = statsManager.mathLv.ToString();
+        portLvInfo.text = statsManager.portLv.ToString();
     }
 
     private void OpenInventory()
@@ -57,7 +80,6 @@ public class UIController : MonoBehaviour
 
 
     }
-
 
     public void OpenShopUI()
     {
