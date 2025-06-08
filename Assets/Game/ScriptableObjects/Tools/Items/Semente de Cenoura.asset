@@ -10,14 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 772accd3d7ef94d44adaa90377e1eafb, type: 3}
-  m_Name: Semente de tomate
+  m_Name: Semente de Cenoura
   m_EditorClassIdentifier: 
-  itemID: 5
-  itemIcon: {fileID: 21300000, guid: 4ad109c6f79a44ac1964c8bfd6c74b00, type: 3}
-  itemName: Semente de Tomate
-  itemAction: {fileID: 11400000, guid: 95aebefa94bdc4db586e0988f2dfcfad, type: 2}
+  itemID: 6
+  itemIcon: {fileID: 21300000, guid: c778323df94bb4ab4b96986fa90808f6, type: 3}
+  itemName: semente de cenoura
+  mathLvRequired: 2
+  portLvRequired: 1
+  itemAction: {fileID: 11400000, guid: a96945be722794a479c9ffb158fa5f76, type: 2}
   modelPrefab: {fileID: 9200428883946443380, guid: 6d870d48e92aa4209984fcfc53a93a95, type: 3}
-  price: 0
+  price: 5
   ACTION_TOOL: Interact
   hasPreview: 0
   toolPreview: {fileID: 0}

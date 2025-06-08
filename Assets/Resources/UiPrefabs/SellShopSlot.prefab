@@ -123,8 +123,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: R$
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 589bfbb4b84c04c489a12d376dda3482, type: 2}
-  m_sharedMaterial: {fileID: 8166227622609245176, guid: 589bfbb4b84c04c489a12d376dda3482, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3e9cc08f6835c4acb8ae85c000c02e87, type: 2}
+  m_sharedMaterial: {fileID: 6803979592301411116, guid: 3e9cc08f6835c4acb8ae85c000c02e87, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26.85
+  m_fontSize: 30.9
   m_fontSizeBase: 38.9
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -541,8 +541,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Semente De Couve
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 589bfbb4b84c04c489a12d376dda3482, type: 2}
-  m_sharedMaterial: {fileID: 8166227622609245176, guid: 589bfbb4b84c04c489a12d376dda3482, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3e9cc08f6835c4acb8ae85c000c02e87, type: 2}
+  m_sharedMaterial: {fileID: 6803979592301411116, guid: 3e9cc08f6835c4acb8ae85c000c02e87, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -675,8 +675,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 2000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 589bfbb4b84c04c489a12d376dda3482, type: 2}
-  m_sharedMaterial: {fileID: 8166227622609245176, guid: 589bfbb4b84c04c489a12d376dda3482, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3e9cc08f6835c4acb8ae85c000c02e87, type: 2}
+  m_sharedMaterial: {fileID: 6803979592301411116, guid: 3e9cc08f6835c4acb8ae85c000c02e87, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -700,7 +700,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 38.1
+  m_fontSize: 52.35
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

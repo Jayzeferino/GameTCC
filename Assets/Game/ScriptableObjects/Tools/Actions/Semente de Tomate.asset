@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dbbf06a3aa234f9ca3d39910775b996, type: 3}
-  m_Name: tomato Seed Action
+  m_Name: Semente de Tomate
   m_EditorClassIdentifier: 
   landItem: {fileID: 11400000, guid: dd4b7a44bd650497ab2061ac062b8af1, type: 2}

@@ -39,7 +39,6 @@ public class PlayerController : MonoBehaviour
     animator.SetBool("isGrounded", characterMovement.isGrounded);
   }
 
-
   public void SaveCharacterDataToCurrentSaveData(ref CharacterSaveData currentCharacterSaveData)
   {
     currentCharacterSaveData.xPosition = characterMovement.transform.position.x;
@@ -48,9 +47,7 @@ public class PlayerController : MonoBehaviour
     currentCharacterSaveData.invetoryItems = playerInventory.SlotItemsInventoryToSavaData();
     currentCharacterSaveData.tabBarItems = playerInventory.ToolBoxItemsInventoryToSavaData();
     currentCharacterSaveData.landSaveData = WorldLandSaveManager.Instance.GetLandManagerSaveDataList();
-
   }
-
   public void LoadCharacterDataFromCurrentCharacterSaveData(ref CharacterSaveData currentCharacterSaveData)
   {
     playerStatsManager.characterName = currentCharacterSaveData.characterName;
@@ -61,7 +58,4 @@ public class PlayerController : MonoBehaviour
     playerInventory.InventoryTabBarListToSavaData(currentCharacterSaveData.tabBarItems);
     WorldLandSaveManager.Instance.InstanciateAndLoadLandManagerSaveDataList(currentCharacterSaveData.landSaveData);
   }
-
-
-
 }
