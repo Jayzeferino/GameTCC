@@ -32,6 +32,7 @@ public class GameTimestamp
     public int day;
     public int hour;
     public int minute;
+    public int seconds;
     public string diaDaSemana;
     public Month month;
     public int year;
@@ -71,6 +72,7 @@ public class GameTimestamp
     public void ExtractInfoFromDate(DateTime agora)
     {
         // Extrai informações específicas
+        seconds = agora.Second;
         minute = agora.Minute;
         year = agora.Year;
         month = (Month)agora.Month;
@@ -120,6 +122,13 @@ public class GameTimestamp
 
         TimeSpan timeDif = time1.realElapsedTime - time2.realElapsedTime;
         int difference = (int)Math.Abs(timeDif.TotalMinutes);
+        return difference;
+
+    }
+    public static float CompareTimestampInSeconds(GameTimestamp time1, GameTimestamp time2)
+    {
+        TimeSpan timeDif = time1.realElapsedTime - time2.realElapsedTime;
+        float difference = (float)Math.Abs(timeDif.TotalSeconds);
         return difference;
 
     }

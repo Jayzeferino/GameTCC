@@ -26829,6 +26829,7 @@ MonoBehaviour:
   ItemsToSell: []
   buyContent: {fileID: 1869603765}
   sellContent: {fileID: 2001286561}
+  SlotScale: {x: 1, y: 1.8, z: 1}
 --- !u!1001 &1557826137
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34580,6 +34581,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 440136, guid: 1018a369bf1e2304693a74ea94205090, type: 3}
   m_PrefabInstance: {fileID: 550803025}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1966660106 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3305422889058122624, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+  m_PrefabInstance: {fileID: 6329896340938814258}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1966660115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966660106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2db3235200b3f4818a32d578b142f924, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 0
+  currentStamina: 0
+  staminaDurationInSeconds: 240
+  InGameTimestamp:
+    day: 0
+    hour: 0
+    minute: 0
+    seconds: 0
+    diaDaSemana: 
+    month: 0
+    year: 0
+    season: 0
+    currentGameTimeString: 
 --- !u!4 &1967094494 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 440136, guid: 1018a369bf1e2304693a74ea94205090, type: 3}
@@ -38178,6 +38209,14 @@ PrefabInstance:
       propertyPath: walletInfo
       value: 
       objectReference: {fileID: 103937986}
+    - target: {fileID: 1112033742098384993, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: maxStamina
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112033742098384993, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: currentStamina
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2677013017100315306, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: dia
       value: 
@@ -38213,6 +38252,30 @@ PrefabInstance:
     - target: {fileID: 6869125659541121299, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: MTsceneListWeighted.Array.data[0].weight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: MTsceneListWeighted.Array.data[1].weight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[0].weight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[1].weight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788183006461638640, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: MaxSpeed
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8788183006461638640, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: Acceleration
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 9125138733279234001, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -38269,7 +38332,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 424213849137856411, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1280346692}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3305422889058122624, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1966660115}
   m_SourcePrefab: {fileID: 100100000, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
 --- !u!114 &7294564284432644604
 MonoBehaviour:

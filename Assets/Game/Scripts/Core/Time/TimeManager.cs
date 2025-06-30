@@ -59,6 +59,11 @@ public class TimeManager : MonoBehaviour
     {
         int timeInMinutes = GameTimestamp.HourToMinutes(gameTimestamp.hour) + gameTimestamp.minute;
         float sunAngle = .25f * timeInMinutes - 90;
+        if (sunAngle > 180)
+        {
+            sunAngle += 90;
+        }
+        Debug.Log(sunAngle);
         if (sunTransform)
         {
             sunTransform.eulerAngles = new Vector3(sunAngle, 0, 0);
@@ -72,13 +77,12 @@ public class TimeManager : MonoBehaviour
         {
             RenderSettings.skybox = dia;
         }
-
-        if (gameTimestamp.hour > 17 && gameTimestamp.hour <= 19 || gameTimestamp.hour > 6 && gameTimestamp.hour <= 7)
+        else if (gameTimestamp.hour > 17 && gameTimestamp.hour <= 19 || gameTimestamp.hour > 6 && gameTimestamp.hour <= 7)
         {
             RenderSettings.skybox = tarde;
         }
-
-        if (gameTimestamp.hour > 19 && gameTimestamp.hour <= 6)
+        else
+        // if (gameTimestamp.hour < 19 && gameTimestamp.hour <= 6)
         {
             RenderSettings.skybox = noite;
         }

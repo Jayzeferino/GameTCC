@@ -1,15 +1,16 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
+[Serializable]
 public class CharacterSaveData
 {
     public string characterName;
+    public double wallet;
 
     [Header("Stamina")]
     public float maxStamina;
-    public float currentStamina;
+    // public float currentStamina;
 
     [Header("SkillLevels")]
     public float mathLv;
@@ -23,7 +24,12 @@ public class CharacterSaveData
     public List<InventoryItemDict> invetoryItems;
     public List<InventoryItemDict> tabBarItems;
 
+    [Header("Portal Stats")]
+    public PortalsStatsSaveData portalsSaveData;
+
     [Header("Lands")]
     public List<LandManagerSaveData> landSaveData;
+
+
 
 }

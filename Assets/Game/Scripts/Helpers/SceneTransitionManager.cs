@@ -12,7 +12,8 @@ public class SceneTransitionManager : MonoBehaviour
         // Verifica se já existe uma instância
         if (Instance == null)
         {
-            PlayerPrefs.DeleteAll();
+            // PlayerPrefs.DeleteAll();
+            DeleteAllPlayerPrefsFromMap();
             Instance = this;
             DontDestroyOnLoad(gameObject); // Persiste entre cenas
         }
@@ -20,8 +21,8 @@ public class SceneTransitionManager : MonoBehaviour
         {
             Destroy(gameObject); // Já existe? destrói o duplicado!
         }
-
     }
+
     private void Start()
     {
         player = FindAnyObjectByType<CharacterMovement>();
@@ -43,7 +44,6 @@ public class SceneTransitionManager : MonoBehaviour
     }
     public void CarregarLocalizaçaoNaCena()
     {
-
         if (PlayerPrefs.HasKey(atualNameScene + "X") && PlayerPrefs.HasKey(atualNameScene + "Y") && PlayerPrefs.HasKey(atualNameScene + "Z"))
         {
             Debug.Log("CARREGANDO LOCALIZAÇÃO DA CENA " + atualNameScene + " .. .. .. ");
@@ -71,6 +71,19 @@ public class SceneTransitionManager : MonoBehaviour
             else
             {
                 Debug.Log($"{key} não encontrado.");
+            }
+        }
+    }
+
+    public void DeleteAllPlayerPrefsFromMap()
+    {
+        string[] keys = { "MainMapX", "MainMapY", "MainMapZ" }; // Substitua pelas suas chaves conhecidas
+
+        foreach (string key in keys)
+        {
+            if (PlayerPrefs.HasKey(key))
+            {
+                PlayerPrefs.DeleteKey(key);
             }
         }
     }

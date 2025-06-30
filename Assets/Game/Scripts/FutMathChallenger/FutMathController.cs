@@ -47,6 +47,7 @@ public class FutMathController : MonoBehaviour
     {
         if (lifesTry == 0)
         {
+            EnterChallengesManager.Instance.UpdatePriorityMT();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 

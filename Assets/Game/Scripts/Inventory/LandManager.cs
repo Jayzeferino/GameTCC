@@ -69,8 +69,8 @@ public class LandManager : MonoBehaviour, ITimeTracker
         int growTime = GameTimestamp.CompareTimestampInMinutes(growingTime, gameTimestamp);
         int growState = growTime / landSlot.currentLandPlant.minutesToGrow;
 
-        Debug.Log("elapsed time: " + growTime);
-        Debug.Log("plants grows stages: " + growTime / landSlot.currentLandPlant.minutesToGrow);
+        // Debug.Log("elapsed time: " + growTime);
+        // Debug.Log("plants grows stages: " + growTime / landSlot.currentLandPlant.minutesToGrow);
 
         for (int i = 0; i < growState; i++)
         {

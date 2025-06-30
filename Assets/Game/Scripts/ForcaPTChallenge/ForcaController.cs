@@ -72,7 +72,7 @@ public class ForcaController : MonoBehaviour
 
     private void FimDesafio()
     {
-        EnterChallengesManager.Instance.UpdatePriorityMT();
+        EnterChallengesManager.Instance.UpdatePriorityPT();
         SceneManager.LoadScene("MainMap");
     }
 

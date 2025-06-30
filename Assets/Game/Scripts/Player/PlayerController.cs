@@ -44,6 +44,14 @@ public class PlayerController : MonoBehaviour
     currentCharacterSaveData.xPosition = characterMovement.transform.position.x;
     currentCharacterSaveData.yPosition = characterMovement.transform.position.y;
     currentCharacterSaveData.zPosition = characterMovement.transform.position.z;
+    currentCharacterSaveData.wallet = playerStatsManager.wallet;
+    currentCharacterSaveData.characterName = playerStatsManager.characterName;
+    currentCharacterSaveData.mathLv = playerStatsManager.mathLv;
+    currentCharacterSaveData.portLv = playerStatsManager.portLv;
+    currentCharacterSaveData.portLv = playerStatsManager.portLv;
+    currentCharacterSaveData.maxStamina = playerStatsManager.maxStamina;
+    // currentCharacterSaveData.currentStamina = playerStatsManager.currentStamina;
+    currentCharacterSaveData.portalsSaveData = EnterChallengesManager.Instance.GetChallengesStats();
     currentCharacterSaveData.invetoryItems = playerInventory.SlotItemsInventoryToSavaData();
     currentCharacterSaveData.tabBarItems = playerInventory.ToolBoxItemsInventoryToSavaData();
     currentCharacterSaveData.landSaveData = WorldLandSaveManager.Instance.GetLandManagerSaveDataList();
@@ -51,11 +59,15 @@ public class PlayerController : MonoBehaviour
   public void LoadCharacterDataFromCurrentCharacterSaveData(ref CharacterSaveData currentCharacterSaveData)
   {
     playerStatsManager.characterName = currentCharacterSaveData.characterName;
+    playerStatsManager.wallet = currentCharacterSaveData.wallet;
     playerStatsManager.mathLv = currentCharacterSaveData.mathLv;
     playerStatsManager.portLv = currentCharacterSaveData.portLv;
+    playerStatsManager.maxStamina = currentCharacterSaveData.maxStamina;
+    // playerStatsManager.currentStamina = currentCharacterSaveData.currentStamina;
     characterMovement.SetNewPosition(new Vector3(currentCharacterSaveData.xPosition, currentCharacterSaveData.yPosition, currentCharacterSaveData.zPosition));
     playerInventory.InventorySlotListToSavaData(currentCharacterSaveData.invetoryItems);
     playerInventory.InventoryTabBarListToSavaData(currentCharacterSaveData.tabBarItems);
     WorldLandSaveManager.Instance.InstanciateAndLoadLandManagerSaveDataList(currentCharacterSaveData.landSaveData);
+    EnterChallengesManager.Instance.UpdateChallengerStatsFromSaveFile(currentCharacterSaveData.portalsSaveData);
   }
 }

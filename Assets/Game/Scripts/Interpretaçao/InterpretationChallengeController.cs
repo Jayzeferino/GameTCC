@@ -122,9 +122,7 @@ public class InterpretationChallengeController : MonoBehaviour
         erroDicaText.gameObject.SetActive(true);
         if (treasureCollected == 0)
         {
-
             dicaText.text = selectedHistory.Dicas.tesouro1[Random.Range(0, selectedHistory.Dicas.tesouro1.Count)];
-
         }
         if (treasureCollected == 1)
         {

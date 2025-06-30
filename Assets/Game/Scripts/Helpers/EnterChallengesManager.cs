@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public class EnterChallengesManager : MonoBehaviour
 {
     public static EnterChallengesManager Instance;
@@ -28,21 +28,10 @@ public class EnterChallengesManager : MonoBehaviour
 
     }
 
-    // public void Init(List<SceneData> sceneList)
-    // {
-    //     sceneListWeighted = sceneList;
-    //     roundRobin = new RoundRobinWeighted(sceneListWeighted);
-    //     currentScene = roundRobin.GetAtualItem();
-    // }
-
-    // void Start()
-    // {
-    //     sceneListWeighted = new();
-    // }
-
     public string NextScenePT()
     {
         return PTroundRobin.Next();
+
     }
 
     public void UpdatePriorityPT()
@@ -51,13 +40,28 @@ public class EnterChallengesManager : MonoBehaviour
     }
     public string NextSceneMT()
     {
+
         return MTroundRobin.Next();
     }
 
     public void UpdatePriorityMT()
     {
         MTroundRobin.ExecUpdateWeightList(currentMTScene);
-
     }
 
+    public PortalsStatsSaveData GetChallengesStats()
+    {
+        PortalsStatsSaveData stats = new(PTsceneListWeighted, MTsceneListWeighted, currentPTScene, currentMTScene);
+        return stats;
+    }
+
+    public void UpdateChallengerStatsFromSaveFile(PortalsStatsSaveData portalsStatsSaveData)
+    {
+
+        PTroundRobin = new RoundRobinWeighted(portalsStatsSaveData.PTsceneListWeighted);
+        MTroundRobin = new RoundRobinWeighted(portalsStatsSaveData.MTsceneListWeighted);
+        currentPTScene = portalsStatsSaveData.currentPTScene;
+        currentMTScene = portalsStatsSaveData.currentMTScene;
+
+    }
 }

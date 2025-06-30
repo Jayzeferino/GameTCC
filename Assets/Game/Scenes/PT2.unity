@@ -5604,7 +5604,7 @@ MonoBehaviour:
   limiteErros: 5
   vidas: 3
   tryWord: 0
-  dificulty: 3
+  dificulty: 1
 --- !u!4 &479286934
 Transform:
   m_ObjectHideFlags: 0
