@@ -20,6 +20,8 @@ MonoBehaviour:
   itemAction: {fileID: 11400000, guid: a96945be722794a479c9ffb158fa5f76, type: 2}
   modelPrefab: {fileID: 9200428883946443380, guid: 6d870d48e92aa4209984fcfc53a93a95, type: 3}
   price: 5
+  priceLoss: 0.6
   ACTION_TOOL: Interact
+  actionSound: {fileID: 8300000, guid: a757f89b515f449e1a10fe00a7dcc7ed, type: 3}
   hasPreview: 0
   toolPreview: {fileID: 0}

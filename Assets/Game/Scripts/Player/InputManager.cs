@@ -92,7 +92,6 @@ public class InputManager : MonoBehaviour
                 playerToolInteractor.HandleToolInteraction(playerInventory.rightHandToolItem);
 
             }
-
         }
     }
 }

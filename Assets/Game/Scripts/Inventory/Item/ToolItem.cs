@@ -5,6 +5,7 @@ public class ToolItem : InvetoryItem
 {
     [Header("Tool Interaction ModelPreview")]
     public bool hasPreview;
+
     public IToolPreview toolPreview;
 
     public override void UseItem(RaycastHit hit)

@@ -15,9 +15,13 @@ MonoBehaviour:
   itemID: 4
   itemIcon: {fileID: 21300000, guid: 1722c0c6277204faeb0bc0b26e3498ce, type: 3}
   itemName: Regador
+  mathLvRequired: 0
+  portLvRequired: 0
   itemAction: {fileID: 11400000, guid: 5ee2b64531f414cd89ad958df26bbb82, type: 2}
   modelPrefab: {fileID: 4228213889018907545, guid: 1d7cc3d733122437496702f5b0a13d06, type: 3}
   price: 2
+  priceLoss: 0.6
   ACTION_TOOL: Watering
+  actionSound: {fileID: 8300000, guid: 9ed88142ebbf04d7bb8759880c8c78d1, type: 3}
   hasPreview: 0
   toolPreview: {fileID: 0}

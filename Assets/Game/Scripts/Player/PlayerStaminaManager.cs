@@ -9,6 +9,7 @@ public class PlayerStaminaManager : MonoBehaviour, ITimeTracker
     public float staminaDurationInSeconds;
     private float regenRatePerSecond;
     public GameTimestamp InGameTimestamp;
+    public GameObject uIStaminaOver;
 
     private void Awake()
     {
@@ -39,7 +40,8 @@ public class PlayerStaminaManager : MonoBehaviour, ITimeTracker
             currentStamina += staminaToRegen;
             currentStamina = Mathf.Clamp(currentStamina, 0f, maxStamina);
             playerStatsManager.currentStamina = (int)currentStamina;
-            Debug.Log($"lastLogout: {lastLogoutStr}| currentStamina: {currentStamina}, staminaToRegen: {staminaToRegen}");
+
+            // Debug.Log($"lastLogout: {lastLogoutStr}| currentStamina: {currentStamina}, staminaToRegen: {staminaToRegen}");
         }
 
         InGameTimestamp.StartClock();
@@ -81,9 +83,13 @@ public class PlayerStaminaManager : MonoBehaviour, ITimeTracker
             InGameTimestamp.realElapsedTime = timestamp.realElapsedTime;
         }
 
-        if (currentStamina == 0)
+        if (currentStamina < 1)
         {
-            //Mandar pro menu
+            uIStaminaOver.SetActive(true);
+        }
+        else
+        {
+            uIStaminaOver.SetActive(false);
         }
     }
 

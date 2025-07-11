@@ -17,6 +17,7 @@ public class EnterChallenge : MonoBehaviour
     public bool isMatScene;
     public bool isPtScene;
     public bool isEnScene;
+    public AudioClip enterChallengeSound;
 
     private void Awake()
     {
@@ -48,6 +49,8 @@ public class EnterChallenge : MonoBehaviour
             }
             SceneManager.LoadScene(sceneTarget);
             UIController.Instance.SetStandardButton();
+            UIController.Instance.PlayUIFx(enterChallengeSound);
+
         }
 
     }

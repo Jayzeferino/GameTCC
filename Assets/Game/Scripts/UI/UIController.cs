@@ -23,6 +23,7 @@ public class UIController : MonoBehaviour
 
     [Header("PlayerStats")]
     public PlayerStatsManager statsManager;
+    public AudioSource audioSource;
 
     private void Awake()
     {
@@ -102,7 +103,7 @@ public class UIController : MonoBehaviour
     {
         Image buttonImg = actionButtonBase.GetComponent<Image>();
         Color color = buttonImg.color;
-        color.a = 0.3f; // 30% de opacidade
+        color.a = 0f; // 1% de opacidade
         buttonImg.color = color;
         actionButtonIcon.GetComponent<Image>().sprite = standardButtonIcon;
         color = actionButtonIcon.GetComponent<Image>().color;
@@ -110,4 +111,11 @@ public class UIController : MonoBehaviour
         actionButtonIcon.GetComponent<Image>().color = color;
     }
 
+    public void PlayUIFx(AudioClip clip)
+    {
+        if (audioSource != null && clip != null)
+        {
+            audioSource.PlayOneShot(clip);
+        }
+    }
 }

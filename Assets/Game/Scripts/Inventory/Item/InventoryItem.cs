@@ -9,6 +9,7 @@ public abstract class InvetoryItem : Item
 
     [Header("Tool Interaction Animation")]
     public string ACTION_TOOL;
+    public AudioClip actionSound;
 
     public abstract void UseItem(RaycastHit hit);
 

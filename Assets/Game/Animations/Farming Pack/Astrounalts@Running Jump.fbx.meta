@@ -64,6 +64,13 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.1401016
+        functionName: PlayJumpSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 5ccd1872453334519a8fb991892c211c, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.9054792
         functionName: PisouNoChao
         data: 

@@ -57,10 +57,31 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
+      - time: 0.11652082
+        functionName: PlayActionSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 5ccd1872453334519a8fb991892c211c, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.8980524
+        functionName: stopAllSounds
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 5ccd1872453334519a8fb991892c211c, type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.9680745
         functionName: TerminoudeUsarAFerramenta
         data: 
         objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.7657484
+        functionName: PlayEndWateringSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 5ccd1872453334519a8fb991892c211c, type: 3}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
