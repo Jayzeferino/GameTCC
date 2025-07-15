@@ -6,4 +6,5 @@ public class ButtonAction : ScriptableObject
 {
     public Sprite actionIcon;
     public string actionName;
+    public AudioClip actionFx;
 }

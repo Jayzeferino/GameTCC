@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Game/Scenes/MainMap.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
-    path: Assets/Game/Scenes/PT2.unity
-    guid: cae2982b121244c94b8b18a30763b250
-  - enabled: 1
     path: Assets/Game/Scenes/PT1.unity
     guid: 0395f35380c70464594829c3826a5064
+  - enabled: 1
+    path: Assets/Game/Scenes/PT2.unity
+    guid: cae2982b121244c94b8b18a30763b250
   - enabled: 1
     path: Assets/Game/Scenes/Futematica.unity
     guid: b91352c1285a14728b9f7720fc756d1b

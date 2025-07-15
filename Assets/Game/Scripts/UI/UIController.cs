@@ -118,4 +118,19 @@ public class UIController : MonoBehaviour
             audioSource.PlayOneShot(clip);
         }
     }
+    public void PlayMapMusic(int musicIndex)
+    {
+        GetComponent<GameMusicManager>().PlaybackMiniGameMusic(musicIndex);
+    }
+
+    public void PlayMainMapMusics()
+    {
+        GetComponent<GameMusicManager>().PlayMainMapMusics();
+    }
+    public void StopAllSounds()
+    {
+        GetComponent<GameMusicManager>().StopAllSounds();
+    }
+
+
 }

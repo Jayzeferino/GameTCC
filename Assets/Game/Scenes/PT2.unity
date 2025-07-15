@@ -3705,30 +3705,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 657ef5b05982f4fd4b1a3db447146149, type: 3}
---- !u!1 &303029108 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4827621096470487371, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
-  m_PrefabInstance: {fileID: 1713281153}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &303029109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8373833091518779753, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
   m_PrefabInstance: {fileID: 1713281153}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &303029110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 303029108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 303cbef4f23cd42de935c5fb8cd4fa41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  action: {fileID: 11400000, guid: 5919f8b1f5278451db5706e7d3491480, type: 2}
-  inArea: 0
 --- !u!1001 &306905883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4472,6 +4453,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1580739792}
     m_Modifications:
+    - target: {fileID: 1912256387359069162, guid: e8cf458693895466fb573f0b4ad15d27, type: 3}
+      propertyPath: mapId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2497667240087241428, guid: e8cf458693895466fb573f0b4ad15d27, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.27
@@ -5605,6 +5590,9 @@ MonoBehaviour:
   vidas: 3
   tryWord: 0
   dificulty: 1
+  buttonPressedFx: {fileID: 8300000, guid: 69d2dad00dbbc43a89400c731f362944, type: 3}
+  failClip: {fileID: 8300000, guid: d92880617718b409d906a2582b51c38a, type: 3}
+  successClip: {fileID: 8300000, guid: 67c1f2f7b0bcc4e05a117bc537d299cf, type: 3}
 --- !u!4 &479286934
 Transform:
   m_ObjectHideFlags: 0
@@ -20180,6 +20168,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 193128810}
     m_Modifications:
+    - target: {fileID: 3238306770092229682, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
+      propertyPath: portLvUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b1d7735e9b9e74d9ea672da832bd6a96, type: 3}
     - target: {fileID: 4827621096470487371, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
       propertyPath: m_Name
       value: TriggerArea
@@ -20283,12 +20275,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 2976892991273101373, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
     - {fileID: 6146632430903545903, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
+    - {fileID: 8361716621223675015, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4827621096470487371, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 303029110}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5865aa8ede17043e287583f3b1df01bf, type: 3}
 --- !u!1001 &1714589786
 PrefabInstance:

@@ -24,7 +24,7 @@ public class AmbinceSoundManager : MonoBehaviour
         }
     }
 
-    public void stopAllSounds()
+    public void StopAllSounds()
     {
         audioSource.Stop();
     }

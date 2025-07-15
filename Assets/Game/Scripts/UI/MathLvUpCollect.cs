@@ -7,6 +7,8 @@ public class MathLvUpCollect : MonoBehaviour
     public bool inArea = false;
     private InputActions inputActions;
     private PlayerStatsManager playerStats;
+    public AudioClip mathLvUpSound;
+
 
 
     private void Awake()
@@ -24,6 +26,7 @@ public class MathLvUpCollect : MonoBehaviour
             playerStats.SetMathLv();
             gameObject.SetActive(false);
             UIController.Instance.SetStandardButton();
+            UIController.Instance.PlayUIFx(mathLvUpSound);
             SceneManager.LoadScene("MainMap");
         }
 

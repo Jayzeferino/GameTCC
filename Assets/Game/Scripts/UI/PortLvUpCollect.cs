@@ -7,6 +7,7 @@ public class PortLvUpCollect : MonoBehaviour
     public bool inArea = false;
     private InputActions inputActions;
     private PlayerStatsManager playerStats;
+    public AudioClip portLvUpSound;
 
 
     private void Awake()
@@ -24,6 +25,7 @@ public class PortLvUpCollect : MonoBehaviour
             playerStats.SetPortLv();
             gameObject.SetActive(false);
             UIController.Instance.SetStandardButton();
+            UIController.Instance.PlayUIFx(portLvUpSound);
             SceneManager.LoadScene("MainMap");
 
         }

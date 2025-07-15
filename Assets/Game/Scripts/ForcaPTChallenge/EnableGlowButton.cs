@@ -22,12 +22,15 @@ public class EnableGlowButton : MonoBehaviour
                 material.EnableKeyword("_EMISSION");
                 material.SetColor("_EmissionColor", Color.blue);
 
+
+
             }
             else
             {
                 material.color = Color.red;
                 material.EnableKeyword("_EMISSION");
                 material.SetColor("_EmissionColor", Color.red);
+
             }
         }
 

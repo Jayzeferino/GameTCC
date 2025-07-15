@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionIcon: {fileID: 21300000, guid: 579bb4ef11f1247cfad50f959a986975, type: 3}
   actionName: Math Lvl Up
+  actionFx: {fileID: 8300000, guid: b1d7735e9b9e74d9ea672da832bd6a96, type: 3}

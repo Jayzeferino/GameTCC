@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameMusicManager : MonoBehaviour, ITimeTracker
 {
@@ -10,7 +11,7 @@ public class GameMusicManager : MonoBehaviour, ITimeTracker
     public AudioClip lastbackGroundMusicPlayed;
     public int atualHourMusic = 0;
     public List<AudioClip> potentialsbackGroundMusics;
-    public string atualMapName = "MainMap";
+    public string atualMapName = "";
     private AudioSource audioSource;
     public GameTimestamp InGameTimestamp;
 
@@ -28,35 +29,23 @@ public class GameMusicManager : MonoBehaviour, ITimeTracker
 
     private void LateUpdate()
     {
-        if (atualMapName == "MainMap")
-        {
+        atualMapName = SceneManager.GetActiveScene().name;
+        //     if (atualMapName == "MainMap")
+        //     {
+        //         if (!audioSource.isPlaying)
+        //         {
+        //             PlaybackGroundMusic(atualHourMusic);
+        //         }
 
-            if (!audioSource.isPlaying)
-            {
-                PlaybackGroundMusic(atualHourMusic);
-            }
-
-        }
-        else if (atualMapName == "PonteDoCalculo")
-        {
-            PlaybackMiniGameMusic(0); // Assuming 0 is the index for PonteDoCalculo music
-        }
-        else if (atualMapName == "Futematica")
-        {
-            PlaybackMiniGameMusic(1); // Assuming 1 is the index for Futematica music
-        }
-        else if (atualMapName == "PT1")
-        {
-            PlaybackMiniGameMusic(2); // Assuming 2 is the index for PonteDaFisica music
-        }
-        else if (atualMapName == "PT2")
-        {
-            PlaybackMiniGameMusic(3); // Assuming 3 is the index for PonteDaQuimica music
-        }
+        //     }
 
     }
 
-    public void stopAllSounds()
+    public void PlayMainMapMusics()
+    {
+        PlaybackGroundMusic(atualHourMusic);
+    }
+    public void StopAllSounds()
     {
         audioSource.Stop();
     }
@@ -100,7 +89,10 @@ public class GameMusicManager : MonoBehaviour, ITimeTracker
         if (atualHour > atualHourMusic)
         {
             atualHourMusic = (int)atualHour;
-            PlaybackGroundMusic(atualHourMusic - 1);
+            if (atualMapName == "MainMap")
+            {
+                PlaybackGroundMusic(atualHourMusic - 1);
+            }
         }
 
     }

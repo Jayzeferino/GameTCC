@@ -47,9 +47,9 @@ public class EnterChallenge : MonoBehaviour
             {
                 sceneTarget = enterChallengesManager.NextSceneMT();
             }
-            SceneManager.LoadScene(sceneTarget);
-            UIController.Instance.SetStandardButton();
             UIController.Instance.PlayUIFx(enterChallengeSound);
+            UIController.Instance.SetStandardButton();
+            SceneManager.LoadScene(sceneTarget);
 
         }
 

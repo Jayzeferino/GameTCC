@@ -29,6 +29,8 @@ public class FutMathController : MonoBehaviour
     private string expressao;
 
     public bool lastIsOp = false;
+    public AudioClip goalClip;
+    public AudioClip failClip;
 
     private Regex operatorRegex = new(@"^[+\-*/]$");
 
@@ -38,7 +40,7 @@ public class FutMathController : MonoBehaviour
         GameEventManager.instance.OnEnterResetMathExpressionHandler += ResetTry;
         GerarDificuldade(dificulty);
         goalScore.text = "";
-        FindObjectOfType<DisableEnergyUI>().SetUnactive();
+        FindObjectOfType<DisableUIForMiniGames>().SetUnactive();
 
     }
 
@@ -48,7 +50,7 @@ public class FutMathController : MonoBehaviour
         if (lifesTry == 0)
         {
             EnterChallengesManager.Instance.UpdatePriorityMT();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("MainMap");
         }
 
         if (rightAnswer == 3)
@@ -79,6 +81,7 @@ public class FutMathController : MonoBehaviour
             if (resultadoNoGol == resultado && lastIsOp)
             {
                 thopyWins[rightAnswer].SetActive(true);
+                UIController.Instance.PlayUIFx(goalClip);
                 rightAnswer++;
                 NovaTentativa();
             }
@@ -86,6 +89,7 @@ public class FutMathController : MonoBehaviour
             if (resultadoNoGol != resultado && chances == 0)
             {
                 lifesUI[lifesTry - 1].SetActive(false);
+                UIController.Instance.PlayUIFx(failClip);
                 lifesTry--;
                 NovaTentativa();
             }
@@ -93,7 +97,6 @@ public class FutMathController : MonoBehaviour
         }
 
     }
-
 
     private void GerarDificuldade(int dificulty)
     {

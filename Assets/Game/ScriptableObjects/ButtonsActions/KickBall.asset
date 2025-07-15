@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: KickBall
   m_EditorClassIdentifier: 
   actionIcon: {fileID: 21300000, guid: 962f424763d184832a8e51863433003f, type: 3}
-  actionName: kick
+  actionName: Kick
+  actionFx: {fileID: 8300000, guid: e65ff0add32374bb989d43425b03409d, type: 3}

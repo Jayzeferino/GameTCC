@@ -31,12 +31,14 @@ public class GenerateChallenge : MonoBehaviour
         {
             case 0:
                 floorRight.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = result.ToString();
+                floorRight.transform.GetComponent<AudioSource>().gameObject.SetActive(true);
                 floorLeft.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = wrong.ToString();
                 floorLeft.GetComponent<Rigidbody>().isKinematic = false;
                 break;
             case 1:
                 floorRight.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = wrong.ToString();
                 floorLeft.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = result.ToString();
+                floorLeft.transform.GetComponent<AudioSource>().gameObject.SetActive(true);
                 floorRight.GetComponent<Rigidbody>().isKinematic = false;
                 break;
 

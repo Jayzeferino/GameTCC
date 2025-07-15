@@ -28,6 +28,9 @@ public class ForcaController : MonoBehaviour
     private string palavraOfuscada;
     private string temaEscolhido;
     private List<string> listSyllables;
+    public AudioClip buttonPressedFx;
+    public AudioClip failClip;
+    public AudioClip successClip;
 
 
     void Start()
@@ -40,7 +43,7 @@ public class ForcaController : MonoBehaviour
         {
             Player = FindObjectOfType<CharacterMovement>();
         }
-        FindObjectOfType<DisableEnergyUI>().SetUnactive();
+        FindObjectOfType<DisableUIForMiniGames>().SetUnactive();
 
     }
 
@@ -93,10 +96,12 @@ public class ForcaController : MonoBehaviour
             lifesUI[vidas - 1].SetActive(false);
             vidas--;
 
+
         }
 
         if (vidas == 0)
         {
+            UIController.Instance.PlayUIFx(failClip);
             FimDesafio();
         }
 
@@ -104,6 +109,7 @@ public class ForcaController : MonoBehaviour
         {
             key.SetActive(true);
             Buttons.SetActive(false);
+
         }
     }
 
@@ -308,6 +314,14 @@ public class ForcaController : MonoBehaviour
             tryWord += 1;
         }
         GameEventManager.instance.ChangedButtonColor(hasLetter, id);
+
+
+        UIController.Instance.PlayUIFx(buttonPressedFx);
+        if (hasLetter)
+        {
+            UIController.Instance.PlayUIFx(successClip);
+        }
+
     }
 
     private void SepararPalavraEAdicionaNaLista(string palavra)

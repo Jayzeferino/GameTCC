@@ -12,6 +12,8 @@ public class ChallengerController : MonoBehaviour
     public int dificuldade = 1;
     private bool playerFall = false;
     private int vidas = 3;
+    public AudioClip fallFx;
+    public AudioClip failClip;
 
     private void Awake()
     {
@@ -22,7 +24,7 @@ public class ChallengerController : MonoBehaviour
 
     private void Start()
     {
-        FindObjectOfType<DisableEnergyUI>().SetUnactive();
+        FindObjectOfType<DisableUIForMiniGames>().SetUnactive();
 
     }
 
@@ -30,8 +32,10 @@ public class ChallengerController : MonoBehaviour
     {
         if (vidas == 0)
         {
+            UIController.Instance.PlayUIFx(failClip);
             EnterChallengesManager.Instance.UpdatePriorityMT();
             SceneManager.LoadScene("MainMap");
+
         }
 
         if (playerFall)
@@ -39,6 +43,8 @@ public class ChallengerController : MonoBehaviour
             barraDeVida.transform.GetChild(vidas - 1).GetChild(1).gameObject.SetActive(false);
             vidas--;
             playerFall = false;
+            UIController.Instance.PlayUIFx(fallFx);
+
         }
     }
 
