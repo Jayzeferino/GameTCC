@@ -17,6 +17,7 @@ public class HoeAction : IItemAction
             landManager.previewLand = false;
             renderer.material = previewInterationItem.intantiateMaterial;
             hit.collider.transform.position = land.transform.position + new Vector3(5f, 5f, 0);
+
         }
     }
 }

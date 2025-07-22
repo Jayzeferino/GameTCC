@@ -9,7 +9,6 @@ public class InputManager : MonoBehaviour
     [SerializeField] private PlayerAnimatorController animatorController;
     private PlayerToolInteractor playerToolInteractor;
     private RayManager rayManager;
-
     private PlayerInventory playerInventory;
 
     private float moveAmount;
@@ -35,8 +34,8 @@ public class InputManager : MonoBehaviour
     }
     public void HandleAllInputs()
     {
-        HandleMovimentInput();
         HandleAction();
+        HandleMovimentInput();
 
     }
     private void OnDisable()
@@ -58,6 +57,9 @@ public class InputManager : MonoBehaviour
     }
     private void HandleMovimentInput()
     {
+        // if (!animatorController.animator.GetBool("usingTool") || !animatorController.animator.GetBool("isInteracting"))
+        //     return;
+
         var moveInput = inputActions.Game.Move.ReadValue<Vector2>();
         var wantJump = inputActions.Game.Jump.WasPerformedThisFrame();
         moveAmount = Mathf.Clamp01(Mathf.Abs(moveInput.x) + Mathf.Abs(moveInput.y));

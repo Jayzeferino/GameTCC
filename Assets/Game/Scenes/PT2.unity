@@ -5557,6 +5557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479286934}
   - component: {fileID: 479286933}
+  - component: {fileID: 479286935}
   m_Layer: 0
   m_Name: ForcaController
   m_TagString: Untagged
@@ -5608,6 +5609,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &479286935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479286932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8dcd8b2450e844d3bd8cb0cad41a93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsToGain: 2
+  challengeLV: 1
 --- !u!4 &484430054 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4394589277438171099, guid: cc099550ed1a645a982d3806a0527329, type: 3}

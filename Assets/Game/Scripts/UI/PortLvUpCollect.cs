@@ -14,6 +14,7 @@ public class PortLvUpCollect : MonoBehaviour
     {
         inputActions = new InputActions();
         inputActions.Enable();
+
     }
 
     private void Update()
@@ -22,11 +23,13 @@ public class PortLvUpCollect : MonoBehaviour
 
         if (buttonPressed && inArea)
         {
-            playerStats.SetPortLv();
-            gameObject.SetActive(false);
+            DificultyLvManager dificuldadeLvManager = FindAnyObjectByType<DificultyLvManager>();
             UIController.Instance.SetStandardButton();
             UIController.Instance.PlayUIFx(portLvUpSound);
-            SceneManager.LoadScene("MainMap");
+            playerStats.AddMathPoints(dificuldadeLvManager.GetPointsToGain());
+            dificuldadeLvManager.IncreaseChallengeLevel();
+            StartCoroutine(EnterChallengesManager.Instance.GoToScene("MainMap"));
+            gameObject.SetActive(false);
 
         }
 

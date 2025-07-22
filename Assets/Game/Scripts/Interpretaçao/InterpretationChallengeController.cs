@@ -11,6 +11,8 @@ public class InterpretationChallengeController : MonoBehaviour
     public GameObject key;
     CharacterMovement player;
 
+    public GameObject portalPosition;
+
     [Header("Slots de Tesouros no mapa")]
     [SerializeField] List<GameObject> TreasuresSlots;
     public List<int> TreasuresPath;
@@ -30,6 +32,8 @@ public class InterpretationChallengeController : MonoBehaviour
     private InputActions inputActions;
     private void Awake()
     {
+
+        JsonReader();
         player = FindObjectOfType<CharacterMovement>();
         inputActions = new InputActions();
         inputActions.Enable();
@@ -38,7 +42,7 @@ public class InterpretationChallengeController : MonoBehaviour
     {
         GameEventManager.instance.OnCollectTreasureHandler += TreasureCollect;
         FindObjectOfType<DisableUIForMiniGames>().SetUnactive();
-        JsonReader();
+
 
     }
     private void Update()
@@ -120,10 +124,11 @@ public class InterpretationChallengeController : MonoBehaviour
             // Deserializa o JSON no objeto C#
             HistoriasRoot historias = JsonUtility.FromJson<HistoriasRoot>(jsonFile.text);
             int IdHistoria = Random.Range(0, historias.Historias.Count);
-            foreach (var historia in historias.Historias)
+            foreach (Historia historia in historias.Historias)
             {
                 if (historia.ID == IdHistoria)
                 {
+                    portalPosition.transform.position = new Vector3(historia.InitialPositionX, historia.InitialPositionY, historia.InitialPositionZ);
                     historyPanelText.transform.GetChild(0).GetComponentInChildren<TMP_Text>().text = historia.Texto.titulo;
                     historyPanelText.transform.GetChild(1).GetComponentInChildren<TMP_Text>().text = historia.Texto.tesouro1;
                     historyPanelText.transform.GetChild(2).GetComponentInChildren<TMP_Text>().text = historia.Texto.tesouro2;

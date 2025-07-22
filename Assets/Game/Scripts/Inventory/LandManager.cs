@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LandManager : MonoBehaviour, ITimeTracker
 {
+    public int landId;
     LandFarmSlot landSlot;
     Land land;
     public GameTimestamp growingTime;
@@ -22,6 +23,7 @@ public class LandManager : MonoBehaviour, ITimeTracker
         if (previewLand == false)
         {
             WorldLandSaveManager.Instance.RegisterLandManager(this);
+            landId = WorldLandSaveManager.Instance.lastLandId++;
         }
     }
 
@@ -31,7 +33,6 @@ public class LandManager : MonoBehaviour, ITimeTracker
         {
             landSlot.LoadPlantlModel(landItem);
             hasPlant = true;
-            growingTime.StartClock();
         }
     }
     public void UnLoadPlantOnSlot()
@@ -44,6 +45,7 @@ public class LandManager : MonoBehaviour, ITimeTracker
         if (hasPlant)
         {
             land.SwitchLandStatus(Land.LandStatus.Watered);
+            growingTime.StartClock();
         }
     }
 
@@ -58,7 +60,6 @@ public class LandManager : MonoBehaviour, ITimeTracker
                 landSlot.GrowPlant();
                 growingTime.realElapsedTime = timestamp.realElapsedTime;
             }
-
         }
     }
 
@@ -66,27 +67,30 @@ public class LandManager : MonoBehaviour, ITimeTracker
     {
         GameTimestamp gameTimestamp = TimeManager.Instance.GetGameTimestamp();
 
-        int growTime = GameTimestamp.CompareTimestampInMinutes(growingTime, gameTimestamp);
-        int growState = growTime / landSlot.currentLandPlant.minutesToGrow;
-
-        // Debug.Log("elapsed time: " + growTime);
-        // Debug.Log("plants grows stages: " + growTime / landSlot.currentLandPlant.minutesToGrow);
-
-        for (int i = 0; i < growState; i++)
+        if (land.landStatus == Land.LandStatus.Watered && hasPlant && landSlot != null)
         {
-            if (i < landSlot.currentLandPlant.ModelPlantPhases.Count)
-            {
+            int growTime = GameTimestamp.CompareTimestampInMinutes(growingTime, gameTimestamp);
+            int growState = growTime / landSlot.currentLandPlant.minutesToGrow;
 
-                landSlot.GrowPlant();
+            // Debug.Log("elapsed time: " + growTime);
+            // Debug.Log("plants grows stages: " + growTime / landSlot.currentLandPlant.minutesToGrow);
+
+            for (int i = 0; i < growState; i++)
+            {
+                if (i < landSlot.currentLandPlant.ModelPlantPhases.Count)
+                {
+
+                    landSlot.GrowPlant();
+                }
             }
         }
-
     }
 
     public LandManagerSaveData GetLandManagerSaveData()
     {
 
         LandManagerSaveData landSaveData = new();
+        landSaveData.landId = landId;
         landSaveData.hasPlant = hasPlant;
         landSaveData.startGrowTime = growingTime.gameStartTime.ToString();
         if (landSlot.currentLandPlant != null)
@@ -109,6 +113,7 @@ public class LandManager : MonoBehaviour, ITimeTracker
 
     public void SetLandManagerSaveData(LandManagerSaveData landSaveData)
     {
+        landId = landSaveData.landId;
         hasPlant = landSaveData.hasPlant;
         transform.position = new Vector3(landSaveData.xPosition, landSaveData.yPosition, landSaveData.zPosition);
         growingTime.gameStartTime = DateTime.Parse(landSaveData.startGrowTime);

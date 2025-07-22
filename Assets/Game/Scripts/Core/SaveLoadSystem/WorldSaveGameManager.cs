@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,6 +20,7 @@ public class WorldSaveGameManager : MonoBehaviour
     [Header("SAVE / LOAD")]
     [SerializeField] bool saveGame;
     [SerializeField] bool loadGame;
+    [SerializeField] bool clear;
 
 
     private void Awake()
@@ -44,6 +46,11 @@ public class WorldSaveGameManager : MonoBehaviour
             loadGame = false;
             LoadGame();
         }
+        else if (clear)
+        {
+            clear = false;
+            ClearPlayerPrefs();
+        }
 
     }
 
@@ -59,6 +66,8 @@ public class WorldSaveGameManager : MonoBehaviour
         Debug.Log("SAVING GAME ... ");
         Debug.Log("SAVED IN: " + filename);
         Debug.Log(Application.persistentDataPath);
+        PlayerPrefs.SetInt("last_save", 1);
+        PlayerPrefs.Save();
     }
 
     public void LoadGame()
@@ -69,7 +78,8 @@ public class WorldSaveGameManager : MonoBehaviour
 
         currentCharacterSaveData = saveDataWitter.LoadCharacterSaveDataFromJson();
 
-        StartCoroutine(LoadWorldSceneAsynchronously());
+        // StartCoroutine(LoadWorldSceneAsynchronously());
+        LoadWorldScene();
     }
 
     private IEnumerator LoadWorldSceneAsynchronously()
@@ -80,7 +90,7 @@ public class WorldSaveGameManager : MonoBehaviour
 
         }
 
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(0);
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(1);
 
         while (!loadOperation.isDone)
         {
@@ -90,10 +100,27 @@ public class WorldSaveGameManager : MonoBehaviour
 
         player.LoadCharacterDataFromCurrentCharacterSaveData(ref currentCharacterSaveData);
     }
+    private void LoadWorldScene()
+    {
+        if (player == null)
+        {
+            player = FindObjectOfType<PlayerController>();
+
+        }
+
+        player.LoadCharacterDataFromCurrentCharacterSaveData(ref currentCharacterSaveData);
+    }
+
 
     public void SetLandInWorld()
     {
         WorldLandSaveManager.Instance.InstanciateAndLoadLandManagerSaveDataList(currentCharacterSaveData.landSaveData);
+    }
+
+    public void ClearPlayerPrefs()
+    {
+        PlayerPrefs.DeleteAll();
+        Debug.Log("PlayerPrefs cleared.");
     }
 }
 

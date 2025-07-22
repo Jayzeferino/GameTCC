@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MathLvUpCollect : MonoBehaviour
 {
@@ -8,8 +7,6 @@ public class MathLvUpCollect : MonoBehaviour
     private InputActions inputActions;
     private PlayerStatsManager playerStats;
     public AudioClip mathLvUpSound;
-
-
 
     private void Awake()
     {
@@ -23,13 +20,14 @@ public class MathLvUpCollect : MonoBehaviour
 
         if (buttonPressed && inArea)
         {
-            playerStats.SetMathLv();
-            gameObject.SetActive(false);
+            DificultyLvManager dificuldadeLvManager = FindAnyObjectByType<DificultyLvManager>();
             UIController.Instance.SetStandardButton();
             UIController.Instance.PlayUIFx(mathLvUpSound);
-            SceneManager.LoadScene("MainMap");
+            playerStats.AddMathPoints(dificuldadeLvManager.GetPointsToGain());
+            dificuldadeLvManager.IncreaseChallengeLevel();
+            StartCoroutine(EnterChallengesManager.Instance.GoToScene("MainMap"));
+            gameObject.SetActive(false);
         }
-
     }
 
     void OnTriggerEnter(Collider ColliderPlayer)

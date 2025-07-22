@@ -37,7 +37,6 @@ public class EnterChallenge : MonoBehaviour
         if (buttonPressed && inArea)
         {
             string sceneTarget = "";
-            SceneTransitionManager.Instance.SalvarLocalizaçaoNaCena(entrada);
             if (isPtScene)
             {
                 sceneTarget = enterChallengesManager.NextScenePT();
@@ -49,7 +48,9 @@ public class EnterChallenge : MonoBehaviour
             }
             UIController.Instance.PlayUIFx(enterChallengeSound);
             UIController.Instance.SetStandardButton();
-            SceneManager.LoadScene(sceneTarget);
+            SceneTransitionManager.Instance.SalvarLocalizaçaoNaCena(entrada);
+            WorldLandSaveManager.Instance.LandManagerSaveDataToJson();
+            StartCoroutine(enterChallengesManager.GoToScene(sceneTarget));
 
         }
 
@@ -70,7 +71,5 @@ public class EnterChallenge : MonoBehaviour
         inArea = false;
         UIController.Instance.SetStandardButton();
     }
-
-
 
 }

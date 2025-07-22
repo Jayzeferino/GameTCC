@@ -8,6 +8,7 @@ using Random = UnityEngine.Random;
 public class ChallengerController : MonoBehaviour
 {
     [SerializeField] GameObject barraDeVida;
+    DificultyLvManager dificuldadeLvManager;
     public List<GameObject> FloorsSteps;
     public int dificuldade = 1;
     private bool playerFall = false;
@@ -19,7 +20,12 @@ public class ChallengerController : MonoBehaviour
     {
         GameEventManager.instance.OnFallOfBridgeHandler += FailInCalc;
         GameEventManager.instance.OnNextFloorStepHandler += UpdateBeforeFloorsStepsBasedInAtualFloor;
-
+        dificuldadeLvManager = GetComponent<DificultyLvManager>();
+        if (PlayerPrefs.HasKey($"Dificuldade_{SceneManager.GetActiveScene().name}") && PlayerPrefs.HasKey("last_save"))
+        {
+            dificuldade = PlayerPrefs.GetInt($"Dificuldade_{SceneManager.GetActiveScene().name}", 1);
+            dificuldadeLvManager.SetChallengeLevel(dificuldade);
+        }
     }
 
     private void Start()
@@ -75,6 +81,8 @@ public class ChallengerController : MonoBehaviour
         List<int> nums;
         double resultado;
         double wrong;
+
+        dificuldade = Math.Clamp(dificuldade, 1, 6);
 
         switch (dificuldade)
         {

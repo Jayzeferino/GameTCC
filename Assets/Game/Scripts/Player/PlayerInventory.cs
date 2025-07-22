@@ -53,6 +53,7 @@ public class PlayerInventory : MonoBehaviour
         {
             rightHandToolItem = (ToolItem)tabBarList[0].GetComponentInChildren<ItemInSlot>().itemInSlot;
             toolSlotManager.LoadToolOnSlot(rightHandToolItem, false);
+
         }
 
         if (tabBarList[0].GetComponent<ItemSlot>().Item == null)
@@ -208,8 +209,6 @@ public class PlayerInventory : MonoBehaviour
             AddToTabItemFromSaveFile(inventoryItem, item.slot);
         }
     }
-
-
     public List<InvetoryItem> GetInventoryitemsFromInventory()
     {
         List<InvetoryItem> items = new();

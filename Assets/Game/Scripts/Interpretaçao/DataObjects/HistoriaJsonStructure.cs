@@ -4,6 +4,10 @@ using System.Collections.Generic;
 public class Historia
 {
     public int ID;
+    public float InitialPositionX;
+    public float InitialPositionY;
+    public float InitialPositionZ;
+
     public Texto Texto;
     public Dicas Dicas;
     public List<int> OrdemTesouros;

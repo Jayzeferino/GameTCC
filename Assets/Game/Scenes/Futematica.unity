@@ -2416,6 +2416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1093350181}
   - component: {fileID: 1093350182}
+  - component: {fileID: 1093350183}
   m_Layer: 0
   m_Name: ChallengerController
   m_TagString: Untagged
@@ -2470,6 +2471,20 @@ MonoBehaviour:
   lastIsOp: 0
   goalClip: {fileID: 8300000, guid: b6e4e39b5d5dd4b72a17f03e852b5bcd, type: 3}
   failClip: {fileID: 8300000, guid: d92880617718b409d906a2582b51c38a, type: 3}
+--- !u!114 &1093350183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093350180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8dcd8b2450e844d3bd8cb0cad41a93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsToGain: 2
+  challengeLV: 1
 --- !u!4 &1117019143 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3724115411419306046, guid: 9019d546131194801a6ba533bdde1d86, type: 3}

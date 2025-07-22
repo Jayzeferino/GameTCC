@@ -11,14 +11,11 @@ public class MarkerInteraction : MonoBehaviour
 
     void Awake()
     {
-        // selectionIcon = Resources.Load<GameObject>("UiPrefabs/Sinal");
         ShowMarkerItemIteractor();
     }
 
     public void ShowMarkerItemIteractor()
     {
-        // selectionIcon = Resources.Load<GameObject>("UiPrefabs/Sinal");
-        // selectionIconInstantiate = Instantiate(selectionIcon, new Vector3(0, -50, 0), Quaternion.Euler(180, 0, 0));
         selectionIconInstantiate.SetActive(false);
     }
 
@@ -38,7 +35,6 @@ public class MarkerInteraction : MonoBehaviour
             else if (hit.transform.CompareTag("FarmLand"))
             {
                 onTarget = true;
-
                 selectionIconInstantiate.SetActive(true);
                 selectionIconInstantiate.transform.position = ourInteractable.transform.position + new Vector3(0, 1.4f, 0);
 

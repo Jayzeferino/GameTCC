@@ -5,7 +5,7 @@ using UnityEngine;
 public class LandManagerSaveData
 {
     [Header("LandManager")]
-
+    public int landId;
     public bool hasPlant;
     public int grow;
     public string startGrowTime;

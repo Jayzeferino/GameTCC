@@ -15,6 +15,8 @@ public class CharacterSaveData
     [Header("SkillLevels")]
     public float mathLv;
     public float portLv;
+    public float mathPoints;
+    public float portPoints;
 
     [Header("WorldCoordinates")]
     public float xPosition;

@@ -22,8 +22,11 @@ public class Enter : MonoBehaviour
         if (buttonPressed && inArea)
         {
             SceneTransitionManager.Instance.SalvarLocalizaçaoNaCena(entrada);
+            if (entrada)
+            {
+                WorldLandSaveManager.Instance.LandManagerSaveDataToJson();
+            }
             SceneManager.LoadScene(sceneTarget);
-            UIController.Instance.SetStandardButton();
         }
 
     }

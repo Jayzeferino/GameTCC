@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimatorController : MonoBehaviour
@@ -18,7 +16,6 @@ public class PlayerAnimatorController : MonoBehaviour
 
     public void PlayTargetAnimator(string targetAnimation, bool isInteracting)
     {
-        // animator.applyRootMotion = isInteracting;
         animator.SetBool("isInteracting", true);
         animator.CrossFade(targetAnimation, 0.2f);
     }
@@ -78,13 +75,11 @@ public class PlayerAnimatorController : MonoBehaviour
 
         animator.SetFloat(horizontal, snappedHorizontal, 0.1f, Time.deltaTime);
         animator.SetFloat(vertical, snappedVertical, 0.1f, Time.deltaTime);
-
     }
     public void PisouNoChao()
     {
         animator.SetBool("isJumping", false);
         animator.SetFloat(horizontal, 1, 0.1f, Time.deltaTime);
-
     }
 
     public void TerminoudeUsarAFerramenta()

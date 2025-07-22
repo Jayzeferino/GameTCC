@@ -8,12 +8,12 @@ public class ToolHolderSlot : MonoBehaviour
     public ToolItem currentToolItem;
     private GameObject currentToolModel;
 
-
     public void UnloadTool()
     {
         if (currentToolModel != null)
         {
             currentToolModel.SetActive(false);
+            UIController.Instance.SetStandardButton();
         }
     }
 
@@ -22,6 +22,7 @@ public class ToolHolderSlot : MonoBehaviour
         if (currentToolModel != null)
         {
             Destroy(currentToolModel);
+
         }
 
     }

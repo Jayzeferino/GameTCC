@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Itens/Tool Item")]
 public class ToolItem : InvetoryItem
 {
+
     [Header("Tool Interaction ModelPreview")]
     public bool hasPreview;
 
@@ -14,8 +15,8 @@ public class ToolItem : InvetoryItem
         if (itemAction)
         {
             itemAction.Execute(hit);
-        }
 
+        }
     }
 
     public void ShowPreviewTool(RaycastHit hit)
@@ -24,7 +25,6 @@ public class ToolItem : InvetoryItem
         {
             toolPreview.Show(hit);
         }
-
     }
 
     public void StopShowPreviewTool(RaycastHit hit)

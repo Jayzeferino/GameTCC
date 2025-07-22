@@ -10,6 +10,7 @@ public class PlayerSoundManager : MonoBehaviour
     public AudioClip actionSound;
     public AudioClip endWateringSound;
     public AudioClip[] stepsSounds;
+    bool isPlayingActionSound = false;
     public AudioClip lastStepSoundPlayed;
     public List<AudioClip> potentialsStepsSounds;
     private AudioSource audioSource;
@@ -39,6 +40,7 @@ public class PlayerSoundManager : MonoBehaviour
 
     public void PlayActionSound()
     {
+        isPlayingActionSound = true;
         PlaySound(actionSound);
     }
 
@@ -59,6 +61,7 @@ public class PlayerSoundManager : MonoBehaviour
 
     public virtual void PlayStepSound()
     {
+
         potentialsStepsSounds = new List<AudioClip>();
 
         foreach (var stepsSound in stepsSounds)

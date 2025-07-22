@@ -24,7 +24,7 @@ public class FutMathController : MonoBehaviour
     public int chances = 0;
     public int lifesTry = 3;
     public int rightAnswer = 0;
-
+    DificultyLvManager dificuldadeLvManager;
     private double resultado;
     private string expressao;
 
@@ -33,6 +33,16 @@ public class FutMathController : MonoBehaviour
     public AudioClip failClip;
 
     private Regex operatorRegex = new(@"^[+\-*/]$");
+
+    private void Awake()
+    {
+        dificuldadeLvManager = GetComponent<DificultyLvManager>();
+        if (PlayerPrefs.HasKey($"Dificuldade_{SceneManager.GetActiveScene().name}") && PlayerPrefs.HasKey("last_save"))
+        {
+            dificulty = PlayerPrefs.GetInt($"Dificuldade_{SceneManager.GetActiveScene().name}", 1);
+            dificuldadeLvManager.SetChallengeLevel(dificulty);
+        }
+    }
 
     private void Start()
     {
@@ -100,6 +110,7 @@ public class FutMathController : MonoBehaviour
 
     private void GerarDificuldade(int dificulty)
     {
+        dificulty = Math.Clamp(dificulty, 1, 7);
         switch (dificulty)
         {
             case 1:

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0181ee37d3194ab8aa18d7ca7d876ef, type: 3}
+  m_Name: PumpikinFruit
+  m_EditorClassIdentifier: 
+  itemID: 5
+  itemIcon: {fileID: 21300000, guid: 5fb0f5bd8fa9f43deae825286c4641fa, type: 3}
+  itemName: pumpikin
+  mathLvRequired: 1
+  portLvRequired: 1
+  itemAction: {fileID: 0}
+  modelPrefab: {fileID: 7209942458560415503, guid: 5685432716d904029827a55404e3ef14, type: 3}
+  price: 6
+  priceLoss: 1
+  uniqueUse: 0
+  ACTION_TOOL: 
+  buttonAction: {fileID: 0}

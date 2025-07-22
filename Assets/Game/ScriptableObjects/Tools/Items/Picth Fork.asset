@@ -15,11 +15,14 @@ MonoBehaviour:
   itemID: 2
   itemIcon: {fileID: 21300000, guid: c6052db32e3df4a2ebffe90dbdcc0885, type: 3}
   itemName: Forquilha
-  mathLvRequired: 1
+  mathLvRequired: 0
   portLvRequired: 0
   itemAction: {fileID: 11400000, guid: 5b793001bcd6947a4bb4332e6e3c3c1c, type: 2}
   modelPrefab: {fileID: 8674215349734189027, guid: 3c2bd61925f2e411d8099ddd26053887, type: 3}
-  price: 0
+  price: 3
+  priceLoss: 0.6
+  uniqueUse: 0
   ACTION_TOOL: Digging
+  buttonAction: {fileID: 11400000, guid: 7b646910f23d94ac19dbfca4a0257c31, type: 2}
   hasPreview: 0
   toolPreview: {fileID: 0}

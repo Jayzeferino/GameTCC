@@ -2,6 +2,9 @@
     "Historias": [
         {
             "ID": 0,
+            "InitialPositionX": 17.8500004,
+            "InitialPositionY": -8.44999981,
+            "InitialPositionZ": 32.2900009,
             "Texto": {
                 "titulo": "Para o explorador que encontrar este bilhete misterioso:",
                 "tesouro1": "Um segredo está escondido em um lugar especial, esperando ser revelado. Para isso, você precisará encontrar três itens mágicos na ordem que é descrito no texto que ajudarão a abrir o caminho e a chave se revelará a você. Primeiro, procure algo amarelo e gostoso que os ratos amam, em um lugar cheio de barracas onde as pessoas compram e vendem coisas, na barraca da cor do sol.",
@@ -31,6 +34,9 @@
         },
         {
             "ID": 1,
+             "InitialPositionX": 17.8500004,
+            "InitialPositionY": -8.44999981,
+            "InitialPositionZ": 32.2900009,
             "Texto": {
                 "titulo": "Para o explorador que encontrar este bilhete misterioso:",
                 "tesouro1": "No deserto vasto e quente, procurem pela barraca vermelha. Lá, um saboroso alimento os aguarda, algo que vem da carne de um grande boi.",

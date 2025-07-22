@@ -41,6 +41,11 @@ public class ToolSlotManager : MonoBehaviour
         {
             rayManager.DoToolPreview(rightHandSlot.currentToolItem);
         }
+
+        if (rightHandIsEquiped && !rightHandSlot.currentToolItem.hasPreview && RayManager.Instance.onTarget && !RayManager.Instance.ourInteractable.CompareTag("InteractableItem"))
+        {
+            UIController.Instance.ActiveButtonInTool(rightHandSlot.currentToolItem.buttonAction);
+        }
     }
 
     public void LoadToolOnSlot(ToolItem toolItem, bool isLeft)
@@ -66,6 +71,9 @@ public class ToolSlotManager : MonoBehaviour
             RayManager.Instance.isBuilding = false;
             rightHandIsEquiped = false;
         }
+
+        // UIController.Instance.SetStandardButton();
+
 
     }
     public void UnloadLeftToolSlot()

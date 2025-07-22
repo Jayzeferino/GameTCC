@@ -5,6 +5,7 @@ using UnityEngine;
 public class WorldLandSaveManager : MonoBehaviour
 {
     public static WorldLandSaveManager Instance;
+    public int lastLandId = 0;
     public GameObject landToInstantiate;
     public List<LandManager> lands;
     private void Awake()
@@ -40,6 +41,35 @@ public class WorldLandSaveManager : MonoBehaviour
         return landSaveData;
     }
 
+    public void SaveLandData(List<LandManagerSaveData> landDataList)
+    {
+        LandManagerSaveDataListWrapper wrapper = new()
+        {
+            list = landDataList
+        };
+
+        string json = JsonUtility.ToJson(wrapper);
+
+        Debug.Log("Saving Land Data: " + json.ToString());
+        PlayerPrefs.SetString("LandData", json);
+        PlayerPrefs.Save();
+    }
+
+    public void LandManagerSaveDataToJson()
+    {
+        SaveLandData(GetLandManagerSaveDataList());
+
+    }
+
+    public List<LandManagerSaveData> LoadLandData()
+    {
+        string json = PlayerPrefs.GetString("LandData", "");
+        if (string.IsNullOrEmpty(json)) return new List<LandManagerSaveData>();
+
+        LandManagerSaveDataListWrapper wrapper = JsonUtility.FromJson<LandManagerSaveDataListWrapper>(json);
+        return wrapper.list;
+    }
+
     public void InstanciateAndLoadLandManagerSaveDataList(List<LandManagerSaveData> landSaveData)
     {
         lands = new();
@@ -48,9 +78,30 @@ public class WorldLandSaveManager : MonoBehaviour
             GameObject crop = Instantiate(landToInstantiate, new Vector3(landSaveManagerData.xPosition, landSaveManagerData.yPosition, landSaveManagerData.zPosition), Quaternion.identity);
             LandManager landManager = crop.GetComponent<LandManager>();
             landManager.previewLand = false;
-            // landManager.LoadPlantOnSlot(WorldLandItemDatabase.Instance.GetLandItem(landSaveManagerData.landItemId));
-            landManager.SetLandManagerSaveData(landSaveManagerData);
-
+            if (landSaveManagerData.hasPlant == true)
+            {
+                landManager.SetLandManagerSaveData(landSaveManagerData);
+            }
         }
     }
+
+    public void DeleteLandFromManager(int landID)
+    {
+        LandManager landManager = lands.Find(l => l.landId == landID);
+        if (landManager != null)
+        {
+            lands.Remove(landManager);
+        }
+
+        UpdateIDAfterDelete(landID);
+    }
+
+    public void UpdateIDAfterDelete(int landID)
+    {
+        if (landID >= lastLandId)
+        {
+            lastLandId = landID + 1;
+        }
+    }
+
 }

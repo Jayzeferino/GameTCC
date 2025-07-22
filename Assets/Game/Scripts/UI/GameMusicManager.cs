@@ -27,18 +27,17 @@ public class GameMusicManager : MonoBehaviour, ITimeTracker
         TimeManager.Instance.RegisterTracker(this);
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         atualMapName = SceneManager.GetActiveScene().name;
-        //     if (atualMapName == "MainMap")
-        //     {
-        //         if (!audioSource.isPlaying)
-        //         {
-        //             PlaybackGroundMusic(atualHourMusic);
-        //         }
+        if (atualMapName == "MainMap")
+        {
+            if (!audioSource.isPlaying)
+            {
+                PlaybackGroundMusic(atualHourMusic);
+            }
 
-        //     }
-
+        }
     }
 
     public void PlayMainMapMusics()
@@ -85,7 +84,7 @@ public class GameMusicManager : MonoBehaviour, ITimeTracker
     public void ClockUpdate(GameTimestamp timestamp)
     {
         float atualHour = TimeManager.Instance.gameTimestamp.hour;
-        Debug.Log($"atualHour: {atualHour} | atualHourMusic: {atualHourMusic}");
+        // Debug.Log($"atualHour: {atualHour} | atualHourMusic: {atualHourMusic}");
         if (atualHour > atualHourMusic)
         {
             atualHourMusic = (int)atualHour;

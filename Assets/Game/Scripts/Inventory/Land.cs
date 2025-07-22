@@ -27,9 +27,13 @@ public class Land : MonoBehaviour, ITimeTracker
     {
         TimeManager.Instance.RegisterTracker(this);
     }
-    public void SwitchLandStatus(LandStatus statusSwitch)
+
+    private void Update()
     {
-        landStatus = statusSwitch;
+        UpdateLandStatus(landStatus);
+    }
+    public void UpdateLandStatus(LandStatus statusSwitch)
+    {
         switch (statusSwitch)
         {
             case LandStatus.Dead:
@@ -40,6 +44,20 @@ public class Land : MonoBehaviour, ITimeTracker
                 break;
             case LandStatus.Watered:
                 ChangeMaterialColor(valorMolhado);
+                break;
+        }
+    }
+    public void SwitchLandStatus(LandStatus statusSwitch)
+    {
+        landStatus = statusSwitch;
+        switch (statusSwitch)
+        {
+            case LandStatus.Dead:
+
+                break;
+            case LandStatus.Farmland:
+                break;
+            case LandStatus.Watered:
                 dryTime.StartClock();
                 break;
         }

@@ -53,6 +53,7 @@ public class RayManager : MonoBehaviour
         {
             onTarget = false;
             isBuilding = false;
+
         }
     }
 
@@ -68,18 +69,30 @@ public class RayManager : MonoBehaviour
     public void DoToolPreview(ToolItem item)
     {
         item.ShowPreviewTool(actualHit);
-    }
 
+        if (!UIController.Instance.uiButtonPressed)
+        {
+            UIController.Instance.ActiveButtonInTool(item.buttonAction);
+        }
+    }
     public void StopToolPreview(ToolItem item)
     {
         if (item != null && ourInteractable.CompareTag("ObjPreview"))
         {
             item.StopShowPreviewTool(actualHit);
+            UIController.Instance.SetStandardButton();
         }
     }
     public void DoToolAction(ToolItem item)
     {
         item.UseItem(actualHit);
+
+        if (item.uniqueUse && onTarget)
+        {
+            PlayerInventory.instance.RemoveFromInventory(item.itemID);
+            UIController.Instance.SetStandardButton();
+
+        }
     }
 
     void DrawBox(Vector3 center, Vector3 halfExtents, Quaternion orientation, Color color)

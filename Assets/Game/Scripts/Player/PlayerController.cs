@@ -41,14 +41,16 @@ public class PlayerController : MonoBehaviour
 
   public void SaveCharacterDataToCurrentSaveData(ref CharacterSaveData currentCharacterSaveData)
   {
+    currentCharacterSaveData.characterName = playerStatsManager.characterName;
     currentCharacterSaveData.xPosition = characterMovement.transform.position.x;
     currentCharacterSaveData.yPosition = characterMovement.transform.position.y;
     currentCharacterSaveData.zPosition = characterMovement.transform.position.z;
     currentCharacterSaveData.wallet = playerStatsManager.wallet;
-    currentCharacterSaveData.characterName = playerStatsManager.characterName;
     currentCharacterSaveData.mathLv = playerStatsManager.mathLv;
     currentCharacterSaveData.portLv = playerStatsManager.portLv;
     currentCharacterSaveData.portLv = playerStatsManager.portLv;
+    currentCharacterSaveData.mathPoints = playerStatsManager.mathPoints;
+    currentCharacterSaveData.portPoints = playerStatsManager.portPoints;
     currentCharacterSaveData.maxStamina = playerStatsManager.maxStamina;
     // currentCharacterSaveData.currentStamina = playerStatsManager.currentStamina;
     currentCharacterSaveData.portalsSaveData = EnterChallengesManager.Instance.GetChallengesStats();
@@ -62,12 +64,16 @@ public class PlayerController : MonoBehaviour
     playerStatsManager.wallet = currentCharacterSaveData.wallet;
     playerStatsManager.mathLv = currentCharacterSaveData.mathLv;
     playerStatsManager.portLv = currentCharacterSaveData.portLv;
+    playerStatsManager.mathPoints = currentCharacterSaveData.mathPoints;
+    playerStatsManager.portPoints = currentCharacterSaveData.portPoints;
     playerStatsManager.maxStamina = currentCharacterSaveData.maxStamina;
-    // playerStatsManager.currentStamina = currentCharacterSaveData.currentStamina;
-    characterMovement.SetNewPosition(new Vector3(currentCharacterSaveData.xPosition, currentCharacterSaveData.yPosition, currentCharacterSaveData.zPosition));
+    playerStatsManager.xPosition = currentCharacterSaveData.xPosition;
+    playerStatsManager.yPosition = currentCharacterSaveData.yPosition;
+    playerStatsManager.zPosition = currentCharacterSaveData.zPosition;
     playerInventory.InventorySlotListToSavaData(currentCharacterSaveData.invetoryItems);
     playerInventory.InventoryTabBarListToSavaData(currentCharacterSaveData.tabBarItems);
     WorldLandSaveManager.Instance.InstanciateAndLoadLandManagerSaveDataList(currentCharacterSaveData.landSaveData);
     EnterChallengesManager.Instance.UpdateChallengerStatsFromSaveFile(currentCharacterSaveData.portalsSaveData);
+    characterMovement.SetNewPosition(new Vector3(currentCharacterSaveData.xPosition, currentCharacterSaveData.yPosition, currentCharacterSaveData.zPosition));
   }
 }

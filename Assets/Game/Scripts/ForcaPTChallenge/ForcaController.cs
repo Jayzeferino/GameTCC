@@ -18,6 +18,7 @@ public class ForcaController : MonoBehaviour
     [SerializeField] TextMeshPro temaText;
     [SerializeField] GameObject key;
     public List<GameObject> lifesUI;
+    DificultyLvManager dificuldadeLvManager;
     public int limiteErros = 5;
     public int vidas = 3;
     public int tryWord = 0;
@@ -32,7 +33,15 @@ public class ForcaController : MonoBehaviour
     public AudioClip failClip;
     public AudioClip successClip;
 
-
+    void Awake()
+    {
+        dificuldadeLvManager = GetComponent<DificultyLvManager>();
+        if (PlayerPrefs.HasKey($"Dificuldade_{SceneManager.GetActiveScene().name}") && PlayerPrefs.HasKey("last_save"))
+        {
+            dificulty = PlayerPrefs.GetInt($"Dificuldade_{SceneManager.GetActiveScene().name}", 1);
+            dificuldadeLvManager.SetChallengeLevel(dificulty);
+        }
+    }
     void Start()
     {
         listSyllables = new();
@@ -51,6 +60,7 @@ public class ForcaController : MonoBehaviour
     {
         tryWord = 0;
         temaEscolhido = EscolheTema();
+        dificulty = Math.Clamp(dificulty, 1, 10);
         (palavraDesafio, palavraOfuscada) = BuscaPalavraEmArquivo($"palavras/LV{dificulty}/{temaEscolhido}");
         temaText.text = temaEscolhido;
         challengeText.text = palavraOfuscada;
@@ -95,8 +105,6 @@ public class ForcaController : MonoBehaviour
             ReiniciarLevel();
             lifesUI[vidas - 1].SetActive(false);
             vidas--;
-
-
         }
 
         if (vidas == 0)
@@ -159,7 +167,7 @@ public class ForcaController : MonoBehaviour
         bool foundMatch = false;
         StringBuilder palavraAlteradaBuilder = new StringBuilder(palavraOfuscada);
 
-        string entradaFormatada = entradaApertada.ToLower();
+        string entradaFormatada = RemoverAcentuacao(entradaApertada.ToLower());
 
         for (int i = 0; i < palavraDesafioSemAcento.Length; i++)
         {
@@ -193,15 +201,47 @@ public class ForcaController : MonoBehaviour
 
         Shuffle(buttonsIndex);
 
-        if (dificulty <= 2)
+        if (dificulty < 2)
         {
             SepararPalavraEAdicionaNaLista(palavraDesafio);
-            BuscarListaDePalavras();
-            while (buttonsIndexCount > 1)
+            BuscarListaDePalavras(1);
+            while (listSyllables.Count > 1)
             {
-                SepararPalavraEAdicionaNaLista(listSyllables[buttonsIndexCount - 1]);
+                SepararPalavraEAdicionaNaLista(listSyllables[^1]);
+                listSyllables.RemoveAt(listSyllables.Count - 1);
+            }
+        }
+        else if (dificulty < 3)
+        {
+            SepararPalavraEAdicionaNaLista(palavraDesafio);
+            BuscarListaDePalavras(2);
+            while (listSyllables.Count > 1)
+            {
+                SepararPalavraEAdicionaNaLista(listSyllables[^1]);
+                listSyllables.RemoveAt(listSyllables.Count - 1);
             }
 
+        }
+        else if (dificulty < 4)
+        {
+            SepararPalavraEAdicionaNaLista(palavraDesafio);
+            BuscarListaDePalavras(4);
+            while (listSyllables.Count > 1)
+            {
+                SepararPalavraEAdicionaNaLista(listSyllables[^1]);
+                listSyllables.RemoveAt(listSyllables.Count - 1);
+            }
+        }
+        else if (dificulty < 5)
+        {
+            SepararPalavraEAdicionaNaLista(palavraDesafio);
+            BuscarListaDePalavras(5);
+            while (listSyllables.Count > 1)
+            {
+                SepararPalavraEAdicionaNaLista(listSyllables[^1]);
+                listSyllables.RemoveAt(listSyllables.Count - 1);
+
+            }
         }
         else
         {
@@ -307,7 +347,6 @@ public class ForcaController : MonoBehaviour
         if (hasLetter)
         {
             challengeText.text = palavraOfuscada;
-
         }
         else
         {
@@ -324,28 +363,52 @@ public class ForcaController : MonoBehaviour
 
     }
 
+    // private void SepararPalavraEAdicionaNaLista(string palavra)
+    // {
+    //     List<string> syllables = SyllableSeparator.SeparateSyllables(palavra);
+    //     foreach (string sil in syllables)
+    //     {
+    //         if (buttonsIndexCount > 0 && sil.Count() >= 2)
+    //         {
+    //             Buttons.transform.GetChild(buttonsIndexCount - 1).transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = sil;
+    //             buttonsIndexCount--;
+    //         }
+    //     }
+    // }
+
     private void SepararPalavraEAdicionaNaLista(string palavra)
     {
         List<string> syllables = SyllableSeparator.SeparateSyllables(palavra);
+
         foreach (string sil in syllables)
         {
-            if (buttonsIndexCount > 1 && sil.Count() >= 2)
+            // Se ainda há botões para preencher
+            if (buttonsIndexCount > 0)
             {
-                Debug.Log("IndexButton: " + buttonsIndexCount);
-                Buttons.transform.GetChild(buttonsIndexCount - 1).transform.GetChild(1).GetChild(0).GetComponent<TMP_Text>().text = sil;
-                buttonsIndexCount--;
+                // Opcional: ignora sílabas vazias
+                if (!string.IsNullOrWhiteSpace(sil))
+                {
+                    // Acessa o botão correspondente e define o texto
+                    TMP_Text textComponent = Buttons.transform
+                        .GetChild(buttonsIndexCount - 1)
+                        .GetChild(1)
+                        .GetChild(0)
+                        .GetComponent<TMP_Text>();
+
+                    textComponent.text = sil;
+                    buttonsIndexCount--;
+                }
             }
         }
-
     }
 
-    private void BuscarListaDePalavras()
+    private void BuscarListaDePalavras(int palavras)
     {
         string palavra;
-        for (int i = 0; i < buttonsIndexCount; i++)
+        for (int i = 0; i < palavras; i++)
         {
             (palavra, _) = BuscaPalavraEmArquivo($"palavras/LV10/{temaEscolhido}");
-            listSyllables.Add(palavra);
+            listSyllables.Add(palavra.Trim());
         }
     }
 

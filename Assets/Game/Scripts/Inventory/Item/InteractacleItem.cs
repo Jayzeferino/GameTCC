@@ -26,7 +26,16 @@ public class InteractacleItem : MonoBehaviour
         if (actionCollect && playerInRange && RayManager.Instance.RayOnTarget())
         {
             PlayerInventory.instance.AddToInvetory(this.item);
-            Destroy(gameObject);
+            if (gameObject.transform.root.gameObject.GetComponent<LandManager>() != null)
+            {
+                WorldLandSaveManager.Instance.DeleteLandFromManager(gameObject.transform.root.gameObject.GetComponent<LandManager>().landId);
+                Destroy(gameObject.transform.root.gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
             UIController.Instance.SetStandardButton();
         }
     }

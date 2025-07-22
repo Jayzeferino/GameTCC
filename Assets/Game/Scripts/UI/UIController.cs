@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
@@ -14,7 +15,7 @@ public class UIController : MonoBehaviour
     public GameObject toolBox;
     public GameObject itemSlots;
     public GameObject itemBox;
-
+    public bool uiButtonPressed = false;
     public TextMeshProUGUI staminaUI;
     public TextMeshProUGUI walletUI;
     public TextMeshProUGUI walletInfo;
@@ -37,7 +38,7 @@ public class UIController : MonoBehaviour
         inputActions = new InputActions();
         inputActions.Enable();
 
-        statsManager = PlayerStatsManager.Instance;
+        statsManager = GetComponent<PlayerStatsManager>();
         if (inventoryScreen != null && toolBox != null)
         {
             itemSlots = inventoryScreen.transform.GetChild(0).GetChild(0).gameObject;
@@ -51,14 +52,15 @@ public class UIController : MonoBehaviour
             actionButtonIcon = actionButtonBase.transform.GetChild(0).gameObject;
         }
 
-
-
     }
 
     private void Update()
     {
         OpenInventory();
-        InfosUIUpdate();
+        if (SceneManager.GetActiveScene().name == "MainMap")
+        {
+            InfosUIUpdate();
+        }
     }
 
     private void InfosUIUpdate()
@@ -87,8 +89,20 @@ public class UIController : MonoBehaviour
         shopUI.SetActive(true);
     }
 
+    public void ActiveButtonInTool(ButtonAction action)
+    {
+        Image buttonImg = actionButtonBase.GetComponent<Image>();
+        Color color = buttonImg.color;
+        color.a = 0.85f; // 30% de opacidade
+        buttonImg.color = color;
+        actionButtonIcon.GetComponent<Image>().sprite = action.actionIcon;
+        color = actionButtonIcon.GetComponent<Image>().color;
+        color.a = 1f;
+        actionButtonIcon.GetComponent<Image>().color = color;
+    }
     public void ActiveButton(ButtonAction action)
     {
+        uiButtonPressed = true;
         Image buttonImg = actionButtonBase.GetComponent<Image>();
         Color color = buttonImg.color;
         color.a = 0.85f; // 30% de opacidade
@@ -103,12 +117,13 @@ public class UIController : MonoBehaviour
     {
         Image buttonImg = actionButtonBase.GetComponent<Image>();
         Color color = buttonImg.color;
-        color.a = 0f; // 1% de opacidade
+        color.a = 0f; // 0% de opacidade
         buttonImg.color = color;
         actionButtonIcon.GetComponent<Image>().sprite = standardButtonIcon;
         color = actionButtonIcon.GetComponent<Image>().color;
         color.a = 0f;
         actionButtonIcon.GetComponent<Image>().color = color;
+        uiButtonPressed = false;
     }
 
     public void PlayUIFx(AudioClip clip)
@@ -131,6 +146,5 @@ public class UIController : MonoBehaviour
     {
         GetComponent<GameMusicManager>().StopAllSounds();
     }
-
 
 }

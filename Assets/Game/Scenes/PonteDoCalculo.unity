@@ -6745,6 +6745,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1685077299}
   - component: {fileID: 1685077298}
+  - component: {fileID: 1685077300}
   m_Layer: 0
   m_Name: ChallengeController
   m_TagString: Untagged
@@ -6806,6 +6807,20 @@ Transform:
   - {fileID: 14812661}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1685077300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685077297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8dcd8b2450e844d3bd8cb0cad41a93c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointsToGain: 2
+  challengeLV: 1
 --- !u!1 &1693858887 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8097508998060964844, guid: 25cb85ae0afb9470fb30afe80692e259, type: 3}

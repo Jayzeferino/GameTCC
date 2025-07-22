@@ -5,6 +5,8 @@ public class SceneTransitionManager : MonoBehaviour
 {
     public static SceneTransitionManager Instance;
     CharacterMovement player;
+    PlayerController playerController;
+
     private string atualNameScene;
 
     void Awake()
@@ -26,6 +28,7 @@ public class SceneTransitionManager : MonoBehaviour
     private void Start()
     {
         player = FindAnyObjectByType<CharacterMovement>();
+        playerController = FindAnyObjectByType<PlayerController>();
         atualNameScene = SceneManager.GetActiveScene().name;
     }
 
@@ -46,13 +49,16 @@ public class SceneTransitionManager : MonoBehaviour
     {
         if (PlayerPrefs.HasKey(atualNameScene + "X") && PlayerPrefs.HasKey(atualNameScene + "Y") && PlayerPrefs.HasKey(atualNameScene + "Z"))
         {
-            Debug.Log("CARREGANDO LOCALIZAÇÃO DA CENA " + atualNameScene + " .. .. .. ");
-
             player.SetNewPosition(new Vector3(
                 PlayerPrefs.GetFloat(atualNameScene + "X", -1),
                 PlayerPrefs.GetFloat(atualNameScene + "Y", -1),
                 PlayerPrefs.GetFloat(atualNameScene + "Z", -1)));
         }
+    }
+
+    public void LoadPlayerInMainMap(Vector3 spawnPoint)
+    {
+        player.SetNewPosition(spawnPoint);
     }
 
     private static void print()
@@ -77,7 +83,7 @@ public class SceneTransitionManager : MonoBehaviour
 
     public void DeleteAllPlayerPrefsFromMap()
     {
-        string[] keys = { "MainMapX", "MainMapY", "MainMapZ" }; // Substitua pelas suas chaves conhecidas
+        string[] keys = { "MainMapX", "MainMapY", "MainMapZ", "LandData" }; // Substitua pelas suas chaves conhecidas
 
         foreach (string key in keys)
         {

@@ -19,6 +19,7 @@ public class AbrirBottaoLoja : MonoBehaviour
 
         if (buttonPressed && inArea)
         {
+
             UIController.Instance.OpenShopUI();
             UIController.Instance.SetStandardButton();
 
@@ -31,6 +32,7 @@ public class AbrirBottaoLoja : MonoBehaviour
         if (player.CompareTag("Player"))
         {
             inArea = true;
+            UIController.Instance.shopUI = transform.GetChild(0).gameObject.transform.GetChild(0).gameObject;
             UIController.Instance.ActiveButton(action);
         }
 
