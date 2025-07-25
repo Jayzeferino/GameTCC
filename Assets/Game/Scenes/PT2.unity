@@ -5590,7 +5590,7 @@ MonoBehaviour:
   limiteErros: 5
   vidas: 3
   tryWord: 0
-  dificulty: 1
+  dificulty: 2
   buttonPressedFx: {fileID: 8300000, guid: 69d2dad00dbbc43a89400c731f362944, type: 3}
   failClip: {fileID: 8300000, guid: d92880617718b409d906a2582b51c38a, type: 3}
   successClip: {fileID: 8300000, guid: 67c1f2f7b0bcc4e05a117bc537d299cf, type: 3}
@@ -5621,7 +5621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8dcd8b2450e844d3bd8cb0cad41a93c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointsToGain: 2
+  pointsToGain: 5
   challengeLV: 1
 --- !u!4 &484430054 stripped
 Transform:

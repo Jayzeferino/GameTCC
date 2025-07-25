@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
-using System.Linq;
 using System.Text;
 using TMPro;
 using UnityEngine;
@@ -41,11 +40,12 @@ public class ForcaController : MonoBehaviour
             dificulty = PlayerPrefs.GetInt($"Dificuldade_{SceneManager.GetActiveScene().name}", 1);
             dificuldadeLvManager.SetChallengeLevel(dificulty);
         }
+        IniciarLevel();
+
     }
     void Start()
     {
         listSyllables = new();
-        IniciarLevel();
         InitButtons();
         GameEventManager.instance.OnTermoButtonPressedHandler += ButtonPressed;
         if (Player == null)
@@ -59,8 +59,8 @@ public class ForcaController : MonoBehaviour
     private void IniciarLevel()
     {
         tryWord = 0;
-        temaEscolhido = EscolheTema();
         dificulty = Math.Clamp(dificulty, 1, 10);
+        temaEscolhido = EscolheTema();
         (palavraDesafio, palavraOfuscada) = BuscaPalavraEmArquivo($"palavras/LV{dificulty}/{temaEscolhido}");
         temaText.text = temaEscolhido;
         challengeText.text = palavraOfuscada;
@@ -316,28 +316,43 @@ public class ForcaController : MonoBehaviour
 
     private string EscolheTema()
     {
-        // Caminho para o arquivo que contém as palavras (nomes de arquivos)
-        string wordFilePath = $"Assets/Resources/palavras/LV{dificulty}/temas.txt";
+        TextAsset arquivoTemas = Resources.Load<TextAsset>($"palavras/LV{dificulty}/temas");
 
-        // Verificar se o arquivo com a lista de palavras existe
-        if (!File.Exists(wordFilePath))
+        if (arquivoTemas == null)
         {
-            Console.WriteLine("O arquivo de lista de palavras não foi encontrado.");
+            Debug.LogError("Arquivo de temas não encontrado em Resources.");
             return "";
         }
+
+        string[] temas = arquivoTemas.text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+        if (temas.Length == 0)
+        {
+            Debug.LogWarning("Arquivo de temas está vazio.");
+            return "";
+        }
+        // string wordFilePath = $"Assets/Resources/palavras/LV{dificulty}/temas.txt";
+
+        // // Verificar se o arquivo com a lista de palavras existe
+        // if (!File.Exists(wordFilePath))
+        // {
+        //     Console.WriteLine("O arquivo de lista de palavras não foi encontrado.");
+        //     return "";
+        // }
 
         // Ler todas as palavras do arquivo
-        string[] words = File.ReadAllLines(wordFilePath);
+        // string[] words = File.ReadAllLines(wordFilePath);
 
-        if (words.Length == 0)
-        {
-            Console.WriteLine("O arquivo de lista de palavras está vazio.");
-            return "";
-        }
+        // if (words.Length == 0)
+        // {
+        //     Console.WriteLine("O arquivo de lista de palavras está vazio.");
+        //     return "";
+        // }
 
         // Selecionar uma palavra aleatória
 
-        string randomWord = words[Random.Range(0, words.Length)];
+        // string randomWord = words[Random.Range(0, words.Length)];
+        string randomWord = temas[Random.Range(0, temas.Length)].Trim();
 
         return randomWord;
     }
@@ -438,6 +453,13 @@ public class ForcaController : MonoBehaviour
         return sb.ToString().Normalize(NormalizationForm.FormC);
     }
 
+    private void OnDestroy()
+    {
+        if (palavraOfuscada == palavraDesafio)
+        {
+            dificulty = dificuldadeLvManager.GetChallengeLevel();
+        }
+    }
 }
 
 

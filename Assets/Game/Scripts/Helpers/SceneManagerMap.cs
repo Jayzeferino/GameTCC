@@ -8,13 +8,20 @@ public class SceneManagerMap : MonoBehaviour
 
     private void Awake()
     {
-        UIController.Instance.StopAllSounds();
-        UIController.Instance.PlayMainMapMusics();
         sceneDataCarrier = FindAnyObjectByType<SceneDataCarrier>();
+
 
     }
     private void Start()
     {
+
+        if (sceneDataCarrier.fromMenu != true)
+        {
+            UIController.Instance.StopAllSounds();
+        }
+
+        UIController.Instance.PlayMainMapMusics();
+
         if (sceneDataCarrier.newGame && sceneDataCarrier.fromMenu)
         {
             sceneDataCarrier.fromMenu = false;
@@ -34,6 +41,12 @@ public class SceneManagerMap : MonoBehaviour
             Debug.Log("Voltando para a cena principal...");
             SceneTransitionManager.Instance.CarregarLocalizaçaoNaCena();
             WorldLandSaveManager.Instance.InstanciateAndLoadLandManagerSaveDataList(WorldLandSaveManager.Instance.LoadLandData());
+
+            GameObject loadingScreen = GameObject.Find("LoadingScreenPanel");
+            if (loadingScreen != null)
+            {
+                loadingScreen.SetActive(false);
+            }
         }
 
         FindObjectOfType<DisableUIForMiniGames>().SetActive();

@@ -9,14 +9,14 @@ public class WorldItemDatabase : MonoBehaviour
     public List<InvetoryItem> invetoryitems = new List<InvetoryItem>();
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
+            Destroy(gameObject);
+            return;
         }
-        else
-        {
-            Destroy(Instance);
-        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public InvetoryItem GetInvetoryItem(int queryItemID)

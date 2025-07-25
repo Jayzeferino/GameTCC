@@ -20,14 +20,19 @@ public class EnterChallengesManager : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
+            Destroy(gameObject);
+            return;
         }
-        else
-        {
-            Destroy(Instance);
-        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+    }
+
+    private void Start()
+    {
         PTroundRobin = new RoundRobinWeighted(PTsceneListWeighted);
         MTroundRobin = new RoundRobinWeighted(MTsceneListWeighted);
         currentPTScene = PTroundRobin.GetAtualItem();
@@ -35,10 +40,10 @@ public class EnterChallengesManager : MonoBehaviour
 
     }
 
+
     public string NextScenePT()
     {
         return PTroundRobin.Next();
-
     }
 
     public void UpdatePriorityPT()
@@ -47,7 +52,6 @@ public class EnterChallengesManager : MonoBehaviour
     }
     public string NextSceneMT()
     {
-
         return MTroundRobin.Next();
     }
 
@@ -81,6 +85,7 @@ public class EnterChallengesManager : MonoBehaviour
             }
             yield return null;
         }
+
     }
 
     public PortalsStatsSaveData GetChallengesStats()
@@ -97,5 +102,20 @@ public class EnterChallengesManager : MonoBehaviour
         currentPTScene = portalsStatsSaveData.currentPTScene;
         currentMTScene = portalsStatsSaveData.currentMTScene;
 
+    }
+}
+
+
+class WeightedNode
+{
+    public string Name;
+    public int Weight;
+    public int CurrentWeight;
+
+    public WeightedNode(string name, int weight)
+    {
+        Name = name;
+        Weight = weight;
+        CurrentWeight = 0;
     }
 }

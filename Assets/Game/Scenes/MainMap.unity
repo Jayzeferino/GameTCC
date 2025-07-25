@@ -3089,6 +3089,22 @@ PrefabInstance:
       propertyPath: currentStamina
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1112033742098384993, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: pt_coefficient
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112033742098384993, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: pt_initialLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112033742098384993, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: math_coefficient
+      value: 0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1112033742098384993, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: math_initialLevel
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2259162015439356252, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.1928163
@@ -3275,11 +3291,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: PTsceneListWeighted.Array.data[0].weight
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: PTsceneListWeighted.Array.data[1].weight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8666202996503397451, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: TargetDistance
@@ -14669,7 +14685,7 @@ GameObject:
   - component: {fileID: 828696066}
   - component: {fileID: 828696065}
   m_Layer: 5
-  m_Name: Loading
+  m_Name: LoadingScreenPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

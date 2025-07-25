@@ -13,7 +13,7 @@ public class EnterChallenge : MonoBehaviour
     public bool entrada = false;
 
     private InputActions inputActions;
-    private EnterChallengesManager enterChallengesManager;
+    // public EnterChallengesManager enterChallengesManager;
     public bool isMatScene;
     public bool isPtScene;
     public bool isEnScene;
@@ -25,10 +25,10 @@ public class EnterChallenge : MonoBehaviour
         inputActions.Enable();
     }
 
-    private void Start()
-    {
-        enterChallengesManager = FindObjectOfType<EnterChallengesManager>();
-    }
+    // private void Start()
+    // {
+    //     enterChallengesManager = FindObjectOfType<EnterChallengesManager>();
+    // }
 
     private void Update()
     {
@@ -39,18 +39,18 @@ public class EnterChallenge : MonoBehaviour
             string sceneTarget = "";
             if (isPtScene)
             {
-                sceneTarget = enterChallengesManager.NextScenePT();
+                sceneTarget = EnterChallengesManager.Instance.NextScenePT();
 
             }
             if (isMatScene)
             {
-                sceneTarget = enterChallengesManager.NextSceneMT();
+                sceneTarget = EnterChallengesManager.Instance.NextSceneMT();
             }
             UIController.Instance.PlayUIFx(enterChallengeSound);
             UIController.Instance.SetStandardButton();
             SceneTransitionManager.Instance.SalvarLocalizaçaoNaCena(entrada);
             WorldLandSaveManager.Instance.LandManagerSaveDataToJson();
-            StartCoroutine(enterChallengesManager.GoToScene(sceneTarget));
+            StartCoroutine(EnterChallengesManager.Instance.GoToScene(sceneTarget));
 
         }
 

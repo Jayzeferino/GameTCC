@@ -9,14 +9,14 @@ public class WorldLandItemDatabase : MonoBehaviour
     public List<LandItem> landitems = new List<LandItem>();
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
+            Destroy(gameObject);
+            return;
         }
-        else
-        {
-            Destroy(Instance);
-        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public LandItem GetLandItem(int queryItemID)

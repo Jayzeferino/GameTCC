@@ -10,16 +10,14 @@ public class WorldLandSaveManager : MonoBehaviour
     public List<LandManager> lands;
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            lands = new();
-
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     public void RegisterLandManager(LandManager landManager)
     {
