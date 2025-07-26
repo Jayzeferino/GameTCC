@@ -8,6 +8,7 @@ public class Enter : MonoBehaviour
     public bool entrada = false;
     private InputActions inputActions;
     public string sceneTarget;
+    public bool failOnExit = false;
 
     private void Awake()
     {
@@ -19,12 +20,18 @@ public class Enter : MonoBehaviour
     {
         var buttonPressed = inputActions.Game.Action.WasPerformedThisFrame();
 
+
         if (buttonPressed && inArea)
         {
             SceneTransitionManager.Instance.SalvarLocalizaçaoNaCena(entrada);
             if (entrada)
             {
                 WorldLandSaveManager.Instance.LandManagerSaveDataToJson();
+            }
+
+            if (failOnExit)
+            {
+                EnterChallengesManager.Instance.UpdatePriorityPT();
             }
             SceneManager.LoadScene(sceneTarget);
         }

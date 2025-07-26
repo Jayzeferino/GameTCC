@@ -3282,20 +3282,88 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 828696063}
     - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: MTsceneListWeighted.Array.data[0].cena
+      value: PonteDoCalculo
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: MTsceneListWeighted.Array.data[1].cena
+      value: Futematica
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[0].cena
+      value: PT1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[1].cena
+      value: PT2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[2].cena
+      value: EN1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[3].cena
+      value: EN2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[4].cena
+      value: PT2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: MTsceneListWeighted.Array.data[0].weight
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: MTsceneListWeighted.Array.data[1].weight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: PTsceneListWeighted.Array.data[0].weight
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: PTsceneListWeighted.Array.data[1].weight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[2].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[3].weight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[4].weight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: MTsceneListWeighted.Array.data[0].CurrentWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: MTsceneListWeighted.Array.data[1].CurrentWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[0].CurrentWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[1].CurrentWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[2].CurrentWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7758807388607208259, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
+      propertyPath: PTsceneListWeighted.Array.data[3].CurrentWeight
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8666202996503397451, guid: 4acf063529eeb4ab181a563f6afa33b3, type: 3}
       propertyPath: TargetDistance

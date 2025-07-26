@@ -11,8 +11,8 @@ public class EnterChallengesManager : MonoBehaviour
     [Header("UI da Tela de Loading")]
     public GameObject _loadingScreenPanel; // Arraste seu LoadingScreenPanel para cá no Inspector
     public TextMeshProUGUI _loadingText;
-    private RoundRobinWeighted PTroundRobin;
-    private RoundRobinWeighted MTroundRobin;
+    private SmoothRoundRobinWeighted PTroundRobin;
+    private SmoothRoundRobinWeighted MTroundRobin;
     public List<SceneData> PTsceneListWeighted;
     public List<SceneData> MTsceneListWeighted;
     private string currentPTScene;
@@ -28,36 +28,64 @@ public class EnterChallengesManager : MonoBehaviour
 
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
+        PTroundRobin = new SmoothRoundRobinWeighted();
+        MTroundRobin = new SmoothRoundRobinWeighted();
     }
 
     private void Start()
     {
-        PTroundRobin = new RoundRobinWeighted(PTsceneListWeighted);
-        MTroundRobin = new RoundRobinWeighted(MTsceneListWeighted);
-        currentPTScene = PTroundRobin.GetAtualItem();
-        currentMTScene = MTroundRobin.GetAtualItem();
+        if (!PlayerPrefs.HasKey("last_save"))
+        {
+            PTroundRobin.AddFromList(PTsceneListWeighted);
+            MTroundRobin.AddFromList(MTsceneListWeighted);
+        }
 
     }
+    // Exemplo de como você chamaria isso de outro script ou de um botão na UI
+    // void Update()
+    // {
+    //     // Apenas para teste, remova no jogo final
+    //     if (Input.GetKeyDown(KeyCode.M))
+    //     {
+    //         currentPTScene = NextScenePT(); // Simula seu incremento original
+    //         PTsceneListWeighted = PTroundRobin.GetSceneData();
 
+    //         Debug.Log("Cena PT: " + currentPTScene);
+    //     }
+    //     if (Input.GetKeyDown(KeyCode.P))
+    //     {
+    //         currentMTScene = NextSceneMT(); // Simula seu incremento original
+    //         MTsceneListWeighted = MTroundRobin.GetSceneData();
+    //         Debug.Log("Cena MT: " + currentMTScene);
+    //     }
+    // }
 
     public string NextScenePT()
     {
-        return PTroundRobin.Next();
+        currentPTScene = PTroundRobin.GetNext();
+        PTsceneListWeighted = PTroundRobin.GetSceneData();
+        return currentPTScene;
+
+
     }
 
-    public void UpdatePriorityPT()
-    {
-        PTroundRobin.ExecUpdateWeightList(currentPTScene);
-    }
     public string NextSceneMT()
     {
-        return MTroundRobin.Next();
+        currentMTScene = MTroundRobin.GetNext();
+        MTsceneListWeighted = MTroundRobin.GetSceneData();
+        return currentMTScene;
+    }
+    public void UpdatePriorityPT()
+    {
+        PTroundRobin.SetWeight(currentPTScene, 4);
+        MTsceneListWeighted = MTroundRobin.GetSceneData();
+
     }
 
     public void UpdatePriorityMT()
     {
-        MTroundRobin.ExecUpdateWeightList(currentMTScene);
+        MTroundRobin.SetWeight(currentMTScene, 4);
+        MTsceneListWeighted = MTroundRobin.GetSceneData();
     }
 
     public IEnumerator GoToScene(string sceneName)
@@ -97,25 +125,10 @@ public class EnterChallengesManager : MonoBehaviour
     public void UpdateChallengerStatsFromSaveFile(PortalsStatsSaveData portalsStatsSaveData)
     {
 
-        PTroundRobin = new RoundRobinWeighted(portalsStatsSaveData.PTsceneListWeighted);
-        MTroundRobin = new RoundRobinWeighted(portalsStatsSaveData.MTsceneListWeighted);
+        PTroundRobin.AddFromList(portalsStatsSaveData.PTsceneListWeighted);
+        MTroundRobin.AddFromList(portalsStatsSaveData.MTsceneListWeighted);
         currentPTScene = portalsStatsSaveData.currentPTScene;
         currentMTScene = portalsStatsSaveData.currentMTScene;
 
-    }
-}
-
-
-class WeightedNode
-{
-    public string Name;
-    public int Weight;
-    public int CurrentWeight;
-
-    public WeightedNode(string name, int weight)
-    {
-        Name = name;
-        Weight = weight;
-        CurrentWeight = 0;
     }
 }

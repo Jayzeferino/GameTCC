@@ -71,18 +71,18 @@ public class PlayerStatsManager : MonoBehaviour
         SetPortLv(); // Atualiza o nível de PT sempre que pontos são adicionados
     }
 
-    // Exemplo de como você chamaria isso de outro script ou de um botão na UI
-    void Update()
-    {
-        // Apenas para teste, remova no jogo final
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            AddMathPoints(5f); // Simula seu incremento original
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            AddPTPoints(5f); // Simula seu incremento original
-        }
-    }
+    // // Exemplo de como você chamaria isso de outro script ou de um botão na UI
+    // void Update()
+    // {
+    //     // Apenas para teste, remova no jogo final
+    //     if (Input.GetKeyDown(KeyCode.M))
+    //     {
+    //         AddMathPoints(5f); // Simula seu incremento original
+    //     }
+    //     if (Input.GetKeyDown(KeyCode.P))
+    //     {
+    //         AddPTPoints(5f); // Simula seu incremento original
+    //     }
+    // }
 }
 

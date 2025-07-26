@@ -3,12 +3,14 @@ using System;
 [Serializable]
 public class SceneData
 {
-    public string item;
+    public string cena;
     public int weight;
+    public int CurrentWeight;
 
-    public SceneData(string item, int weight)
+    public SceneData(string cena, int weight)
     {
-        this.item = item;
+        this.cena = cena;
         this.weight = weight;
+        this.CurrentWeight = 0;
     }
 }
